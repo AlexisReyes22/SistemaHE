@@ -1,0 +1,1138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SitiosWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cuentas">
+          <Key>
+            <PropertyRef Name="ID_Cuenta" />
+          </Key>
+          <Property Name="ID_Cuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Identificacion" Type="int" />
+          <Property Name="Contrasenna" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="ID_Departamento" />
+          </Key>
+          <Property Name="ID_Departamento" Type="int" Nullable="false" />
+          <Property Name="Identificacion" Type="int" Nullable="false" />
+          <Property Name="Nombre_Departamento" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EvidenciasPorDia">
+          <Key>
+            <PropertyRef Name="ID_Evidencia" />
+          </Key>
+          <Property Name="ID_Evidencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Identificacion" Type="int" />
+          <Property Name="ID_Tarea" Type="int" />
+          <Property Name="FechaEvidencia" Type="varchar" MaxLength="50" />
+          <Property Name="Mensaje" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="ID_Rol" />
+          </Key>
+          <Property Name="ID_Rol" Type="int" Nullable="false" />
+          <Property Name="Identificacion" Type="int" Nullable="false" />
+          <Property Name="Nombre_Rol" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SolicitudHoras">
+          <Key>
+            <PropertyRef Name="ID_Transaccion" />
+          </Key>
+          <Property Name="ID_Transaccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CantidadDeHoras" Type="int" />
+          <Property Name="ID_Tarea" Type="int" />
+          <Property Name="Remitente" Type="int" Nullable="false" />
+          <Property Name="JefeDestinatario" Type="int" Nullable="false" />
+          <Property Name="Destinatario1" Type="int" />
+          <Property Name="Destinatario2" Type="int" />
+          <Property Name="Destinatario3" Type="int" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SolicitudPersonal">
+          <Key>
+            <PropertyRef Name="ID_Transaccion" />
+          </Key>
+          <Property Name="ID_Transaccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CantidadDePersonal" Type="int" />
+          <Property Name="ID_Tarea" Type="int" />
+          <Property Name="Remitente" Type="int" Nullable="false" />
+          <Property Name="JefeDestinatario" Type="int" Nullable="false" />
+          <Property Name="Destinatario1" Type="int" />
+          <Property Name="Destinatario2" Type="int" />
+          <Property Name="Destinatario3" Type="int" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tareas">
+          <Key>
+            <PropertyRef Name="ID_Tarea" />
+          </Key>
+          <Property Name="ID_Tarea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Jefe_Asignado" Type="int" Nullable="false" />
+          <Property Name="UsuarioAsigando1" Type="int" />
+          <Property Name="UsuarioAsigando2" Type="int" />
+          <Property Name="UsuarioAsigando3" Type="int" />
+          <Property Name="DetalleDeLaTarea" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Identificacion" />
+          </Key>
+          <Property Name="Identificacion" Type="int" Nullable="false" />
+          <Property Name="Nombre_Completo" Type="varchar" MaxLength="100" />
+          <Property Name="Jefe_Inmediato" Type="varchar" MaxLength="100" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="Telefono_Residencial" Type="int" />
+          <Property Name="Telefono_Celular" Type="int" />
+          <Property Name="Departamento" Type="varchar" MaxLength="100" />
+          <Property Name="Rol" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Cuentas__Identif__2739D489">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Cuentas">
+              <PropertyRef Name="Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departame__Ident__498EEC8D">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Departamento">
+              <PropertyRef Name="Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Evidencia__ID_Ta__43D61337">
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="0..1" />
+          <End Role="EvidenciasPorDia" Type="Self.EvidenciasPorDia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tareas">
+              <PropertyRef Name="ID_Tarea" />
+            </Principal>
+            <Dependent Role="EvidenciasPorDia">
+              <PropertyRef Name="ID_Tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Evidencia__Ident__42E1EEFE">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="EvidenciasPorDia" Type="Self.EvidenciasPorDia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="EvidenciasPorDia">
+              <PropertyRef Name="Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rol__Identificac__46B27FE2">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Rol" Type="Self.Rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Rol">
+              <PropertyRef Name="Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__367C1819">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="Destinatario1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__37703C52">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="Destinatario2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__3864608B">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="Destinatario3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__3E1D39E1">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="Destinatario1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__3F115E1A">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="Destinatario2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__40058253">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="Destinatario3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__ID_Ta__339FAB6E">
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="0..1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tareas">
+              <PropertyRef Name="ID_Tarea" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="ID_Tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__ID_Ta__3B40CD36">
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="0..1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tareas">
+              <PropertyRef Name="ID_Tarea" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="ID_Tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__JefeD__3587F3E0">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="JefeDestinatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__JefeD__3D2915A8">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="JefeDestinatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Remit__3493CFA7">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="Remitente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Remit__3C34F16F">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="Remitente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tareas__Jefe_Asi__2DE6D218">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="Jefe_Asignado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tareas__UsuarioA__2EDAF651">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="UsuarioAsigando1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tareas__UsuarioA__2FCF1A8A">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="UsuarioAsigando2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tareas__UsuarioA__30C33EC3">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="UsuarioAsigando3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="SitiosWebModelStoreContainer">
+          <EntitySet Name="Cuentas" EntityType="Self.Cuentas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EvidenciasPorDia" EntityType="Self.EvidenciasPorDia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SolicitudHoras" EntityType="Self.SolicitudHoras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SolicitudPersonal" EntityType="Self.SolicitudPersonal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tareas" EntityType="Self.Tareas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cuentas__Identif__2739D489" Association="Self.FK__Cuentas__Identif__2739D489">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Cuentas" EntitySet="Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departame__Ident__498EEC8D" Association="Self.FK__Departame__Ident__498EEC8D">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Departamento" EntitySet="Departamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Evidencia__ID_Ta__43D61337" Association="Self.FK__Evidencia__ID_Ta__43D61337">
+            <End Role="Tareas" EntitySet="Tareas" />
+            <End Role="EvidenciasPorDia" EntitySet="EvidenciasPorDia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Evidencia__Ident__42E1EEFE" Association="Self.FK__Evidencia__Ident__42E1EEFE">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="EvidenciasPorDia" EntitySet="EvidenciasPorDia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rol__Identificac__46B27FE2" Association="Self.FK__Rol__Identificac__46B27FE2">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Rol" EntitySet="Rol" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__367C1819" Association="Self.FK__Solicitud__Desti__367C1819">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__37703C52" Association="Self.FK__Solicitud__Desti__37703C52">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__3864608B" Association="Self.FK__Solicitud__Desti__3864608B">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__3E1D39E1" Association="Self.FK__Solicitud__Desti__3E1D39E1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__3F115E1A" Association="Self.FK__Solicitud__Desti__3F115E1A">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__40058253" Association="Self.FK__Solicitud__Desti__40058253">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__ID_Ta__339FAB6E" Association="Self.FK__Solicitud__ID_Ta__339FAB6E">
+            <End Role="Tareas" EntitySet="Tareas" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__ID_Ta__3B40CD36" Association="Self.FK__Solicitud__ID_Ta__3B40CD36">
+            <End Role="Tareas" EntitySet="Tareas" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__JefeD__3587F3E0" Association="Self.FK__Solicitud__JefeD__3587F3E0">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__JefeD__3D2915A8" Association="Self.FK__Solicitud__JefeD__3D2915A8">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Remit__3493CFA7" Association="Self.FK__Solicitud__Remit__3493CFA7">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Remit__3C34F16F" Association="Self.FK__Solicitud__Remit__3C34F16F">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tareas__Jefe_Asi__2DE6D218" Association="Self.FK__Tareas__Jefe_Asi__2DE6D218">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tareas__UsuarioA__2EDAF651" Association="Self.FK__Tareas__UsuarioA__2EDAF651">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tareas__UsuarioA__2FCF1A8A" Association="Self.FK__Tareas__UsuarioA__2FCF1A8A">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tareas__UsuarioA__30C33EC3" Association="Self.FK__Tareas__UsuarioA__30C33EC3">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SitiosWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cuentas">
+          <Key>
+            <PropertyRef Name="ID_Cuenta" />
+          </Key>
+          <Property Name="ID_Cuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Identificacion" Type="Int32" />
+          <Property Name="Contrasenna" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Cuentas__Identif__2739D489" FromRole="Cuentas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="ID_Departamento" />
+          </Key>
+          <Property Name="ID_Departamento" Type="Int32" Nullable="false" />
+          <Property Name="Identificacion" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Departame__Ident__498EEC8D" FromRole="Departamento" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="EvidenciasPorDia">
+          <Key>
+            <PropertyRef Name="ID_Evidencia" />
+          </Key>
+          <Property Name="ID_Evidencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Identificacion" Type="Int32" />
+          <Property Name="ID_Tarea" Type="Int32" />
+          <Property Name="FechaEvidencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mensaje" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tareas" Relationship="Self.FK__Evidencia__ID_Ta__43D61337" FromRole="EvidenciasPorDia" ToRole="Tareas" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Evidencia__Ident__42E1EEFE" FromRole="EvidenciasPorDia" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="ID_Rol" />
+          </Key>
+          <Property Name="ID_Rol" Type="Int32" Nullable="false" />
+          <Property Name="Identificacion" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Rol__Identificac__46B27FE2" FromRole="Rol" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="SolicitudHoras">
+          <Key>
+            <PropertyRef Name="ID_Transaccion" />
+          </Key>
+          <Property Name="ID_Transaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CantidadDeHoras" Type="Int32" />
+          <Property Name="ID_Tarea" Type="Int32" />
+          <Property Name="Remitente" Type="Int32" Nullable="false" />
+          <Property Name="JefeDestinatario" Type="Int32" Nullable="false" />
+          <Property Name="Destinatario1" Type="Int32" />
+          <Property Name="Destinatario2" Type="Int32" />
+          <Property Name="Destinatario3" Type="Int32" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Solicitud__Desti__367C1819" FromRole="SolicitudHoras" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios1" Relationship="Self.FK__Solicitud__Desti__37703C52" FromRole="SolicitudHoras" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios2" Relationship="Self.FK__Solicitud__Desti__3864608B" FromRole="SolicitudHoras" ToRole="Usuarios" />
+          <NavigationProperty Name="Tareas" Relationship="Self.FK__Solicitud__ID_Ta__339FAB6E" FromRole="SolicitudHoras" ToRole="Tareas" />
+          <NavigationProperty Name="Usuarios3" Relationship="Self.FK__Solicitud__JefeD__3587F3E0" FromRole="SolicitudHoras" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios4" Relationship="Self.FK__Solicitud__Remit__3493CFA7" FromRole="SolicitudHoras" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="SolicitudPersonal">
+          <Key>
+            <PropertyRef Name="ID_Transaccion" />
+          </Key>
+          <Property Name="ID_Transaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CantidadDePersonal" Type="Int32" />
+          <Property Name="ID_Tarea" Type="Int32" />
+          <Property Name="Remitente" Type="Int32" Nullable="false" />
+          <Property Name="JefeDestinatario" Type="Int32" Nullable="false" />
+          <Property Name="Destinatario1" Type="Int32" />
+          <Property Name="Destinatario2" Type="Int32" />
+          <Property Name="Destinatario3" Type="Int32" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Solicitud__Desti__3E1D39E1" FromRole="SolicitudPersonal" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios1" Relationship="Self.FK__Solicitud__Desti__3F115E1A" FromRole="SolicitudPersonal" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios2" Relationship="Self.FK__Solicitud__Desti__40058253" FromRole="SolicitudPersonal" ToRole="Usuarios" />
+          <NavigationProperty Name="Tareas" Relationship="Self.FK__Solicitud__ID_Ta__3B40CD36" FromRole="SolicitudPersonal" ToRole="Tareas" />
+          <NavigationProperty Name="Usuarios3" Relationship="Self.FK__Solicitud__JefeD__3D2915A8" FromRole="SolicitudPersonal" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios4" Relationship="Self.FK__Solicitud__Remit__3C34F16F" FromRole="SolicitudPersonal" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Tareas">
+          <Key>
+            <PropertyRef Name="ID_Tarea" />
+          </Key>
+          <Property Name="ID_Tarea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Jefe_Asignado" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioAsigando1" Type="Int32" />
+          <Property Name="UsuarioAsigando2" Type="Int32" />
+          <Property Name="UsuarioAsigando3" Type="Int32" />
+          <Property Name="DetalleDeLaTarea" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EvidenciasPorDia" Relationship="Self.FK__Evidencia__ID_Ta__43D61337" FromRole="Tareas" ToRole="EvidenciasPorDia" />
+          <NavigationProperty Name="SolicitudHoras" Relationship="Self.FK__Solicitud__ID_Ta__339FAB6E" FromRole="Tareas" ToRole="SolicitudHoras" />
+          <NavigationProperty Name="SolicitudPersonal" Relationship="Self.FK__Solicitud__ID_Ta__3B40CD36" FromRole="Tareas" ToRole="SolicitudPersonal" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Tareas__Jefe_Asi__2DE6D218" FromRole="Tareas" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios1" Relationship="Self.FK__Tareas__UsuarioA__2EDAF651" FromRole="Tareas" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios2" Relationship="Self.FK__Tareas__UsuarioA__2FCF1A8A" FromRole="Tareas" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios3" Relationship="Self.FK__Tareas__UsuarioA__30C33EC3" FromRole="Tareas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Identificacion" />
+          </Key>
+          <Property Name="Identificacion" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Completo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Jefe_Inmediato" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="Telefono_Residencial" Type="Int32" />
+          <Property Name="Telefono_Celular" Type="Int32" />
+          <Property Name="Departamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cuentas" Relationship="Self.FK__Cuentas__Identif__2739D489" FromRole="Usuarios" ToRole="Cuentas" />
+          <NavigationProperty Name="Departamento1" Relationship="Self.FK__Departame__Ident__498EEC8D" FromRole="Usuarios" ToRole="Departamento" />
+          <NavigationProperty Name="EvidenciasPorDia" Relationship="Self.FK__Evidencia__Ident__42E1EEFE" FromRole="Usuarios" ToRole="EvidenciasPorDia" />
+          <NavigationProperty Name="Rol1" Relationship="Self.FK__Rol__Identificac__46B27FE2" FromRole="Usuarios" ToRole="Rol" />
+          <NavigationProperty Name="SolicitudHoras" Relationship="Self.FK__Solicitud__Desti__367C1819" FromRole="Usuarios" ToRole="SolicitudHoras" />
+          <NavigationProperty Name="SolicitudHoras1" Relationship="Self.FK__Solicitud__Desti__37703C52" FromRole="Usuarios" ToRole="SolicitudHoras" />
+          <NavigationProperty Name="SolicitudHoras2" Relationship="Self.FK__Solicitud__Desti__3864608B" FromRole="Usuarios" ToRole="SolicitudHoras" />
+          <NavigationProperty Name="SolicitudHoras3" Relationship="Self.FK__Solicitud__JefeD__3587F3E0" FromRole="Usuarios" ToRole="SolicitudHoras" />
+          <NavigationProperty Name="SolicitudHoras4" Relationship="Self.FK__Solicitud__Remit__3493CFA7" FromRole="Usuarios" ToRole="SolicitudHoras" />
+          <NavigationProperty Name="SolicitudPersonal" Relationship="Self.FK__Solicitud__Desti__3E1D39E1" FromRole="Usuarios" ToRole="SolicitudPersonal" />
+          <NavigationProperty Name="SolicitudPersonal1" Relationship="Self.FK__Solicitud__Desti__3F115E1A" FromRole="Usuarios" ToRole="SolicitudPersonal" />
+          <NavigationProperty Name="SolicitudPersonal2" Relationship="Self.FK__Solicitud__Desti__40058253" FromRole="Usuarios" ToRole="SolicitudPersonal" />
+          <NavigationProperty Name="SolicitudPersonal3" Relationship="Self.FK__Solicitud__JefeD__3D2915A8" FromRole="Usuarios" ToRole="SolicitudPersonal" />
+          <NavigationProperty Name="SolicitudPersonal4" Relationship="Self.FK__Solicitud__Remit__3C34F16F" FromRole="Usuarios" ToRole="SolicitudPersonal" />
+          <NavigationProperty Name="Tareas" Relationship="Self.FK__Tareas__Jefe_Asi__2DE6D218" FromRole="Usuarios" ToRole="Tareas" />
+          <NavigationProperty Name="Tareas1" Relationship="Self.FK__Tareas__UsuarioA__2EDAF651" FromRole="Usuarios" ToRole="Tareas" />
+          <NavigationProperty Name="Tareas2" Relationship="Self.FK__Tareas__UsuarioA__2FCF1A8A" FromRole="Usuarios" ToRole="Tareas" />
+          <NavigationProperty Name="Tareas3" Relationship="Self.FK__Tareas__UsuarioA__30C33EC3" FromRole="Usuarios" ToRole="Tareas" />
+        </EntityType>
+        <Association Name="FK__Cuentas__Identif__2739D489">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Cuentas">
+              <PropertyRef Name="Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departame__Ident__498EEC8D">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Departamento">
+              <PropertyRef Name="Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Evidencia__ID_Ta__43D61337">
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="0..1" />
+          <End Role="EvidenciasPorDia" Type="Self.EvidenciasPorDia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tareas">
+              <PropertyRef Name="ID_Tarea" />
+            </Principal>
+            <Dependent Role="EvidenciasPorDia">
+              <PropertyRef Name="ID_Tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Evidencia__Ident__42E1EEFE">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="EvidenciasPorDia" Type="Self.EvidenciasPorDia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="EvidenciasPorDia">
+              <PropertyRef Name="Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rol__Identificac__46B27FE2">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Rol" Type="Self.Rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Rol">
+              <PropertyRef Name="Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__367C1819">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="Destinatario1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__37703C52">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="Destinatario2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__3864608B">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="Destinatario3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__ID_Ta__339FAB6E">
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="0..1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tareas">
+              <PropertyRef Name="ID_Tarea" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="ID_Tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__JefeD__3587F3E0">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="JefeDestinatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Remit__3493CFA7">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="Remitente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__3E1D39E1">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="Destinatario1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__3F115E1A">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="Destinatario2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__40058253">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="Destinatario3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__ID_Ta__3B40CD36">
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="0..1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tareas">
+              <PropertyRef Name="ID_Tarea" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="ID_Tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__JefeD__3D2915A8">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="JefeDestinatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Remit__3C34F16F">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="Remitente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tareas__Jefe_Asi__2DE6D218">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="Jefe_Asignado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tareas__UsuarioA__2EDAF651">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="UsuarioAsigando1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tareas__UsuarioA__2FCF1A8A">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="UsuarioAsigando2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tareas__UsuarioA__30C33EC3">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="UsuarioAsigando3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SitiosWebEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cuentas" EntityType="Self.Cuentas" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" />
+          <EntitySet Name="EvidenciasPorDia" EntityType="Self.EvidenciasPorDia" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="SolicitudHoras" EntityType="Self.SolicitudHoras" />
+          <EntitySet Name="SolicitudPersonal" EntityType="Self.SolicitudPersonal" />
+          <EntitySet Name="Tareas" EntityType="Self.Tareas" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="FK__Cuentas__Identif__2739D489" Association="Self.FK__Cuentas__Identif__2739D489">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Cuentas" EntitySet="Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departame__Ident__498EEC8D" Association="Self.FK__Departame__Ident__498EEC8D">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Departamento" EntitySet="Departamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Evidencia__ID_Ta__43D61337" Association="Self.FK__Evidencia__ID_Ta__43D61337">
+            <End Role="Tareas" EntitySet="Tareas" />
+            <End Role="EvidenciasPorDia" EntitySet="EvidenciasPorDia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Evidencia__Ident__42E1EEFE" Association="Self.FK__Evidencia__Ident__42E1EEFE">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="EvidenciasPorDia" EntitySet="EvidenciasPorDia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rol__Identificac__46B27FE2" Association="Self.FK__Rol__Identificac__46B27FE2">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Rol" EntitySet="Rol" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__367C1819" Association="Self.FK__Solicitud__Desti__367C1819">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__37703C52" Association="Self.FK__Solicitud__Desti__37703C52">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__3864608B" Association="Self.FK__Solicitud__Desti__3864608B">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__ID_Ta__339FAB6E" Association="Self.FK__Solicitud__ID_Ta__339FAB6E">
+            <End Role="Tareas" EntitySet="Tareas" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__JefeD__3587F3E0" Association="Self.FK__Solicitud__JefeD__3587F3E0">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Remit__3493CFA7" Association="Self.FK__Solicitud__Remit__3493CFA7">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__3E1D39E1" Association="Self.FK__Solicitud__Desti__3E1D39E1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__3F115E1A" Association="Self.FK__Solicitud__Desti__3F115E1A">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__40058253" Association="Self.FK__Solicitud__Desti__40058253">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__ID_Ta__3B40CD36" Association="Self.FK__Solicitud__ID_Ta__3B40CD36">
+            <End Role="Tareas" EntitySet="Tareas" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__JefeD__3D2915A8" Association="Self.FK__Solicitud__JefeD__3D2915A8">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Remit__3C34F16F" Association="Self.FK__Solicitud__Remit__3C34F16F">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tareas__Jefe_Asi__2DE6D218" Association="Self.FK__Tareas__Jefe_Asi__2DE6D218">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tareas__UsuarioA__2EDAF651" Association="Self.FK__Tareas__UsuarioA__2EDAF651">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tareas__UsuarioA__2FCF1A8A" Association="Self.FK__Tareas__UsuarioA__2FCF1A8A">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tareas__UsuarioA__30C33EC3" Association="Self.FK__Tareas__UsuarioA__30C33EC3">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SitiosWebModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SitiosWebModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SitiosWebModelStoreContainer" CdmEntityContainer="SitiosWebEntities">
+          <EntitySetMapping Name="Cuentas">
+            <EntityTypeMapping TypeName="SitiosWebModel.Cuentas">
+              <MappingFragment StoreEntitySet="Cuentas">
+                <ScalarProperty Name="ID_Cuenta" ColumnName="ID_Cuenta" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="Contrasenna" ColumnName="Contrasenna" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamento">
+            <EntityTypeMapping TypeName="SitiosWebModel.Departamento">
+              <MappingFragment StoreEntitySet="Departamento">
+                <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="Nombre_Departamento" ColumnName="Nombre_Departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EvidenciasPorDia">
+            <EntityTypeMapping TypeName="SitiosWebModel.EvidenciasPorDia">
+              <MappingFragment StoreEntitySet="EvidenciasPorDia">
+                <ScalarProperty Name="ID_Evidencia" ColumnName="ID_Evidencia" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="ID_Tarea" ColumnName="ID_Tarea" />
+                <ScalarProperty Name="FechaEvidencia" ColumnName="FechaEvidencia" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="SitiosWebModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="Nombre_Rol" ColumnName="Nombre_Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SolicitudHoras">
+            <EntityTypeMapping TypeName="SitiosWebModel.SolicitudHoras">
+              <MappingFragment StoreEntitySet="SolicitudHoras">
+                <ScalarProperty Name="ID_Transaccion" ColumnName="ID_Transaccion" />
+                <ScalarProperty Name="CantidadDeHoras" ColumnName="CantidadDeHoras" />
+                <ScalarProperty Name="ID_Tarea" ColumnName="ID_Tarea" />
+                <ScalarProperty Name="Remitente" ColumnName="Remitente" />
+                <ScalarProperty Name="JefeDestinatario" ColumnName="JefeDestinatario" />
+                <ScalarProperty Name="Destinatario1" ColumnName="Destinatario1" />
+                <ScalarProperty Name="Destinatario2" ColumnName="Destinatario2" />
+                <ScalarProperty Name="Destinatario3" ColumnName="Destinatario3" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SolicitudPersonal">
+            <EntityTypeMapping TypeName="SitiosWebModel.SolicitudPersonal">
+              <MappingFragment StoreEntitySet="SolicitudPersonal">
+                <ScalarProperty Name="ID_Transaccion" ColumnName="ID_Transaccion" />
+                <ScalarProperty Name="CantidadDePersonal" ColumnName="CantidadDePersonal" />
+                <ScalarProperty Name="ID_Tarea" ColumnName="ID_Tarea" />
+                <ScalarProperty Name="Remitente" ColumnName="Remitente" />
+                <ScalarProperty Name="JefeDestinatario" ColumnName="JefeDestinatario" />
+                <ScalarProperty Name="Destinatario1" ColumnName="Destinatario1" />
+                <ScalarProperty Name="Destinatario2" ColumnName="Destinatario2" />
+                <ScalarProperty Name="Destinatario3" ColumnName="Destinatario3" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tareas">
+            <EntityTypeMapping TypeName="SitiosWebModel.Tareas">
+              <MappingFragment StoreEntitySet="Tareas">
+                <ScalarProperty Name="ID_Tarea" ColumnName="ID_Tarea" />
+                <ScalarProperty Name="Jefe_Asignado" ColumnName="Jefe_Asignado" />
+                <ScalarProperty Name="UsuarioAsigando1" ColumnName="UsuarioAsigando1" />
+                <ScalarProperty Name="UsuarioAsigando2" ColumnName="UsuarioAsigando2" />
+                <ScalarProperty Name="UsuarioAsigando3" ColumnName="UsuarioAsigando3" />
+                <ScalarProperty Name="DetalleDeLaTarea" ColumnName="DetalleDeLaTarea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="SitiosWebModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre_Completo" />
+                <ScalarProperty Name="Jefe_Inmediato" ColumnName="Jefe_Inmediato" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Telefono_Residencial" ColumnName="Telefono_Residencial" />
+                <ScalarProperty Name="Telefono_Celular" ColumnName="Telefono_Celular" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="SitiosWebModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="SitiosWebModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="SitiosWebModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="SitiosWebModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SitiosWebModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="SitiosWebModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SitiosWebModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SitiosWebModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SitiosWebModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

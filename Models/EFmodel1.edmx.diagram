@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="16011a10e7134ab09889530eb4a042dc" Name="Diagram1">
+        <EntityTypeShape EntityType="SitiosWebModel.Cuentas" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitiosWebModel.Departamento" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitiosWebModel.EvidenciasPorDia" Width="1.5" PointX="5.25" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitiosWebModel.Rol" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitiosWebModel.SolicitudHoras" Width="1.5" PointX="8.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitiosWebModel.SolicitudPersonal" Width="1.5" PointX="5.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitiosWebModel.Tareas" Width="1.5" PointX="3" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitiosWebModel.Usuarios" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="SitiosWebModel.FK__Cuentas__Identif__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Departame__Ident__498EEC8D" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Evidencia__ID_Ta__43D61337" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Evidencia__Ident__42E1EEFE" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Rol__Identificac__46B27FE2" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__Desti__367C1819" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__Desti__37703C52" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__Desti__3864608B" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__ID_Ta__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__JefeD__3587F3E0" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__Remit__3493CFA7" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__Desti__3E1D39E1" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__Desti__3F115E1A" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__Desti__40058253" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__ID_Ta__3B40CD36" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__JefeD__3D2915A8" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Solicitud__Remit__3C34F16F" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Tareas__Jefe_Asi__2DE6D218" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Tareas__UsuarioA__2EDAF651" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Tareas__UsuarioA__2FCF1A8A" ManuallyRouted="false" />
+        <AssociationConnector Association="SitiosWebModel.FK__Tareas__UsuarioA__30C33EC3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
