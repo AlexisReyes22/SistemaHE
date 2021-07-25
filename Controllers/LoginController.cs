@@ -21,7 +21,7 @@ namespace SistemaHE.Controllers
         }
 
       
-        public ActionResult Login(Cuentas cuentas)
+        public ActionResult Login(int? user, string pass)
         {
 
             try
@@ -31,14 +31,15 @@ namespace SistemaHE.Controllers
 
                   
                     var lst = from d in db.Cuentas
-                              where d.Identificacion == cuentas.Identificacion && d.Contrasenna == cuentas.Contrasenna
+                              where d.Identificacion == user && d.Contrasenna == pass
                               select d;
                     if (lst.Count() > 0)
                     {
                         var lst2 = from d in db.Usuarios
-                                   where d.Identificacion == cuentas.Identificacion
+                                   where d.Identificacion == user
                                    select d;
 
+                     
                         Session["Rol"] = lst2.First().Rol;
                         return Content("1");
 

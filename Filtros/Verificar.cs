@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,12 +13,22 @@ namespace SistemaHE.Filtros
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
 
-            var user = (Usuarios)HttpContext.Current.Session["User"];
-            if (user == null)
+            var user =HttpContext.Current.Session["Rol"];
+            if (user == null )
             {
-                if (filterContext.Controller is LoginController == false || filterContext.Controller is HomeController == false)
+                if (filterContext.Controller is LoginController == false)
                 {
+                  
                     filterContext.HttpContext.Response.Redirect("~/Login/Index");
+                }
+            }
+            else
+            {
+                if (filterContext.Controller is LoginController == true)
+                {
+                    
+
+                    filterContext.HttpContext.Response.Redirect("~/Principal/Index");
                 }
             }
             //metodo padre
