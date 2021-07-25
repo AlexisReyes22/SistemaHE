@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SistemaHE.Models;
 
 namespace SistemaHE.Controllers
 {
@@ -15,8 +16,17 @@ namespace SistemaHE.Controllers
         }
 
 
-        public ActionResult Login()
+        public ActionResult Login( string user,string contra)
         {
+            try
+            {
+             
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             return View();
         }
     }
