@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SistemaHE.Models;
+using System.Data.SqlClient;
+using System.Security.Cryptography;
+
+
 
 namespace SistemaHE.Controllers
 {
@@ -12,36 +16,49 @@ namespace SistemaHE.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            Session["Rol"] = "Nolog";
             return View();
         }
 
-
-        public ActionResult Login( int? user,string contra)
+      
+        public ActionResult Login(Cuentas cuentas)
         {
+
             try
             {
-                using(SitiosWebEntities db= new SitiosWebEntities())
+                using (SitiosWebEntities db = new SitiosWebEntities())
                 {
+
+                  
                     var lst = from d in db.Cuentas
-                              where d.Identificacion == user && d.Contrasenna == contra
+                              where d.Identificacion == cuentas.Identificacion && d.Contrasenna == cuentas.Contrasenna
                               select d;
-                    if (lst.Count()>0)
+                    if (lst.Count() > 0)
                     {
                         var lst2 = from d in db.Usuarios
-                                  where d.Identificacion == user 
+                                   where d.Identificacion == cuentas.Identificacion
                                    select d;
 
                         Session["Rol"] = lst2.First().Rol;
-                  
+                        return Content("1");
+
+
+                    }
+                    else
+                    {
+                        Session["Rol"] = "Nolog";
+                        return Content("Usuario y contraseña invalida");
+
                     }
                 }
             }
             catch (Exception)
             {
 
-                throw;
+                Session["Rol"] = "Nolog";
+                return Content("Error Iniciando sesion");
             }
-            return View();
+            
         }
     }
 }

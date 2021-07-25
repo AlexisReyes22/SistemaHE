@@ -1,0 +1,51 @@
+﻿@model SistemaHE.Models.Cuentas
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="blue-grey darken-3 center-align">
+
+    <h2>Incio de sesion</h2>
+
+</div>
+
+@Html.AntiForgeryToken()
+<div class="form-group">
+
+    <input type="text" name="user" value="" placeholder="Ingrese su Identificacion" />
+    <input type="text" name="pass" value="" placeholder="Ingrese su Contraseña" />
+
+
+</div>
+
+
+
+
+
+@section Scripts {
+    <script>
+            $(document).ready(function()
+        {
+            $("#frm").submit(function (e) {
+                e.preventDefault();
+
+                url = "@Url.Content("~/Login/Login")"
+                parametros = $(this).serialize();
+                $.post(url, parametros, function (data) {
+                    if (data == "1") {
+                        document.location.href = "@Url.Content("~/")";
+
+                    } else {
+                        alert(data)
+                    }
+                }
+                )
+            })
+        })
+
+
+
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

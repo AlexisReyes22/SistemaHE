@@ -10,7 +10,7 @@ namespace SistemaHE.Controllers
     {
         public ActionResult Index()
         {
-            Session["Rol"] = "Director";
+            Session["Rol"] = "Nolog";
     
             return View();
         }
@@ -18,7 +18,7 @@ namespace SistemaHE.Controllers
 
         public ActionResult About() 
         {
-            Session["Rol"] = "Jefe";
+         
 
             ViewBag.Message = "Your application description page.";
 
@@ -26,7 +26,10 @@ namespace SistemaHE.Controllers
         }
 
         public ActionResult Contact()
+
         {
+           
+
             ViewBag.Message = "Your contact page.";
 
             return View();

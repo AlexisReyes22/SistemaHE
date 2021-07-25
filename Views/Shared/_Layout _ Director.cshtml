@@ -25,6 +25,35 @@
             </div>*@
     </nav>
 
+    <div id="H2">
+        <nav>
+            <div class="nav-wrapper white">
+
+                <a href="#" class="logo"><img src="~/image/1.png" alt="Dimario" /></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div id="H3">
+        <nav>
+            <div class="nav-wrapper  blue-grey darken-3">
+                <ul class="right">
+                    <li> @Html.ActionLink("Inicio", "Index", "Principal", new object { },
+new { @class = "blue-text text-darken-2" })
+                    </li>
+                    <li>@Html.ActionLink("Cerrar Sesion", "Index", "Login")</li>
+                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Cuentas", "Index", "Cuentas")</li>
+
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+
 
     <div class="container">
         @RenderBody()
