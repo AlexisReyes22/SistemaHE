@@ -20,13 +20,17 @@
 #Ban h1 {
 
 }
+#content{
+    width:100%;
+}
 
 #Ban {
     z-index: 0;
-    width: 110%;
-    background-color:black;
+    width: 100%;
+
 
 }
+
     #Ban img {
         
         width: 100%;
@@ -50,10 +54,11 @@
 }
 
 .fichero {
+    position:relative;
     width: 100%;
     /*background-color: black;*/
-    height: 420px;
-    bottom: 150%;
+    height: 350px;
+    bottom: 190%;
     float: left;
     box-sizing: border-box;
 }
