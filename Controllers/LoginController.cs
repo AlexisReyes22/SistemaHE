@@ -20,7 +20,7 @@ namespace SistemaHE.Controllers
         {
             try
             {
-             
+                Cuentas c = new Cuentas();
             }
             catch (Exception)
             {
