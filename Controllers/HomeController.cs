@@ -10,11 +10,16 @@ namespace SistemaHE.Controllers
     {
         public ActionResult Index()
         {
+            Session["Rol"] = "Director";
+    
             return View();
         }
 
-        public ActionResult About()
+
+        public ActionResult About() 
         {
+            Session["Rol"] = "Jefe";
+
             ViewBag.Message = "Your application description page.";
 
             return View();

@@ -1,3 +1,15 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["Rol"].Equals("Director"))
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+    else if (Session["Rol"].Equals("Jefe"))
+    {
+   
+    }
+
+    
+
+
 }
