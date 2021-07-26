@@ -9,7 +9,7 @@ namespace SistemaHE
         {
 
             filters.Add(new HandleErrorAttribute());
-            filters.Add(new Filtros.Verificar());
+            //filters.Add(new Filtros.Verificar());
 
 
         }

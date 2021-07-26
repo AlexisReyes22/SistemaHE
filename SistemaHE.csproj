@@ -130,11 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CuentasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\PrincipalController.cs" />
-    <Compile Include="Controllers\TareasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
-    <Compile Include="Filtros\Verificar.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,10 +182,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\materialize.min.css" />
@@ -213,8 +205,6 @@
       <DependentUpon>EFmodel1.edmx</DependentUpon>
       <LastGenOutput>EFmodel1.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\EFmodel1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EFmodel1.Designer.cs</LastGenOutput>
@@ -249,39 +239,30 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Cuentas\Create.cshtml" />
-    <Content Include="Views\Cuentas\Delete.cshtml" />
-    <Content Include="Views\Cuentas\Details.cshtml" />
-    <Content Include="Views\Cuentas\Edit.cshtml" />
-    <Content Include="Views\Cuentas\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout _ Jefe.cshtml" />
+    <Content Include="Views\Shared\_Layout _ Director.cshtml" />
+    <Content Include="Views\Shared\_Layout _ Funcionario.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Usuarios\Create.cshtml" />
     <Content Include="Views\Usuarios\Delete.cshtml" />
     <Content Include="Views\Usuarios\Details.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Tareas\Create.cshtml" />
-    <Content Include="Views\Tareas\Delete.cshtml" />
-    <Content Include="Views\Tareas\Details.cshtml" />
-    <Content Include="Views\Tareas\Edit.cshtml" />
-    <Content Include="Views\Tareas\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout _ Jefe.cshtml" />
-    <Content Include="Views\Principal\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout _ Director.cshtml" />
-    <Content Include="Views\Shared\_Layout _ Funcionario.cshtml" />
+    <Content Include="Views\Cuentas\Create.cshtml" />
+    <Content Include="Views\Cuentas\Delete.cshtml" />
+    <Content Include="Views\Cuentas\Details.cshtml" />
+    <Content Include="Views\Cuentas\Edit.cshtml" />
+    <Content Include="Views\Cuentas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Filtros\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />

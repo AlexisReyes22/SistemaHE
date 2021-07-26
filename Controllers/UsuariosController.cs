@@ -17,7 +17,6 @@ namespace SistemaHE.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-
             return View(db.Usuarios.ToList());
         }
 
