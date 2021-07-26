@@ -9,61 +9,69 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre_Completo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Jefe_Inmediato)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Edad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefono_Residencial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefono_Celular)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Departamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rol)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre_Completo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Jefe_Inmediato)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Edad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono_Residencial)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono_Celular)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Departamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rol)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Identificacion }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Identificacion }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Identificacion })
-        </td>
-    </tr>
-}
+<div id="ContentII">
 
-</table>
+    <div class="ContenidoI">
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre_Completo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Jefe_Inmediato)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Edad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono_Residencial)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono_Celular)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Departamento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rol)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre_Completo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Jefe_Inmediato)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Edad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono_Residencial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono_Celular)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Departamento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rol)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Identificacion }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Identificacion }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Identificacion })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

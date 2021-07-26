@@ -39,8 +39,9 @@ body {
 
 .page-footer{
     float:left;
+    margin-top:50px;
     width:100%;
-    height:200px;
+    height:100px;
     background-image:url(../image/bg-image-2.jpg);
 }
 
