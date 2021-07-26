@@ -16,8 +16,8 @@ namespace SistemaHE
 
             bundles.Add(new ScriptBundle("~/bundles/materialize").Include(
                          "~/Scripts/materialize.min.js*"));
-            bundles.Add(new ScriptBundle("~/bundles/materialize").Include(
-                      "~/Scripts/JavaScript.js"));
+            bundles.Add(new ScriptBundle("~/bundles/init").Include(
+                      "~/Scripts/init.js"));
 
             // Utilice la versión de desarrollo de Modernizr para desarrollar y obtener información. De este modo, estará
             // para la producción, use la herramienta de compilación disponible en https://modernizr.com para seleccionar solo las pruebas que necesite.
