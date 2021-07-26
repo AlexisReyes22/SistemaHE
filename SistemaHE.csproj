@@ -185,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Create.css" />
+    <Content Include="Content\Delete.css" />
     <Content Include="Content\Tarjeta.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\materialize.css" />

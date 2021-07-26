@@ -5,7 +5,7 @@
 
 /*-------------------------------------------------------------------*/
 /*------------------------- DELETE   Usuario   ------------------------------*/
-#ContentD {
+/*#ContentD {
     width: 100%;
     margin: auto;
     background-size: 100%;
@@ -14,9 +14,9 @@
 
 .ContenidoD {
     padding: 10px;
-    background-color: hsla(100,100%,50%,0.3);
+    background-color: hsla(100,100%,50%,0.3);*/
     /*background-color: rgba(109, 114, 119, 0.76);*/
-    height: 500px;
+    /*height: 500px;
     width: 50%;
     margin: auto;
     border-radius: 10px;
@@ -99,7 +99,7 @@ p{
         bottom: 0px;
         background-color: #37474F;
     }
-}
+}*/
 
 /*-----------------------------------------------------------*/
 /*---------------------------- EDIT Usuario --------------------------*/
@@ -130,14 +130,22 @@ p{
     margin: auto;
     border-radius: 10px;
 }
-
-table th {
-    background-color: #25a2d8;
+table{
+    background-color:white;
+    border-radius:10px;
 }
+
+    table th {
+        background-color: #25a2d8;
+        border: 1px solid #25a2d8;
+    }
 
 table tr:nth-child(even) {
     background: #9c9fa0;
 }
+
+
+
 
 td a {
     font-weight: bold;
