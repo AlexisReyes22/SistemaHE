@@ -15,8 +15,8 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="">
-            <div class="select-dropdown">
-                @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "optgroup-option" })
+            <div class="">
+                @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
                 @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
             </div>
         </div>
