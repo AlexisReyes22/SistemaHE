@@ -9,31 +9,39 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Contrasenna)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contrasenna)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuarios.Nombre_Completo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Cuenta }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Cuenta }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Cuenta })
-        </td>
-    </tr>
-}
+<div id="ContentII">
 
-</table>
+    <div class="ContenidoI">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contrasenna)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contrasenna)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuarios.Nombre_Completo)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Cuenta }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Cuenta }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Cuenta })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
