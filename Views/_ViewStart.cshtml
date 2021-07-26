@@ -14,6 +14,11 @@
         Layout = "~/Views/Shared/_Layout _ Jefe.cshtml";
 
     }
+    else if (Session["Rol"].Equals("Admin"))
+    {
+        Layout = "~/Views/Shared/_Layout _ Admin.cshtml";
+
+    }
     else
     {
         Layout = "~/Views/Shared/_Layout _ Funcionario.cshtml";
