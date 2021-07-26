@@ -11,13 +11,18 @@
 </div>
 
 @Html.AntiForgeryToken()
-<div class="form-group">
 
-    <input type="text" name="user" value="" placeholder="Ingrese su Identificacion" />
-    <input type="text" name="pass" value="" placeholder="Ingrese su Contraseña" />
+<form id="#frm" action="/" method="post">
+    <div class="form-group">
 
+        <input type="text" name="user" value="" placeholder="Ingrese su Identificacion" />
+        <input type="text" name="pass" value="" placeholder="Ingrese su Contraseña" />
+        <input type="submit" value="Ingresar" class="waves-button-input green darken-2" />
 
-</div>
+    </div>
+
+</form>
+
 
 
 

@@ -1,25 +1,9 @@
 ﻿@{
-    if (Session["Rol"].Equals("Jefe"))
-    {
-        Layout = "~/Views/Shared/_Layout _ Jefe.cshtml";
-
-    }
-    else if (Session["Rol"].Equals("Nolog"))
-    {
-        Layout = "~/Views/Shared/_Layout.cshtml";
-
-    }
-    else if (Session["Rol"].Equals("Director"))
-    {
-        Layout = "~/Views/Shared/_Layout_Director.cshtml";
-
-    }
-    else if (Session["Rol"].Equals("Funcionario"))
-    {
-        Layout = "~/Views/Shared/_Layout_Funcionario.cshtml";
-
-    }
 
 
-
+    Layout = "~/Views/Shared/_Layout_Funcionario.cshtml";
 }
+
+
+
+

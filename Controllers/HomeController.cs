@@ -10,7 +10,7 @@ namespace SistemaHE.Controllers
     {
         public ActionResult Index()
         {
-            Session["Rol"] = "Nolog";
+        
     
             return View();
         }
