@@ -1,0 +1,71 @@
+﻿body {
+}
+
+#Content {
+
+    width: 100%;
+    margin: auto;
+    height:auto;
+    padding: 20px;
+    float:left;
+}
+
+.Contenido {
+    padding: 10px;
+    background-color: hsla(100,100%,50%,0.3);
+    /*background-color: rgba(109, 114, 119, 0.76);*/
+    height: 690px;
+    overflow: scroll;
+    overflow-x: hidden;
+    
+    width: 50%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    background-color: hsla(100,100%,50%,0.3);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #25a2d8;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+
+
+
+h2 {
+    width: 100%;
+    text-align: center
+}
+
+.form-group {
+    font-size: 15px;
+}
+
+.Texto {
+    width: 100%;
+}
+
+
+
+.btn {
+    float: left;
+    margin-bottom: 100px;
+}
+
+#devu {
+    position: relative;
+    float: left;
+}
