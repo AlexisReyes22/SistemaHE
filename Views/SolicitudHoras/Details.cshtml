@@ -1,0 +1,82 @@
+﻿@model SistemaHE.Models.SolicitudHoras
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SolicitudHoras</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadDeHoras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadDeHoras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios.Nombre_Completo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios1.Nombre_Completo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios1.Nombre_Completo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios2.Nombre_Completo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios2.Nombre_Completo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tareas.DetalleDeLaTarea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tareas.DetalleDeLaTarea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios3.Nombre_Completo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios3.Nombre_Completo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios4.Nombre_Completo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios4.Nombre_Completo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Transaccion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
