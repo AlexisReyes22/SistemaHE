@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="blue-grey darken-3 center-align">
+<div class="center-align">
 
     <h2>Inicio de sesion</h2>
 
@@ -12,18 +12,24 @@
 
 @Html.AntiForgeryToken()
 
-<div class="ContenidoD  ">
+<div id="ContentL">
+    <div class="ContenidoL  ">
 
-    <form id="#frm" action="/" method="post">
-        <div class="form-group">
+        <form id="#frm" action="/" method="post">
+            <div class="form-group ">
 
-            <input type="text" name="user" value="" placeholder="Ingrese su Identificacion" />
-            <input type="text" name="pass" value="" placeholder="Ingrese su Contraseña" />
-            <input type="submit" value="Ingresar" class="waves-button-input green darken-2" />
+                <input type="text" name="user" value="" placeholder="Ingrese su Identificacion" />
+                <input type="text" name="pass" value="" placeholder="Ingrese su Contraseña" />
+                <div class="but">
+                    <input type="submit" value="Ingresar" class="waves-button-input btn-small light-blue darken-2  " id="but" />
 
-        </div>
 
-    </form>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
 </div>
 
 
