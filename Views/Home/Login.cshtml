@@ -6,22 +6,25 @@
 
 <div class="blue-grey darken-3 center-align">
 
-    <h2>Incio de sesion</h2>
+    <h2>Inicio de sesion</h2>
 
 </div>
 
 @Html.AntiForgeryToken()
 
-<form id="#frm" action="/" method="post">
-    <div class="form-group">
+<div class="ContenidoD  ">
 
-        <input type="text" name="user" value="" placeholder="Ingrese su Identificacion" />
-        <input type="text" name="pass" value="" placeholder="Ingrese su Contraseña" />
-        <input type="submit" value="Ingresar" class="waves-button-input green darken-2" />
+    <form id="#frm" action="/" method="post">
+        <div class="form-group">
 
-    </div>
+            <input type="text" name="user" value="" placeholder="Ingrese su Identificacion" />
+            <input type="text" name="pass" value="" placeholder="Ingrese su Contraseña" />
+            <input type="submit" value="Ingresar" class="waves-button-input green darken-2" />
 
-</form>
+        </div>
+
+    </form>
+</div>
 
 
 

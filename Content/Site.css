@@ -26,43 +26,52 @@ textarea {
 body {
     padding: 0%;
     margin: 0%;
+    background-image: url(../image/bg-image-2.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
 }
 
 .container {
     margin-left: 0px;
     margin-right: 0px;
     max-width: 2000px;
-    width:100%;
-    float:left;
+    width: 100%;
+    float: left;
     /*increase width as per your need*/
 }
 
-.page-footer{
-    float:left;
-    margin-top:50px;
-    width:100%;
-    height:100px;
-    background-image:url(../image/bg-image-2.jpg);
+.page-footer {
+    position: absolute;
+    bottom: 0px;
+    float: left;
+    margin-top: 50px;
+    width: 100%;
+    height: 100px;
+    background-color: #37474F;
 }
 
 
 @media only screen and (max-width: 1024px) {
     .page-footer {
+        position: absolute;
+        bottom: 0px;
         float: left;
         width: 100%;
         height: 9px;
-        background-image: url(../image/bg-image-2.jpg);
+        background-color: #37474F;
     }
 }
 
 
 @media only screen and (max-width: 1440px) {
     .page-footer {
-        margin-top:50px;
+        position: absolute;
+        bottom: 0px;
+        margin-top: 50px;
         float: left;
         width: 100%;
         height: 90px;
-        top:50px;
-        background-image: url(../image/bg-image-2.jpg);
+     
+        background-color: #37474F;
     }
 }

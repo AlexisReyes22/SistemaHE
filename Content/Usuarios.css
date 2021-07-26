@@ -3,9 +3,6 @@
 #Content {
     width: 100%;
     margin: auto;
-    background-image: url(../image/depositphotos_46293115-stock-photo-tablet-pc-showing-calendar-on.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
     padding:20px
     
 }
@@ -24,7 +21,8 @@ h2{
 
 .Contenido {
     padding: 10px;
-    background-color: rgba(109, 114, 119, 0.76);
+    background-color: hsla(100,100%,50%,0.3);
+    /*background-color: rgba(109, 114, 119, 0.76);*/
     height: 830px;
     width: 50%;
     margin: auto;
@@ -47,20 +45,19 @@ h2{
 #ContentD {
     width: 100%;
     margin: auto;
-    background-image: url(../image/depositphotos_46293115-stock-photo-tablet-pc-showing-calendar-on.jpg);
-    background-repeat: no-repeat;
     background-size: 100%;
     padding: 10px
 }
 
 .ContenidoD {
     padding: 10px;
-    background-color: rgba(109, 114, 119, 0.76);
+    background-color: hsla(100,100%,50%,0.3);
+    /*background-color: rgba(109, 114, 119, 0.76);*/
     height: 500px;
     width: 50%;
     margin: auto;
-    border-radius:10px;
-    margin-top:20px
+    border-radius: 10px;
+    margin-top: 20px
 }
 
 dt{
@@ -106,6 +103,8 @@ p{
 }
 
 #page-footer{
+    position:absolute;
+    bottom:0px;
     height:100px;
 
 }
@@ -115,9 +114,6 @@ p{
         width: 100%;
         
         margin: auto;
-        background-image: url(../image/depositphotos_46293115-stock-photo-tablet-pc-showing-calendar-on.jpg);
-        background-repeat: no-repeat;
-        background-size: 200%;
         padding: 10px
     }
 
@@ -136,8 +132,9 @@ p{
         float: left;
         width: 100%;
         height: 90px;
-        top: 50px;
-        background-image: url(../image/bg-image-2.jpg);
+        position: absolute;
+        bottom: 0px;
+        background-color: #37474F;
     }
 }
 
