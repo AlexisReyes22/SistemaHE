@@ -28,6 +28,7 @@ h2{
     height: 830px;
     width: 50%;
     margin: auto;
+    border-radius: 10px;
 }
 
 .btn {
@@ -37,4 +38,50 @@ h2{
 }
 #devu{ position:relative;
     float:left;
+}
+
+
+
+/*-------------------------------------------------------------------*/
+/*------------------------- DELETE      ------------------------------*/
+.ContenidoD {
+    padding: 10px;
+    background-color: rgba(109, 114, 119, 0.76);
+    height: 500px;
+    width: 50%;
+    margin: auto;
+    border-radius:10px;
+    margin-top:20px
+}
+
+dt{
+    font-size: 15px;
+    float:left;
+    
+    width:100%;
+    font-weight:bold;
+}
+
+dd {
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    width: auto;
+    height:auto;
+    left:12px;
+}
+
+.myClass {
+    font-size: 55px;
+    box-sizing: border-box;
+}
+
+.dl-horizontal{
+    
+    box-sizing:border-box;
+    
+
+}
+p{
+    font-size:30px;
+    text-align:center;
 }
