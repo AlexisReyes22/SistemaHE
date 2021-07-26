@@ -1,26 +1,36 @@
-﻿body {
-}
-
+﻿
 #Content {
-
     width: 100%;
     margin: auto;
-    height:auto;
+    height: auto;
     padding: 20px;
-    float:left;
+    float: left;
 }
 
 .Contenido {
     padding: 10px;
     background-color: hsla(205, 58%, 79%,0.8);
     /*background-color: rgba(109, 114, 119, 0.76);*/
-    height: 690px;
+    height: 60%;
     overflow: scroll;
     overflow-x: hidden;
     width: 50%;
     margin: auto;
     box-sizing: border-box;
 }
+
+    .Contenido select {
+        width: 50%;
+        position: relative;
+        left: 25%;
+        margin: auto;
+        border: none
+    }
+
+    .Contenido input {
+        color: black;
+        text-align: center
+    }
 
 
 ::-webkit-scrollbar {
@@ -68,4 +78,3 @@ h2 {
     position: relative;
     float: left;
 }
-

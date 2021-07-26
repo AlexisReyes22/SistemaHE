@@ -100,7 +100,7 @@ p{
 
 .ContenidoE {
     padding: 10px;
-    background-color: rgba(109, 114, 119, 0.76);
+    background-color: hsla(205, 58%, 79%,0.8);
     height: 700px;
     width: 50%;
     margin: auto;

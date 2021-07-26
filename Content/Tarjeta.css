@@ -1,6 +1,6 @@
 ﻿.card {
-    background-color: hsl(0, 0%, 88%,0.7)!important
+    background-color: hsla(205, 58%, 79%,0.8)!important;
 }
     .card:hover {
-        background-color: hsla(205, 58%, 79%,0.8) !important
+        background-color: hsla(205, 58%, 79%,0.9)!important;
     }

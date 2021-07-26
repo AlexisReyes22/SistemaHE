@@ -10,7 +10,7 @@
 
 .ContenidoL {
     padding: 10px;
-    background-color: hsl(0, 0%, 88%,0.7) !important;
+    background-color: hsla(205, 58%, 79%,0.8);
     /*background-color: rgba(109, 114, 119, 0.76);*/
     height: 70%;
     width: 50%;

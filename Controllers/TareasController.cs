@@ -79,10 +79,8 @@ namespace SistemaHE.Controllers
             {
                 return HttpNotFound();
             }
-            Tareas list = ((Tareas)(from d in db.Tareas
-                       where d.Usuarios.Rol == "Jefe"
-                       select d));
-            ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", list.Jefe_Asignado);
+          
+            ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.Jefe_Asignado);
             ViewBag.UsuarioAsigando1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando1);
             ViewBag.UsuarioAsigando2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando2);
             ViewBag.UsuarioAsigando3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando3);
