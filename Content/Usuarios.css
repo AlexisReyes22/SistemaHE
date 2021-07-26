@@ -163,8 +163,13 @@ p{
     margin: auto;
     border-radius: 10px;
 }
-
-
+.ContenidoI {
+    padding: 10px;
+    height: 700px;
+    width: 70%;
+    margin: auto;
+    border-radius: 10px;
+}
 
 table th {
     background-color: #25a2d8;
