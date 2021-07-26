@@ -1,0 +1,50 @@
+﻿body {
+}
+
+
+
+#Crear a{
+    width:300px;
+    background-color: white;
+    border-radius: 15px;
+    padding:10px
+}
+
+.ContenidoI {
+    padding: 10px;
+    height: 700px;
+    width: 70%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.ContenidoI {
+    padding: 10px;
+    height: 700px;
+    width: 70%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+table {
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+    table th {
+        background-color: #25a2d8;
+        border: 1px solid #25a2d8;
+    }
+
+    table tr:nth-child(even) {
+        background: #9c9fa0;
+    }
+
+
+
+
+td a {
+    font-weight: bold;
+    text-shadow: 2px 2px 4px white;
+}

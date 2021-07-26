@@ -110,7 +110,7 @@ p{
 /*------------------------------------------------------------------*/
 /*---------------------------INDEX USuario--------------------------*/
 
-.ContenidoI {
+/*.ContenidoI {
     padding: 10px;
     height: 700px;
     width: 70%;
@@ -144,4 +144,4 @@ table tr:nth-child(even) {
 td a {
     font-weight: bold;
     text-shadow: 2px 2px 4px white;
-}
+}*/
