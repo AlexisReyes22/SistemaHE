@@ -10,55 +10,60 @@
 <div>
     <h4>Tareas</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DetalleDeLaTarea)
-        </dt>
+    <div id="ContentD">
+        <div class="ContenidoD">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DetalleDeLaTarea)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DetalleDeLaTarea)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.DetalleDeLaTarea)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios.Nombre_Completo)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Usuarios.Nombre_Completo)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios1.Nombre_Completo)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Usuarios1.Nombre_Completo)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios1.Nombre_Completo)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Usuarios1.Nombre_Completo)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios2.Nombre_Completo)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Usuarios2.Nombre_Completo)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios2.Nombre_Completo)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Usuarios2.Nombre_Completo)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios3.Nombre_Completo)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Usuarios3.Nombre_Completo)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios3.Nombre_Completo)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Usuarios3.Nombre_Completo)
+                </dd>
 
-    </dl>
+            </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
         </div>
-    }
+    </div>
 </div>
