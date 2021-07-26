@@ -1,0 +1,38 @@
+﻿body {
+}
+
+#ContentL {
+    width: 100%;
+    margin: auto;
+    background-size: 100%;
+    padding: 10px
+}
+
+.ContenidoL {
+    padding: 10px;
+    background-color: hsl(0, 0%, 88%,0.7) !important;
+    /*background-color: rgba(109, 114, 119, 0.76);*/
+    height: 70%;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 20px
+}
+
+::-webkit-input-placeholder {
+    color: black;
+    text-align: center
+}
+
+.but {
+    width: 100%;
+}
+
+    .but input {
+        width:50%;
+        position: relative;
+        left:25%;
+        margin: auto;
+        border:none
+    }
+/* WebKit */
