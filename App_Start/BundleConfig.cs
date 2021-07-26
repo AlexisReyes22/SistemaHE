@@ -28,6 +28,7 @@ namespace SistemaHE
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/Header.css",
                       "~/Content/Principal.css",
+                      "~/Content/Usuarios.css",
                       "~/Content/materialize.css",
                       "~/Content/materialize.min.css",
                       "~/Content/site.css"));

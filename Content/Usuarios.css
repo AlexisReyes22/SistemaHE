@@ -1,0 +1,40 @@
+﻿body {
+}
+#Content {
+    width: 100%;
+    margin: auto;
+    background-image: url(../image/depositphotos_46293115-stock-photo-tablet-pc-showing-calendar-on.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding:20px
+    
+}
+
+h2{
+    width:100%;
+    text-align:center
+}
+
+.form-group{
+    font-size:15px;
+}
+.Texto{
+    width:100%;
+}
+
+.Contenido {
+    padding: 10px;
+    background-color: rgba(109, 114, 119, 0.76);
+    height: 830px;
+    width: 50%;
+    margin: auto;
+}
+
+.btn {
+    float: left;
+    margin-bottom: 100px;
+
+}
+#devu{ position:relative;
+    float:left;
+}
