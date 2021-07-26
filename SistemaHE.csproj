@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CuentasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TareasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -254,6 +255,12 @@
     <Content Include="Views\Cuentas\Details.cshtml" />
     <Content Include="Views\Cuentas\Edit.cshtml" />
     <Content Include="Views\Cuentas\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout _ Admin.cshtml" />
+    <Content Include="Views\Tareas\Create.cshtml" />
+    <Content Include="Views\Tareas\Delete.cshtml" />
+    <Content Include="Views\Tareas\Details.cshtml" />
+    <Content Include="Views\Tareas\Edit.cshtml" />
+    <Content Include="Views\Tareas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
