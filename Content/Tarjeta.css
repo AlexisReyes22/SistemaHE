@@ -1,5 +1,5 @@
 ﻿.card {
-    background-color: hsla(205, 58%, 79%,0.8) !important;
+    background-color: hsla(205, 58%, 79%,0.5) !important;
 }
 
     .card:hover {
@@ -8,8 +8,34 @@
 
 
 
-.ContenidoTar{
-    display:inline-flex;
-    order:3;
+.ContenidTar {
+    padding: 10px;
+    background-color: hsla(205, 58%, 79%,0.0);
+    /*background-color: rgba(109, 114, 119, 0.76);*/
+    height: 60%;
+   
+    width: 85%;
+    margin: auto;
+    box-sizing: border-box;
+   
+    
+    display:flex;
+    flex-flow:row wrap;
+    align-items:center;
+    justify-content:space-around;
 
+
+
+
+}
+.itemTar {
+    width: 500px;
+    margin: auto; /* Magic! */
+}
+.card{
+    width:500px !important;
+    border-radius:15px;
+}
+.card-action {
+    border-radius: 0 0 15px 15px !important;
 }

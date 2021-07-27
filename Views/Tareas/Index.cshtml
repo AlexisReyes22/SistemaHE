@@ -6,34 +6,33 @@
 
 <h2>Tareas</h2>
 
-<p class="">
+<p id="Crear">
     @Html.ActionLink("Create New", "Create")
 </p>
 
 <div class="ContenidTar">
 
-    <div class="row">
+    
         @foreach (var item in Model)
         {
-            <div class="col s12 m6">
-                <div class="card ">
-                    <div class="card-content light-blue-text text-darken-1">
+            <div class="itemTar">
+                <div class="card  ">
+                    <div class="card-content white-text text-darken-1">
                         <span class="card-title xl12"> @Html.DisplayFor(modelItem => item.ID_Tarea)</span>
                         <p>
                             @Html.DisplayFor(modelItem => item.DetalleDeLaTarea)
                         </p>
 
                     </div>
-                    <div class="card-action light-blue-text text-darken-1">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Tarea }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID_Tarea }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Tarea })
-                        <a href="#">This is a link</a>
+                    <div class="card-action white">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "light-blue-text text-darken-1" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "light-blue-text text-darken-1" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "light-blue-text text-darken-1" })
                     </div>
                 </div>
             </div>
         }
-    </div>
+    
 
 </div>
 
