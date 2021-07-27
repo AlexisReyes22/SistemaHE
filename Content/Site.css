@@ -27,7 +27,7 @@ textarea {
 body {
     padding: 0%;
     margin: 0%;
-    background-image: url(../image/bg-image-2.jpg);
+    /*background-image: url(../image/bg-image-2.jpg);*/
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

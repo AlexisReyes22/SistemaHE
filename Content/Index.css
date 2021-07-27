@@ -45,7 +45,22 @@ table {
     }
 
 
-
+#textoH {
+    
+    position:relative;
+    bottom:47px;
+    padding: 0%;
+    margin: 0%;
+    height:150px;
+    background-image: url(../image/bg-image-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index:-1;
+    color:white;
+    font-weight:bolder;
+    font-family:Roboto;
+}
 
 td a {
     font-weight: bold;
