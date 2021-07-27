@@ -39,17 +39,7 @@ namespace SistemaHE
                       "~/Content/login.css",
                       "~/Content/Tarjeta.css"));
 
-            bundles.Add(new StyleBundle("~/Content/cssP").Include(
-              "~/Content/Header.css",
-              "~/Content/Principal.css",
-              "~/Content/Delete.css",
-              "~/Content/Index.css",
-              "~/Content/Usuarios.css",
-              "~/Content/materialize.css",
-              "~/Content/Create.css",
-              "~/Content/materialize.min.css",
-              "~/Content/login.css",
-              "~/Content/Tarjeta.css"));
+
         }
     }
 }
