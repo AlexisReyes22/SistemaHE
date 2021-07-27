@@ -34,9 +34,19 @@
                         @Html.DisplayFor(modelItem => item.Usuarios.Nombre_Completo)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Cuenta }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID_Cuenta }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Cuenta })
+                        <a href="@Url.Action("Edit", "Cuentas", new { id = item.ID_Cuenta })">
+                            <i class="material-icons">edit</i>
+
+                        </a>
+                        <a href="@Url.Action("Details", "Cuentas", new { id = item.ID_Cuenta })">
+                            <i class="material-icons">search</i>
+
+                        </a>
+                        <a href="@Url.Action("Delete", "Cuentas", new { id = item.ID_Cuenta })">
+                            <i class="material-icons">delete</i>
+
+                        </a>
+
                     </td>
                 </tr>
             }

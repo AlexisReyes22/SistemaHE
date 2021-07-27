@@ -7,28 +7,38 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Cuentas</h4>
+
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Contrasenna)
-        </dt>
+    <div id="ContentD">
+        <div class="ContenidoD">
+            <p id="tecto">Cuentas</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Contrasenna)
-        </dd>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Contrasenna)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Contrasenna)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios.Nombre_Completo)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.Usuarios.Nombre_Completo)
+                </dd>
+
+            </dl>
+
+            <p id="pagina">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Cuenta }, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" }) |
+                @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+            </p>
+
+        </div>
+    </div>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Cuenta }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
