@@ -10,28 +10,32 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
+<div class="ContenidTar">
 
-@foreach (var item in Model)
-{
     <div class="row">
-        <div class="col s12 m6">
-            <div class="card ">
-                <div class="card-content light-blue-text text-darken-1">
-                    <span class="card-title xl12" > @Html.DisplayFor(modelItem => item.ID_Tarea)</span>
-                    <p>
-                        @Html.DisplayFor(modelItem => item.DetalleDeLaTarea)
-                    </p>
+        @foreach (var item in Model)
+        {
+            <div class="col s12 m6">
+                <div class="card ">
+                    <div class="card-content light-blue-text text-darken-1">
+                        <span class="card-title xl12"> @Html.DisplayFor(modelItem => item.ID_Tarea)</span>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.DetalleDeLaTarea)
+                        </p>
 
-                </div>
-                <div class="card-action light-blue-text text-darken-1"  >
-                    @Html.ActionLink("Edit", "Edit", new {  id = item.ID_Tarea }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_Tarea }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_Tarea })
-                    <a href="#">This is a link</a>
+                    </div>
+                    <div class="card-action light-blue-text text-darken-1">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Tarea }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Tarea }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Tarea })
+                        <a href="#">This is a link</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
-}
+
+</div>
+
 
 
