@@ -110,7 +110,7 @@
 .fichero {
     position:relative;
     width: 100%;
-    /*background-color: black;*/
+ 
     height: 350px;
     bottom: 190%;
     float: left;
@@ -159,6 +159,7 @@ font-size:20px;
 
        width:65%;
        margin:auto;
+       display:inline;
 
 }
 

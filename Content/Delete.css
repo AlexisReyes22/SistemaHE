@@ -63,6 +63,7 @@ p {
     position: absolute;
     bottom: 0px;
     height: 100px;
+    margin-bottom: 0px;
 }
 a {
 
