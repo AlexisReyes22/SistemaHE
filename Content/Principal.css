@@ -118,6 +118,7 @@ body{
     bottom: 190%;
     float: left;
     box-sizing: border-box;
+    color:white;
 }
 .fichero span{
 font-weight:bold;
