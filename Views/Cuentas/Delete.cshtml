@@ -4,37 +4,47 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+
 <div>
-    <h4>Cuentas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Contrasenna)
-        </dt>
+    <div id="Content">
+        <div class="Contenido">
+            <h4>Cuentas</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <h3>¿Está seguro que desea eliminar esto?</h3>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Contrasenna)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Contrasenna)
-        </dd>
+                <dd>
+                    @Html.EditorFor(model => model.Contrasenna, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios.Nombre_Completo)
-        </dd>
+                <dd>
+                    @Html.EditorFor(model => model.Usuarios.Nombre_Completo, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
+                </dd>
 
-    </dl>
+            </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+
+            <input type="submit" value="Delete" class="waves-button-input btn-small light-blue darken-2  white-text" /> |
+            @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+
         </div>
-    }
+            }
+
+
+        </div>
+    </div>
 </div>

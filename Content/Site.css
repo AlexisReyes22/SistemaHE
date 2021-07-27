@@ -47,17 +47,18 @@ body {
     max-width: 2000px;
     width: 100%;
     float: left;
+    height: 60%;
     /*increase width as per your need*/
 }
 
 .page-footer {
     width: 100%;
-    height: 100px;
+    height: 10%;
     background-color: #37474F;
     clear: both;
     position: absolute;
     bottom: 0px;
-    margin-bottom: -200px;
+    margin-bottom: 0px;
 }
 
 
@@ -90,3 +91,6 @@ body {
         background-color: #37474F;
     }
 }
+
+
+

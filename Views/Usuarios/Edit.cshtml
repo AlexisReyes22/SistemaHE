@@ -75,17 +75,15 @@
                 </div>
             </div>
 
+            <div id="pagina">
+
+                <input type="submit" value="Save" class="waves-button-input btn-small light-blue darken-2 white-text" />
 
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
 
-                </div>
-                <div>
-                    @Html.ActionLink("Back to List", "Index")
-                </div>
             </div>
+
         </div>
 
     </div>

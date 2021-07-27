@@ -8,18 +8,20 @@
 
 <div>
 
-    <hr />
-    <div id="ContentD">
-        <div class="ContenidoD">
+
+    <div id="Content">
+        <div class="Contenido">
             <p id="tecto">Usuario</p>
 
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Nombre_Completo)
-                </dt>
+            <dl class="form-horizontal">
+                <div class="form-group">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nombre_Completo)
+                    </dt>
+                </div>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Nombre_Completo)
+                    @Html.EditorFor(model => model.Nombre_Completo, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
                 </dd>
 
                 <dt>
@@ -27,7 +29,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Jefe_Inmediato)
+                    @Html.EditorFor(model => model.Jefe_Inmediato, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
                 </dd>
 
                 <dt>
@@ -35,7 +37,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Edad)
+                    @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
                 </dd>
 
                 <dt>
@@ -43,7 +45,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Telefono_Residencial)
+                    @Html.EditorFor(model => model.Telefono_Residencial, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
                 </dd>
 
                 <dt>
@@ -51,7 +53,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Telefono_Celular)
+                    @Html.EditorFor(model => model.Telefono_Celular, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
                 </dd>
 
                 <dt>
@@ -59,7 +61,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Departamento)
+                    @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
                 </dd>
 
                 <dt>
@@ -67,7 +69,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Rol)
+                    @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
                 </dd>
 
             </dl>
