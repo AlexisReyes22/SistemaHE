@@ -1,10 +1,17 @@
 ﻿
+
 #Content {
-    width: 100%;
-    margin: auto;
-    height: auto;
-    padding: 20px;
-    float: left;
+/*    width: 100%;
+    margin-bottom: 100px;
+    
+    padding: 10px;*/height:;
+                    background-color: white;
+
+}
+
+.form-group{
+    
+
 }
 
 .Contenido {
@@ -17,7 +24,7 @@
     width: 50%;
     margin: auto;
     box-sizing: border-box;
-    border-radius:15px 15px;
+    border-radius: 15px 15px;
 }
 
     .Contenido select {

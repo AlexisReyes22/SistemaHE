@@ -35,10 +35,13 @@ table {
     table th {
         background-color: #25a2d8;
         border: 1px solid #25a2d8;
+        color:white;
+        font-weight:bold;
+        font-size:15px;
     }
 
     table tr:nth-child(even) {
-        background: #9c9fa0;
+        background: #f2f2f5;
     }
 
 
