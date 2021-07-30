@@ -24,6 +24,25 @@ textarea {
 }*/
 
 
+@font-face {
+    font-family: 'Roboto light';
+    src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Roboto med';
+    src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Roboto bold';
+    src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+}
+
 body {
     padding: 0%;
     margin: 0%;
@@ -31,6 +50,20 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    -webkit-text-size-adjust: none;
+    color: #666;
+    background-color: #fff;
+    font-family: "Roboto light";
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+h1 {
+    font-family: "Roboto bold";
+}
+h2 {
+    font-family: "Roboto bold";
+}
+h3{
+
 }
 
 #b1 {

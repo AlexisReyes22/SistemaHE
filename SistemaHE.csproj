@@ -196,6 +196,7 @@
     <Content Include="Content\Usuarios.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Roboto\LICENSE.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="image\1.png" />
@@ -220,6 +221,18 @@
     <Content Include="Models\EFmodel1.edmx.diagram">
       <DependentUpon>EFmodel1.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\Roboto\Roboto-Black.ttf" />
+    <Content Include="fonts\Roboto\Roboto-BlackItalic.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Bold.ttf" />
+    <Content Include="fonts\Roboto\Roboto-BoldItalic.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Italic.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Light.ttf" />
+    <Content Include="fonts\Roboto\Roboto-LightItalic.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Medium.ttf" />
+    <Content Include="fonts\Roboto\Roboto-MediumItalic.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Regular.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Thin.ttf" />
+    <Content Include="fonts\Roboto\Roboto-ThinItalic.ttf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\JavaScript.js" />

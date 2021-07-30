@@ -35,9 +35,10 @@ namespace SistemaHE
                       "~/Content/materialize.css",
                       "~/Content/Create.css",
                       "~/Content/materialize.min.css",
-                      "~/Content/Site.css",
+                     
                       "~/Content/login.css",
-                      "~/Content/Tarjeta.css"));
+                      "~/Content/Tarjeta.css",
+                       "~/Content/Site.css"));
 
 
         }
