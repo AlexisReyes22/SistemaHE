@@ -24,52 +24,32 @@ textarea {
 }*/
 
 
-@font-face {
-    font-family: 'Roboto light';
-    src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 300;
-}
 
-@font-face {
-    font-family: 'Roboto med';
-    src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'Roboto bold';
-    src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 700;
-}
 
 body {
     padding: 0%;
     margin: 0%;
-    /*background-image: url(../image/bg-image-2.jpg);*/
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
     -webkit-text-size-adjust: none;
-    color: #666;
+    color: black;
     background-color: #fff;
-    font-family: "Roboto light";
+    font-family: Roboto;
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
 h1 {
-    font-family: "Roboto bold";
+    font-weight: 400;
 }
 
 h2 {
     width: 100%;
     text-align: center;
-    font-family: "Roboto bold";
+    font-weight: 700;
 }
 
 h3 {
+    width: 100%;
+    text-align: left;
+    font-weight: 700;
 }
 
 #textoH {
@@ -85,8 +65,8 @@ h3 {
     background-attachment: fixed;
     z-index: -1;
     color: white;
-    font-weight: bolder;
-    font-family: Roboto;
+/*    font-weight: bolder;
+    font-family: Roboto;*/
 }
 
 #b1 {
@@ -104,10 +84,11 @@ h3 {
     width: 100%;
     float: left;
     height: 60%;
+   
     /*increase width as per your need*/
 }
 
-.page-footer {
+footer {
     width: 100%;
     height: 10%;
     background-color: #37474F;
@@ -115,6 +96,7 @@ h3 {
     position: absolute;
     bottom: 0px;
     margin-bottom: -200px;
+    float:left;
 }
 
 

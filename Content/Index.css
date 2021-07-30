@@ -1,21 +1,4 @@
-﻿
-
-#Crear a{
-    width:300px;
-    background-color: white;
-    border-radius: 15px;
-    padding:10px
-}
-
-.ContenidoI {
-    padding: 10px;
-    max-height: 50%;
-    width: 70%;
-    margin: auto;
-    border-radius: 10px;
-}
-
-.ContenidoI {
+﻿.ContenidoI {
     padding: 10px;
     height: max-content;
     width: 70%;
@@ -23,15 +6,25 @@
     border-radius: 10px;
 }
 
+#pagina a {
+    background-color: #03a9f4;
+}
+
+        #pagina a:hover {
+            background-color: white;
+            background-color: white;
+            border: solid 2px #32a3d6;
+            color: #32a3d6;
+        }
+
 table {
     background-color: white;
     border-radius: 10px;
-
 }
 
     table th {
-        background-color: #2196f3;
-        border: 1px solid #2196f3;
+        background-color: #03a9f4;
+        border: 1px solid #03a9f4;
         color: white;
         font-weight: bold;
         font-size: 17px;
@@ -39,16 +32,11 @@ table {
     }
 
 
-
     table tr:nth-child(even) {
         background: #f2f2f5;
     }
-
-
-
 
 td a {
     font-weight: bold;
     text-shadow: 2px 2px 4px white;
 }
-

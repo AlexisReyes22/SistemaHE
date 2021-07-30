@@ -3,12 +3,12 @@
 @{
     ViewBag.Title = "Administracion de Cuentas";
 }
+<div id="textoH">
+    <br />
+    <h2>Cuentas</h2>
+</div>
 
-<h2>Cuentas</h2>
 
-<p>
-    @Html.ActionLink("Agregar", "Create")
-</p>
 
 <div id="ContentII">
 
@@ -52,6 +52,11 @@
             }
 
         </table>
+        <div id="pagina">
 
+
+            @Html.ActionLink("Agregar", "Create", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
+
+        </div>
     </div>
 </div>

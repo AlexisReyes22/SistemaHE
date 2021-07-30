@@ -3,37 +3,41 @@
     ViewBag.Title = "login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="center-align">
-
+<div id="textoH">
+    <br />
     <h2>Inicio de sesión</h2>
-
 </div>
+
 
 @Html.AntiForgeryToken()
 
 <div id="ContentL">
-    <div class="ContenidoL  ">
+    <div class="ContenidoL">
 
         <form id="#frm" action="/" method="post">
-            <div class="form-group ">
-                <div></div>
-                <p id="poc">Ingrese su Identificación</p>
+            <div id="formula">
+
+                <label>Ingrese su Identificación</label>
+                @*<p id="poc">Ingrese su Identificación</p>*@
                 <br />
                 <br />
                 <input id="login" type="text" name="user" value="" placeholder="" />
                 <br />
-                <p id="poc">Ingrese su Contraseña</p>
+                @*<p id="poc">Ingrese su Contraseña</p>*@
+                <label>Ingrese su Contraseña</label>
+
                 <br />
                 <br />
                 <input id="login" type="password" name="pass" value="" placeholder="" />
-                <div class="but">
-                    <input type="submit" value="Ingresar" class=" btn-small  " id="but" />
-
-
-                </div>
 
             </div>
+            <div class="but">
+                <input type="submit" value="Ingresar" class=" btn-small  " id="but" />
+
+
+            </div>
+
+
 
         </form>
     </div>
