@@ -7,9 +7,6 @@
     <br />
     <h2>Usuarios</h2>
 </div>
-<p id="Crear">
-    @Html.ActionLink("Agregar", "Create")
-</p>
 
 <div id="ContentII">
 
@@ -83,5 +80,13 @@
             }
 
         </table>
+        <div id="pagina">
+
+
+            @Html.ActionLink("Agregar", "Create", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+
+        </div>
+
+
     </div>
 </div>

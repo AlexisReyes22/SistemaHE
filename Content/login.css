@@ -1,4 +1,4 @@
-﻿body {
+﻿/*body {
 }
 
 #ContentL {
@@ -9,10 +9,10 @@
 }
 
 .ContenidoL {
-    padding: 10px;
+    padding: 10px;*/
     /*background-color: hsla(205, 58%, 79%,0.8);*/
     /*background-color: rgba(109, 114, 119, 0.76);*/
-    height: 50%;
+    /*height: 50%;
     width: 30%;
     margin: auto;
     border-radius: 10px;
@@ -66,5 +66,5 @@ input:hover {
             background-color: white;
             border: solid 2px #32a3d6;
             color: #32a3d6;
-        }
+        }*/
 /* WebKit */

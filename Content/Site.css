@@ -30,12 +30,14 @@ textarea {
     font-style: normal;
     font-weight: 300;
 }
+
 @font-face {
     font-family: 'Roboto med';
     src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
     font-style: normal;
     font-weight: 400;
 }
+
 @font-face {
     font-family: 'Roboto bold';
     src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
@@ -56,14 +58,35 @@ body {
     font-family: "Roboto light";
     -webkit-font-smoothing: subpixel-antialiased;
 }
+
 h1 {
     font-family: "Roboto bold";
 }
+
 h2 {
+    width: 100%;
+    text-align: center;
     font-family: "Roboto bold";
 }
-h3{
 
+h3 {
+}
+
+#textoH {
+    width: 100%;
+    position: relative;
+    bottom: 47px;
+    padding: 0%;
+    margin: 0%;
+    height: 150px;
+    background-image: url(../image/bg-image-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -1;
+    color: white;
+    font-weight: bolder;
+    font-family: Roboto;
 }
 
 #b1 {
@@ -81,7 +104,6 @@ h3{
     width: 100%;
     float: left;
     height: 60%;
-
     /*increase width as per your need*/
 }
 
@@ -106,7 +128,7 @@ h3{
         position: absolute;
         bottom: 0px;
         margin-top: 00px;
-        float:left;
+        float: left;
     }
 }
 
@@ -125,6 +147,3 @@ h3{
         float: left;
     }
 }
-
-
-
