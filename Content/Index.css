@@ -37,8 +37,11 @@ table {
         border: 1px solid #25a2d8;
         color:white;
         font-weight:bold;
-        font-size:15px;
+        font-size:17px;
+        padding:20px;
     }
+
+
 
     table tr:nth-child(even) {
         background: #f2f2f5;
