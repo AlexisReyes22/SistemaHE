@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 <div id="fondoH">
-    <h2>Edit</h2>
+    <h2>Usuario</h2>
 </div>
 @using (Html.BeginForm())
 {
@@ -14,13 +14,13 @@
 
     <div class="Contenido">
         <div class="form-horizontal">
-            <p>Usuario</p>
+            <p>Editar</p>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Identificacion)
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Nombre_Completo, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px; color:black;" })
+                @Html.LabelFor(model => model.Nombre_Completo,"Nombre Completo", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px; color:black;" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Nombre_Completo, new { htmlAttributes = new { @class = "form-control", @style = " background-color: white; border-radius: 10px 10px 10px 10px;" } })
                     @Html.ValidationMessageFor(model => model.Nombre_Completo, "", new { @class = "text-danger" })
@@ -28,7 +28,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Jefe_Inmediato, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px; color:black;" })
+                @Html.LabelFor(model => model.Jefe_Inmediato,"Jefe Inmediato",  htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px; color:black;" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Jefe_Inmediato, new { htmlAttributes = new { @class = "form-control", @style = " background-color: white; border-radius: 10px 10px 10px 10px;" } })
                     @Html.ValidationMessageFor(model => model.Jefe_Inmediato, "", new { @class = "text-danger" })
@@ -44,7 +44,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Telefono_Residencial, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px; color:black;" })
+                @Html.LabelFor(model => model.Telefono_Residencial,"Teléfono Residencial", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px; color:black;" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Telefono_Residencial, new { htmlAttributes = new { @class = "form-control", @style = " background-color: white; border-radius: 10px 10px 10px 10px;" } })
                     @Html.ValidationMessageFor(model => model.Telefono_Residencial, "", new { @class = "text-danger" })
@@ -52,7 +52,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Telefono_Celular, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px; color:black;" })
+                @Html.LabelFor(model => model.Telefono_Celular,"Teléfono Celular", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px; color:black;" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Telefono_Celular, new { htmlAttributes = new { @class = "form-control", @style = " background-color: white; border-radius: 10px 10px 10px 10px;" } })
                     @Html.ValidationMessageFor(model => model.Telefono_Celular, "", new { @class = "text-danger" })
@@ -77,10 +77,10 @@
 
             <div id="pagina">
 
-                <input type="submit" value="Save" class="waves-button-input btn-small light-blue darken-2 white-text" />
+                <input type="submit" value="Guardar" class="waves-button-input btn-small light-blue darken-2 white-text" />
 
 
-                @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
 
             </div>
 

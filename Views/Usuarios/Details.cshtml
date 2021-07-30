@@ -4,19 +4,19 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Usuario</h2>
 
 <div>
 
 
     <div id="Content">
         <div class="Contenido">
-            <p id="tecto">Usuario</p>
+            <p id="tecto">Detalles</p>
 
             <dl class="form-horizontal">
                 <div class="form-group">
                     <dt>
-                        @Html.DisplayNameFor(model => model.Nombre_Completo)
+                        Nombre Completo
                     </dt>
                 </div>
 
@@ -25,7 +25,7 @@
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Jefe_Inmediato)
+                    Jefe Inmediato
                 </dt>
 
                 <dd>
@@ -33,7 +33,7 @@
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Edad)
+                    Edad
                 </dt>
 
                 <dd>
@@ -41,7 +41,7 @@
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Telefono_Residencial)
+                    Teléfono Residencial
                 </dt>
 
                 <dd>
@@ -49,7 +49,7 @@
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Telefono_Celular)
+                    Teléfono Celular
                 </dt>
 
                 <dd>
@@ -75,8 +75,8 @@
             </dl>
 
             <p id="pagina">
-                @Html.ActionLink("Edit", "Edit", new { id = Model.Identificacion }, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" }) |
-                @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Identificacion }, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" }) |
+                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
             </p>
 
         </div>

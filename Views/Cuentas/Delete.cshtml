@@ -4,30 +4,31 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Eliminar</h2>
+<h2>Cuentas</h2>
 
 
 <div>
     <div id="Content">
         <div class="Contenido">
-            <h4>Cuentas</h4>
+            <h3>¿Está seguro que desea eliminar esto?</h3>
             <hr />
             <dl class="dl-horizontal">
-                <h3>¿Está seguro que desea eliminar esto?</h3>
+
                 <dt>
-                    @Html.DisplayNameFor(model => model.Contrasenna)
+                    @Html.LabelFor(model => model.Contrasenna, "Contraseña", htmlAttributes: new { @class = "central-align", @style = "font-size:20px; color:black;" })
                 </dt>
 
                 <dd>
-                    @Html.EditorFor(model => model.Contrasenna, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
+                    @Html.EditorFor(model => model.Contrasenna, new { htmlAttributes = new { @class = "black-text", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
+                    @Html.LabelFor(model => model.Usuarios.Nombre_Completo, "Nombre Completo", htmlAttributes: new { @class = "central-align", @style = "font-size:20px; color:black;" })
+
                 </dt>
 
                 <dd>
-                    @Html.EditorFor(model => model.Usuarios.Nombre_Completo, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
+                    @Html.EditorFor(model => model.Usuarios.Nombre_Completo, new { htmlAttributes = new { @class = "black-text", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
                 </dd>
 
             </dl>
@@ -36,12 +37,12 @@
             {
                 @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
+                <div class="form-actions no-color">
+                        
+                    <input type="submit" value="Eliminar" class="waves-button-input btn-small light-blue darken-2  white-text" /> |
+                    @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
 
-            <input type="submit" value="Delete" class="waves-button-input btn-small light-blue darken-2  white-text" /> |
-            @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
-
-        </div>
+                </div>
             }
 
 

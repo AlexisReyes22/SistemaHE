@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Cuentas</h2>
 
 @using (Html.BeginForm())
 {
@@ -13,20 +13,21 @@
 
         <div class="Contenido">
             <div class="form-horizontal">
-                <p>Cuentas</p>
+                <p>Editar</p>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.ID_Cuenta)
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Identificacion, "Identificacion", htmlAttributes: new { @class = "central-align", @style = "font-size:20px; color:black;" })
+                    @Html.LabelFor(model => model.Identificacion, "Identificación", htmlAttributes: new { @class = "central-align", @style = "font-size:20px; color:black;" })
                     <div class="col-md-10">
                         @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn light-blue draken-2  " })
                         @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Contrasenna, htmlAttributes: new { @class = "central-align", @style = "font-size:20px; color:black;" })
+                    @Html.LabelFor(model => model.Identificacion, "Contraseña", htmlAttributes: new { @class = "central-align", @style = "font-size:20px; color:black;" })
+
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Contrasenna, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;" } })
                         @Html.ValidationMessageFor(model => model.Contrasenna, "", new { @class = "text-danger" })
@@ -37,10 +38,10 @@
             </div>
             <div id="pagina">
 
-                <input type="submit" value="Save" class="waves-button-input btn-small light-blue darken-2 white-text" />
+                <input type="submit" value="Guardar" class="waves-button-input btn-small light-blue darken-2 white-text" />
 
 
-                @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
 
             </div>
         </div>
