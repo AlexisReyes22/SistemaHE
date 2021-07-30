@@ -36,14 +36,16 @@
 #H3 {
     width: 100%;
     height: 10%;
-    position: relative;
+    position: sticky !important;
     float: left;
     font-size: x-large;
+    top: 0; /* required */
 }
 
 nav ul a {
     font-size: x-large !important;
 }
+
 
 #H3 ul {
     width: 90%;
