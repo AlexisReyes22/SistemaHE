@@ -16,10 +16,11 @@
         <div class="ContenidoL">
 
             <h3>Editar</h3>
-       
+
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Identificacion)
-            <div id="formula">
+        <div class="row">
+            <div id="formula" class="col s6">
 
                 @Html.LabelFor(model => model.Nombre_Completo, "Nombre Completo", htmlAttributes: new { @class = "" })
 
@@ -44,7 +45,8 @@
                 @Html.EditorFor(model => model.Telefono_Residencial, new { htmlAttributes = new { @class = "" } })
                 @Html.ValidationMessageFor(model => model.Telefono_Residencial, "", new { @class = "text-danger" })
 
-
+            </div>
+            <div id="formula" class="col s6">
                 @Html.LabelFor(model => model.Telefono_Celular, "Teléfono Celular", htmlAttributes: new { @class = "" })
 
                 @Html.EditorFor(model => model.Telefono_Celular, new { htmlAttributes = new { @class = "" } })
@@ -61,6 +63,7 @@
                 @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
 
             </div>
+        </div>
             <div id="pagina">
 
                 <input type="submit" value="Guardar" class="waves-button-input btn-small" />

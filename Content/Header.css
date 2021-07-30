@@ -6,62 +6,63 @@
 
 
 #H1 {
-
-    background-color:lightgray;
-    height:10px;
+    background-color: lightgray;
+    height: 10px;
 }
-#H1 nav a {
 
-}
+    #H1 nav a {
+    }
 
 #H2 nav {
-    position:relative;
-    float:left;
+    position: relative;
+    float: left;
     height: 10%;
     float: left;
-    font-size: 2px;
+    font-size: x-large;
 }
 
-#H2  {
-    width:100%;
-    position: relative;
-    float: left;
-
-}
-
-#H2 a img {
-    left:5%;
+#H2 {
+    width: 100%;
     position: relative;
     float: left;
 }
+
+    #H2 a img {
+        left: 5%;
+        position: relative;
+        float: left;
+    }
 
 #H3 {
     width: 100%;
-    height:10%;
+    height: 10%;
     position: relative;
     float: left;
+    font-size: x-large;
 }
 
-    #H3 ul {
-        width: 90%;
-        height: 20%;
-        position: relative;
-        float: left;
-        font-weight: bold;
-    }
-
-
-
-nav a  {
-
-    left:200px
+nav ul a {
+    font-size: x-large !important;
 }
 
-nav a img {
-    height: 100px;
+#H3 ul {
+    width: 90%;
+    height: 20%;
+    position: relative;
     float: left;
-    
+    font-weight: bold;
 }
+
+
+
+nav a {
+    left: 200px
+}
+
+    nav a img {
+        height: 100px;
+        float: left;
+    }
 
 
 
@@ -70,16 +71,12 @@ nav a img {
 @media only screen and (max-width: 768px) {
 
     #H3 ul {
-     width: 100%;
-     position: relative;
-     float: left;
-     font-weight:bold;
-
-    }
-    #H3 ul li {
-
-             
-       
+        width: 100%;
+        position: relative;
+        float: left;
+        font-weight: bold;
     }
 
+        #H3 ul li {
+        }
 }

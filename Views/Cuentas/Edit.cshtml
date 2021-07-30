@@ -4,44 +4,49 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Cuentas</h2>
+<div id="textoH">
+    <br />
+    <h2>Cuentas</h2>
+</div>
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div id="Content">
+    <div id="ContentL">
 
-        <div class="Contenido">
-            <div class="form-horizontal">
-                <p>Editar</p>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.ID_Cuenta)
+        <div class="ContenidoL">
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Identificacion, "Identificación", htmlAttributes: new { @class = "central-align", @style = "font-size:20px; color:black;" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn light-blue draken-2  " })
-                        @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
-                    </div>
+            <h3>Editar</h3>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID_Cuenta)
+
+            <div class="row">
+                <div id="formula" class="col l6">
+                    @Html.LabelFor(model => model.Identificacion, "Identificación")
+
+                    @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn-small" })
+                    @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Identificacion, "Contraseña", htmlAttributes: new { @class = "central-align", @style = "font-size:20px; color:black;" })
 
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Contrasenna, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;" } })
-                        @Html.ValidationMessageFor(model => model.Contrasenna, "", new { @class = "text-danger" })
-                    </div>
+                <div id="formula" class="col l6">
+
+                    @Html.LabelFor(model => model.Identificacion, "Contraseña")
+
+
+                    @Html.EditorFor(model => model.Contrasenna)
+
                 </div>
 
 
             </div>
             <div id="pagina">
 
-                <input type="submit" value="Guardar" class="waves-button-input btn-small light-blue darken-2 white-text" />
+                <input type="submit" value="Guardar" class="waves-button-input btn-small" />
 
 
-                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small" })
 
             </div>
         </div>
