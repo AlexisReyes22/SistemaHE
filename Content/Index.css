@@ -26,9 +26,9 @@ table {
         background-color: #03a9f4;
         border: 1px solid #03a9f4;
         color: white;
-        font-weight: bold;
-        font-size: medium;
+        font-weight: bold;    
         padding: 20px;
+        font-size:20px;
     }
 
 
@@ -39,4 +39,10 @@ table {
 td a {
     font-weight: bold;
     text-shadow: 2px 2px 4px white;
+}
+
+td {
+    
+    font-size:17px;
+
 }

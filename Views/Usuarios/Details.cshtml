@@ -3,9 +3,12 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="textoH">
+
 <div id="textoH">
     <br />
     <h2>Usuario</h2>
+</div>
 
 </div>
 
@@ -14,77 +17,66 @@
 
     <div id="ContentL">
         <div class="ContenidoL">
+            <h3 >Detalles</h3>
 
-            <p>Detalles</p>
-            <hr />
-            <dl class="form-horizontal">
-                <div class="form-group">
-                    <dt>
-                        Nombre Completo
-                    </dt>
+            <div class="row">
+                <div id="formula" class="col s6">
+
+                    @*<dl class="form-horizontal">*@
+                    @Html.LabelFor(model => model.Nombre_Completo, "Nombre Completo", htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+                    @Html.LabelFor(model => model.Jefe_Inmediato, "Jefe Inmediato", htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Jefe_Inmediato, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+                    @Html.LabelFor(model => model.Edad, htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+                    @Html.LabelFor(model => model.Telefono_Residencial, "Teléfono Residencial", htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Telefono_Residencial, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
                 </div>
 
-                <dd>
-                    @Html.EditorFor(model => model.Nombre_Completo, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
-                </dd>
 
-                <dt>
-                    Jefe Inmediato
-                </dt>
 
-                <dd>
-                    @Html.EditorFor(model => model.Jefe_Inmediato, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
-                </dd>
+                <div id="formula" class="col s6">
 
-                <dt>
-                    Edad
-                </dt>
 
-                <dd>
-                    @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
-                </dd>
 
-                <dt>
-                    Teléfono Residencial
-                </dt>
+                    @Html.LabelFor(model => model.Departamento, "Departamento", htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
 
-                <dd>
-                    @Html.EditorFor(model => model.Telefono_Residencial, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
-                </dd>
 
-                <dt>
-                    Teléfono Celular
-                </dt>
 
-                <dd>
-                    @Html.EditorFor(model => model.Telefono_Celular, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
-                </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Departamento)
-                </dt>
 
-                <dd>
-                    @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
-                </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Rol)
-                </dt>
+                    @Html.LabelFor(model => model.Rol, "Rol", htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
 
-                <dd>
-                    @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
-                </dd>
 
-            </dl>
 
-            <p id="pagina">
-                @Html.ActionLink("Editar", "Edit", new { id = Model.Identificacion }, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" }) |
-                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
-            </p>
+
+                </div>
+
+
+
+
+                @*</dl>*@
+            </div>
+                <p id="pagina">
+                    @Html.ActionLink("Editar", "Edit", new { id = Model.Identificacion }, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" }) |
+                    @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+                </p>
+
+            </div>
+        </div>
 
         </div>
-    </div>
-
-</div>
 

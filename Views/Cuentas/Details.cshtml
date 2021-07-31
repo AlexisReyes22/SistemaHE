@@ -4,33 +4,31 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Cuentas</h2>
+<div id="textoH">
+    <br />
+    <h2>Cuentas</h2>
+</div>
 
 <div>
 
-    <hr />
-    <div id="ContentD">
-        <div class="ContenidoD">
-            <p id="tecto">Detalles</p>
+    <div id="ContentL">
+        <div class="ContenidoL">
+            <h3>Detalles</h3>
 
-            <dl class="dl-horizontal">
-                <dt>
-                    Contraseña
-                </dt>
+            <div class="row">
 
-                <dd>
-                    @Html.DisplayFor(model => model.Contrasenna)
-                </dd>
 
-                <dt>
-                    Nombre Completo
-                </dt>
+                <div id="formula" class="col l6">
+                    @Html.LabelFor(model => model.Usuarios.Nombre_Completo, "Nombre Completo")
+                    @Html.EditorFor(model => model.Usuarios.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+                  
+                    @Html.LabelFor(model => model.Identificacion, "Contraseña")
+                    @Html.EditorFor(model => model.Contrasenna, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
 
-                <dd>
-                    @Html.DisplayFor(model => model.Usuarios.Nombre_Completo)
-                </dd>
+                </div>
 
-            </dl>
+
+            </div>
 
             <p id="pagina">
                 @Html.ActionLink("Editar", "Edit", new { id = Model.ID_Cuenta }, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" }) |
