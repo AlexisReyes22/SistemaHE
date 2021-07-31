@@ -34,12 +34,12 @@ body {
     background-color: #fff;
     font-family: Roboto;
     -webkit-font-smoothing: subpixel-antialiased;
-    font-size: x-large;
+    
 }
 
 h1 {
     font-weight: 400;
-    font-size: x-large;
+    
 }
 
 h2 {
@@ -52,6 +52,7 @@ h3 {
     width: 100%;
     text-align: left;
     font-weight: 700;
+    font-size:30px;
 }
 
 #textoH {
@@ -85,7 +86,7 @@ h3 {
     float: left;
     height: 60%;
     position: relative;
-    font-size: x-large;
+    
     /*increase width as per your need*/
 }
 
@@ -95,7 +96,7 @@ h3 {
     background-color: #37474F;
     clear: both;
     position: relative;
-    top: 300px;
+    top: 150px;
     margin-bottom: -200px;
     float: left;
 }
