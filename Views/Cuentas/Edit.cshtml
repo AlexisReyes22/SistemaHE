@@ -18,27 +18,28 @@
         <div class="ContenidoL">
 
             <h3>Editar</h3>
+            <div id="formula">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID_Cuenta)
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.ID_Cuenta)
+                <div class="row">
+                    <div class="col l6">
+                        @Html.LabelFor(model => model.Identificacion, "Identificación")
 
-            <div class="row">
-                <div id="formula" class="col l6">
-                    @Html.LabelFor(model => model.Identificacion, "Identificación")
+                        @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn-small" })
+                        @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
+                    </div>
 
-                    @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn-small" })
-                    @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
+                    <div class="col l6">
+
+                        @Html.LabelFor(model => model.Identificacion, "Contraseña")
+
+
+                        @Html.EditorFor(model => model.Contrasenna)
+
+                    </div>
+
                 </div>
-
-                <div id="formula" class="col l6">
-
-                    @Html.LabelFor(model => model.Identificacion, "Contraseña")
-
-
-                    @Html.EditorFor(model => model.Contrasenna)
-
-                </div>
-
 
             </div>
             <div id="pagina">

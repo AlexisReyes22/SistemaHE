@@ -33,6 +33,11 @@
         border-radius: 5px;
     }
 
+    .ContenidoL #pagina {
+
+        padding:10px
+    }
+
 
 #formula select {
     background-color: #03a9f4;
@@ -58,7 +63,7 @@
     margin: auto;
     border: none;
     background-color: #03a9f4;
-    font-size: x-large;
+    font-size: medium;
     font-weight: 500;
     height: 60px;
     border-radius: 5px;

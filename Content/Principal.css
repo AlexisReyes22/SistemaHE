@@ -55,18 +55,12 @@
 
 
 /*-----------------------------------------------*/
-body{
-    background-color:white;
-}
-* {
-    padding: 0;
-    margin: 0;
-}
+
+
 
 #log {
     position: relative;
     z-index: 0;
-    
     width: 30%;
     bottom: 530px;
     left: 280px;
@@ -75,7 +69,7 @@ body{
 }
 
 #Ban h1 {
-
+    font-size: 25px;
 }
 #content{
     width:100%;
@@ -98,7 +92,7 @@ body{
 #fondo{
    
     height:60em;
-    width:100%;
+    width:100%; 
     background-color:white;
 }
 
@@ -249,7 +243,7 @@ font-size:15px;
 
 
     #Ban h1 {
-
+        font-size: 25px;
     }
 
     #titulo h1 {

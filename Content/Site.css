@@ -23,7 +23,10 @@ textarea {
     max-width: 280px;
 }*/
 
-
+* {
+    padding: 0;
+    margin: 0;
+}
 
 
 body {
@@ -34,12 +37,12 @@ body {
     background-color: #fff;
     font-family: Roboto;
     -webkit-font-smoothing: subpixel-antialiased;
-    font-size: x-large;
+    font-size: small;
 }
 
 h1 {
     font-weight: 400;
-    font-size: x-large;
+    font-size: small;
 }
 
 h2 {
@@ -85,7 +88,7 @@ h3 {
     float: left;
     height: 60%;
     position: relative;
-    font-size: x-large;
+    font-size: 20px;
     /*increase width as per your need*/
 }
 

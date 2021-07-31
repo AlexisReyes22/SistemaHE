@@ -22,6 +22,7 @@ namespace SistemaHE.Models
             this.SolicitudPersonal = new HashSet<SolicitudPersonal>();
         }
     
+
         public int ID_Tarea { get; set; }
         public int Jefe_Asignado { get; set; }
         public Nullable<int> UsuarioAsigando1 { get; set; }
