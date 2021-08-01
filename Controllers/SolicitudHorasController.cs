@@ -18,6 +18,8 @@ namespace SistemaHE.Controllers
         public ActionResult Index()
         {
             var solicitudHoras = db.SolicitudHoras.Include(s => s.Usuarios).Include(s => s.Usuarios1).Include(s => s.Usuarios2).Include(s => s.Tareas).Include(s => s.Usuarios3).Include(s => s.Usuarios4);
+    
+
             return View(solicitudHoras.ToList());
         }
 
