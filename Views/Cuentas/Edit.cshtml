@@ -26,7 +26,7 @@
                     <div class="col l6">
                         @Html.LabelFor(model => model.Identificacion, "Identificación")
 
-                        @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn-small" })
+                        @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
                         @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
                     </div>
 

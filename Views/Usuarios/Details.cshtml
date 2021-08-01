@@ -1,82 +1,80 @@
 ﻿@model SistemaHE.Models.Usuarios
 
-@{
-    ViewBag.Title = "Details";
-}
-<div class="textoH">
+@{ ViewBag.Title = "Details"; }
+
 
 <div id="textoH">
     <br />
     <h2>Usuario</h2>
 </div>
 
-</div>
-
-<div>
-
-
-    <div id="ContentL">
-        <div class="ContenidoL">
-            <h3 >Detalles</h3>
-
-            <div class="row">
-                <div id="formula" class="col s6">
-
-                    @*<dl class="form-horizontal">*@
-                    @Html.LabelFor(model => model.Nombre_Completo, "Nombre Completo", htmlAttributes: new { @class = "" })
-                    @Html.EditorFor(model => model.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
-
-
-
-                    @Html.LabelFor(model => model.Jefe_Inmediato, "Jefe Inmediato", htmlAttributes: new { @class = "" })
-                    @Html.EditorFor(model => model.Jefe_Inmediato, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
-
-
-                    @Html.LabelFor(model => model.Edad, htmlAttributes: new { @class = "" })
-                    @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
-
-
-                    @Html.LabelFor(model => model.Telefono_Residencial, "Teléfono Residencial", htmlAttributes: new { @class = "" })
-                    @Html.EditorFor(model => model.Telefono_Residencial, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
-
-
-
-                </div>
-
-
-
-                <div id="formula" class="col s6">
-
-
-
-                    @Html.LabelFor(model => model.Departamento, "Departamento", htmlAttributes: new { @class = "" })
-                    @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
 
 
 
 
 
-
-                    @Html.LabelFor(model => model.Rol, "Rol", htmlAttributes: new { @class = "" })
-                    @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
-
-
-
-
-                </div>
+<div id="ContentL">
+    <div class="ContenidoL">
+        <h3>Detalles</h3>
+        <hr />
+        <div class="row">
+            <div id="formula" class="col s6">
 
 
+                @Html.LabelFor(model => model.Nombre_Completo, "Nombre Completo")
+                @Html.EditorFor(model => model.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
 
 
-                @*</dl>*@
-            </div>
-                <p id="pagina">
-                    @Html.ActionLink("Editar", "Edit", new { id = Model.Identificacion }, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" }) |
-                    @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
-                </p>
+
+                @Html.LabelFor(model => model.Jefe_Inmediato, "Jefe Inmediato")
+                @Html.EditorFor(model => model.Jefe_Inmediato, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+                @Html.LabelFor(model => model.Edad, htmlAttributes: new { @class = "" })
+                @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+                @Html.LabelFor(model => model.Telefono_Residencial, "Teléfono Residencial")
+                @Html.EditorFor(model => model.Telefono_Residencial, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
 
             </div>
+
+
+
+            <div id="formula" class="col s6">
+
+
+
+                @Html.LabelFor(model => model.Departamento, "Departamento", htmlAttributes: new { @class = "" })
+                @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+
+
+
+                @Html.LabelFor(model => model.Rol, "Rol", htmlAttributes: new { @class = "" })
+                @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+
+            </div>
+
+
+
+
+
         </div>
+        <div id="pagina">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Identificacion }, htmlAttributes: new { @class = "waves-button-input btn-small " })
+            @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
+        </div>
+
+    </div>
+</div>
 
         </div>
 

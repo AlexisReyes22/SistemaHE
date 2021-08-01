@@ -6,87 +6,68 @@
 <div id="textoH">
     <br />
     <h2>Usuarios</h2>
-
-
 </div>
-
-
-<div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
     <div id="ContentL">
+
         <div class="ContenidoL">
+
             <h3>¿Está seguro que desea eliminar esto?</h3>
-            <hr />
-            <dl id="">
-                <dt>
-                    Nombre Completo
-                </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Nombre_Completo, new { htmlAttributes = new { @class = "form", @style = " color: white;" } })
-                </dd>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Identificacion)
+            <div class="row">
+                <div id="formula" class="col s6">
 
-                <dt>
-                    Jefe Inmediato
-                </dt>
+                    @Html.LabelFor(model => model.Nombre_Completo, "Nombre Completo", htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Nombre_Completo, new { htmlAttributes = new { disabled = "disabled" } })
 
-                <dd>
-                    @Html.DisplayFor(model => model.Jefe_Inmediato)
-                </dd>
+                    @Html.LabelFor(model => model.Jefe_Inmediato, "Jefe Inmediato", htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Jefe_Inmediato, new { htmlAttributes = new { disabled = "disabled" } })
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Edad)
-                </dt>
+                    @Html.LabelFor(model => model.Edad, htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { disabled = "disabled" } })
 
-                <dd>
-                    @Html.DisplayFor(model => model.Edad)
-                </dd>
+                    @Html.LabelFor(model => model.Telefono_Residencial, "Teléfono Residencial", htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Telefono_Residencial, new { htmlAttributes = new { disabled = "disabled" } })
 
-                <dt>
-                    Teléfono Residencial
-                </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Telefono_Residencial)
-                </dd>
 
-                <dt>
-                    Teléfono Celular
-                </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Telefono_Celular)
-                </dd>
+                </div>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Departamento)
-                </dt>
+                <div id="formula" class="col s6">
 
-                <dd>
-                    @Html.DisplayFor(model => model.Departamento)
-                </dd>
+                    @Html.LabelFor(model => model.Telefono_Celular, "Teléfono Celular", htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Telefono_Celular, new { htmlAttributes = new { disabled = "disabled" } })
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Rol)
-                </dt>
+                    @Html.LabelFor(model => model.Departamento, htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { disabled = "disabled" } })
 
-                <dd>
-                    @Html.DisplayFor(model => model.Rol)
-                </dd>
+                    @Html.LabelFor(model => model.Rol, htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { disabled = "disabled" } })
 
-            </dl>
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
 
-                <p id="pagina">
-                    @Html.ActionLink("Eliminar", "Edit", new { id = Model.Identificacion }, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" }) |
-                    @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
-                </p>
 
-            }
+
+
+
+
+                </div>
+            </div>
+
+
+            <div id="pagina">
+                @Html.ActionLink("Eliminar", "Edit", new { id = Model.Identificacion }, htmlAttributes: new { @class = "waves-button-input btn-small" })
+                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
+            </div>
+
         </div>
 
     </div>
+}
 
-</div>
+
