@@ -13,6 +13,7 @@
     float: left;
     height: 10%;
     float: left;
+    z-index:100
  
 }
 
@@ -27,11 +28,17 @@
         position: relative;
         float: left;
     }
-
+    .nav-wrapper{
+        width:50%;
+        left:100px
+    }
 #H3 {
+    border:none;
+   
+ 
     width: 100%;
     height: 20%;
-    position: sticky !important;
+    position: relative;
     float: left;
     
     top: 0; /* required */
