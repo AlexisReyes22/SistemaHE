@@ -13,6 +13,7 @@
     float: left;
     height: 10%;
     float: left;
+    z-index:100;
  
 }
 
@@ -98,7 +99,7 @@ nav a {
 
     .menu li {
        
-    
+        
         float: left;
         text-align: center;
         vertical-align: central;
@@ -139,7 +140,10 @@ nav a {
         }
 
 
-
+.nav-wrapper {
+   width:50%;
+   left:100px;
+}
     .menu ul {
         width: 100%;
         position: relative;
