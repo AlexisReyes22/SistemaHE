@@ -10,110 +10,107 @@ using SistemaHE.Models;
 
 namespace SistemaHE.Controllers
 {
-    public class UsuariosController : Controller
+    public class DepartamentosController : Controller
     {
         private SitiosWebEntities db = new SitiosWebEntities();
 
-        // GET: Usuarios
+        // GET: Departamentos
         public ActionResult Index()
         {
-            return View(db.Usuarios.ToList());
+            return View(db.Departamentos.ToList());
         }
 
-        // GET: Usuarios/Details/5
+        // GET: Departamentos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
+            Departamentos departamentos = db.Departamentos.Find(id);
+            if (departamentos == null)
             {
                 return HttpNotFound();
             }
-            return View(usuarios);
+            return View(departamentos);
         }
 
-        // GET: Usuarios/Create
+        // GET: Departamentos/Create
         public ActionResult Create()
         {
-
             return View();
         }
 
-        // POST: Usuarios/Create
+        // POST: Departamentos/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Identificacion,Nombre_Completo,Jefe_Inmediato,Edad,Telefono_Residencial,Telefono_Celular,Departamento,Rol")] Usuarios usuarios)
+        public ActionResult Create([Bind(Include = "ID_Departamento,Nombre_Departamento")] Departamentos departamentos)
         {
             if (ModelState.IsValid)
             {
-                db.Usuarios.Add(usuarios);
+                db.Departamentos.Add(departamentos);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(usuarios);
+            return View(departamentos);
         }
 
-        // GET: Usuarios/Edit/5
+        // GET: Departamentos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
+            Departamentos departamentos = db.Departamentos.Find(id);
+            if (departamentos == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Departamento = new SelectList(db.Departamentos, "ID_Departamento", "Nombre_Departamento");
-
-            return View(usuarios);
+            return View(departamentos);
         }
 
-        // POST: Usuarios/Edit/5
+        // POST: Departamentos/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Identificacion,Nombre_Completo,Jefe_Inmediato,Edad,Telefono_Residencial,Telefono_Celular,Departamento,Rol")] Usuarios usuarios)
+        public ActionResult Edit([Bind(Include = "ID_Departamento,Nombre_Departamento")] Departamentos departamentos)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuarios).State = EntityState.Modified;
+                db.Entry(departamentos).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(usuarios);
+            return View(departamentos);
         }
 
-        // GET: Usuarios/Delete/5
+        // GET: Departamentos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
+            Departamentos departamentos = db.Departamentos.Find(id);
+            if (departamentos == null)
             {
                 return HttpNotFound();
             }
-            return View(usuarios);
+            return View(departamentos);
         }
 
-        // POST: Usuarios/Delete/5
+        // POST: Departamentos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Usuarios usuarios = db.Usuarios.Find(id);
-            db.Usuarios.Remove(usuarios);
+            Departamentos departamentos = db.Departamentos.Find(id);
+            db.Departamentos.Remove(departamentos);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

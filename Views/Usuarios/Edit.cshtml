@@ -58,7 +58,9 @@
 
                     @Html.LabelFor(model => model.Departamento, htmlAttributes: new { @class = "" })
 
-                    @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { @class = "" } })
+             
+                    @Html.DropDownList("Departamento", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+
 
                     @Html.ValidationMessageFor(model => model.Departamento, "", new { @class = "text-danger" })
 

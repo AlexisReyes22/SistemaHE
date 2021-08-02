@@ -1,0 +1,26 @@
+﻿@model SistemaHE.Models.Departamentos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Departamentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Departamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Departamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Departamento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

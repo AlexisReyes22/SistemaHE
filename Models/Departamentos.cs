@@ -12,12 +12,9 @@ namespace SistemaHE.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Departamento
+    public partial class Departamentos
     {
         public int ID_Departamento { get; set; }
-        public int Identificacion { get; set; }
         public string Nombre_Departamento { get; set; }
-    
-        public virtual Usuarios Usuarios { get; set; }
     }
 }

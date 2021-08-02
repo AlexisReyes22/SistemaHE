@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="16011a10e7134ab09889530eb4a042dc" Name="Diagram1">
         <EntityTypeShape EntityType="SitiosWebModel.Cuentas" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SitiosWebModel.Departamento" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SitiosWebModel.EvidenciasPorDia" Width="1.5" PointX="5.25" PointY="20.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SitiosWebModel.Rol" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SitiosWebModel.SolicitudHoras" Width="1.5" PointX="8.25" PointY="19.375" IsExpanded="true" />
@@ -14,7 +13,6 @@
         <EntityTypeShape EntityType="SitiosWebModel.Tareas" Width="1.5" PointX="3" PointY="28.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SitiosWebModel.Usuarios" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <AssociationConnector Association="SitiosWebModel.FK__Cuentas__Identif__2739D489" ManuallyRouted="false" />
-        <AssociationConnector Association="SitiosWebModel.FK__Departame__Ident__498EEC8D" ManuallyRouted="false" />
         <AssociationConnector Association="SitiosWebModel.FK__Evidencia__ID_Ta__43D61337" ManuallyRouted="false" />
         <AssociationConnector Association="SitiosWebModel.FK__Evidencia__Ident__42E1EEFE" ManuallyRouted="false" />
         <AssociationConnector Association="SitiosWebModel.FK__Rol__Identificac__46B27FE2" ManuallyRouted="false" />
@@ -34,6 +32,7 @@
         <AssociationConnector Association="SitiosWebModel.FK__Tareas__UsuarioA__2EDAF651" ManuallyRouted="false" />
         <AssociationConnector Association="SitiosWebModel.FK__Tareas__UsuarioA__2FCF1A8A" ManuallyRouted="false" />
         <AssociationConnector Association="SitiosWebModel.FK__Tareas__UsuarioA__30C33EC3" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SitiosWebModel.Departamentos" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

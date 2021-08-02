@@ -18,7 +18,6 @@ namespace SistemaHE.Models
         public Usuarios()
         {
             this.Cuentas = new HashSet<Cuentas>();
-            this.Departamento1 = new HashSet<Departamento>();
             this.EvidenciasPorDia = new HashSet<EvidenciasPorDia>();
             this.Rol1 = new HashSet<Rol>();
             this.SolicitudHoras = new HashSet<SolicitudHoras>();
@@ -48,8 +47,6 @@ namespace SistemaHE.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cuentas> Cuentas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Departamento> Departamento1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EvidenciasPorDia> EvidenciasPorDia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

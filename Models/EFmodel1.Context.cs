@@ -28,13 +28,13 @@ namespace SistemaHE.Models
         }
     
         public virtual DbSet<Cuentas> Cuentas { get; set; }
-        public virtual DbSet<Departamento> Departamento { get; set; }
         public virtual DbSet<EvidenciasPorDia> EvidenciasPorDia { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<SolicitudHoras> SolicitudHoras { get; set; }
         public virtual DbSet<SolicitudPersonal> SolicitudPersonal { get; set; }
         public virtual DbSet<Tareas> Tareas { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Departamentos> Departamentos { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -137,6 +137,56 @@ namespace SistemaHE.Models
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int SP_CrearSolicitudDeAumentoDePersonal_EmpleadoAJefe(Nullable<int> cedula_Solicitante, Nullable<int> cantidadDePersonas, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFinal, Nullable<int> iD_Tarea)
+        {
+            var cedula_SolicitanteParameter = cedula_Solicitante.HasValue ?
+                new ObjectParameter("Cedula_Solicitante", cedula_Solicitante) :
+                new ObjectParameter("Cedula_Solicitante", typeof(int));
+    
+            var cantidadDePersonasParameter = cantidadDePersonas.HasValue ?
+                new ObjectParameter("CantidadDePersonas", cantidadDePersonas) :
+                new ObjectParameter("CantidadDePersonas", typeof(int));
+    
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var iD_TareaParameter = iD_Tarea.HasValue ?
+                new ObjectParameter("ID_Tarea", iD_Tarea) :
+                new ObjectParameter("ID_Tarea", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CrearSolicitudDeAumentoDePersonal_EmpleadoAJefe", cedula_SolicitanteParameter, cantidadDePersonasParameter, fechaInicioParameter, fechaFinalParameter, iD_TareaParameter);
+        }
+    
+        public virtual int SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe(Nullable<int> cedula_Solicitante, Nullable<int> horas, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFinal, Nullable<int> iD_Tarea)
+        {
+            var cedula_SolicitanteParameter = cedula_Solicitante.HasValue ?
+                new ObjectParameter("Cedula_Solicitante", cedula_Solicitante) :
+                new ObjectParameter("Cedula_Solicitante", typeof(int));
+    
+            var horasParameter = horas.HasValue ?
+                new ObjectParameter("Horas", horas) :
+                new ObjectParameter("Horas", typeof(int));
+    
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var iD_TareaParameter = iD_Tarea.HasValue ?
+                new ObjectParameter("ID_Tarea", iD_Tarea) :
+                new ObjectParameter("ID_Tarea", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe", cedula_SolicitanteParameter, horasParameter, fechaInicioParameter, fechaFinalParameter, iD_TareaParameter);
         }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SitiosWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SitiosWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cuentas">
           <Key>
             <PropertyRef Name="ID_Cuenta" />
@@ -13,12 +13,11 @@
           <Property Name="Identificacion" Type="int" />
           <Property Name="Contrasenna" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="Departamento">
+        <EntityType Name="Departamentos">
           <Key>
             <PropertyRef Name="ID_Departamento" />
           </Key>
           <Property Name="ID_Departamento" Type="int" Nullable="false" />
-          <Property Name="Identificacion" Type="int" Nullable="false" />
           <Property Name="Nombre_Departamento" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="EvidenciasPorDia">
@@ -99,18 +98,6 @@
               <PropertyRef Name="Identificacion" />
             </Principal>
             <Dependent Role="Cuentas">
-              <PropertyRef Name="Identificacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Departame__Ident__498EEC8D">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-          <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="Identificacion" />
-            </Principal>
-            <Dependent Role="Departamento">
               <PropertyRef Name="Identificacion" />
             </Dependent>
           </ReferentialConstraint>
@@ -350,6 +337,20 @@
           <Parameter Name="version" Type="int" Mode="In" />
           <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
         </Function>
+        <Function Name="SP_CrearSolicitudDeAumentoDePersonal_EmpleadoAJefe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cedula_Solicitante" Type="int" Mode="In" />
+          <Parameter Name="CantidadDePersonas" Type="int" Mode="In" />
+          <Parameter Name="FechaInicio" Type="date" Mode="In" />
+          <Parameter Name="FechaFinal" Type="date" Mode="In" />
+          <Parameter Name="ID_Tarea" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cedula_Solicitante" Type="int" Mode="In" />
+          <Parameter Name="Horas" Type="int" Mode="In" />
+          <Parameter Name="FechaInicio" Type="date" Mode="In" />
+          <Parameter Name="FechaFinal" Type="date" Mode="In" />
+          <Parameter Name="ID_Tarea" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -376,7 +377,7 @@
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="SitiosWebModelStoreContainer">
           <EntitySet Name="Cuentas" EntityType="Self.Cuentas" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EvidenciasPorDia" EntityType="Self.EvidenciasPorDia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SolicitudHoras" EntityType="Self.SolicitudHoras" Schema="dbo" store:Type="Tables" />
@@ -386,10 +387,6 @@
           <AssociationSet Name="FK__Cuentas__Identif__2739D489" Association="Self.FK__Cuentas__Identif__2739D489">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Cuentas" EntitySet="Cuentas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Departame__Ident__498EEC8D" Association="Self.FK__Departame__Ident__498EEC8D">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Departamento" EntitySet="Departamento" />
           </AssociationSet>
           <AssociationSet Name="FK__Evidencia__ID_Ta__43D61337" Association="Self.FK__Evidencia__ID_Ta__43D61337">
             <End Role="Tareas" EntitySet="Tareas" />
@@ -468,8 +465,7 @@
             <End Role="Tareas" EntitySet="Tareas" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SitiosWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -481,15 +477,6 @@
           <Property Name="Identificacion" Type="Int32" />
           <Property Name="Contrasenna" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK__Cuentas__Identif__2739D489" FromRole="Cuentas" ToRole="Usuarios" />
-        </EntityType>
-        <EntityType Name="Departamento">
-          <Key>
-            <PropertyRef Name="ID_Departamento" />
-          </Key>
-          <Property Name="ID_Departamento" Type="Int32" Nullable="false" />
-          <Property Name="Identificacion" Type="Int32" Nullable="false" />
-          <Property Name="Nombre_Departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Departame__Ident__498EEC8D" FromRole="Departamento" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="EvidenciasPorDia">
           <Key>
@@ -583,7 +570,6 @@
           <Property Name="Departamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Cuentas" Relationship="Self.FK__Cuentas__Identif__2739D489" FromRole="Usuarios" ToRole="Cuentas" />
-          <NavigationProperty Name="Departamento1" Relationship="Self.FK__Departame__Ident__498EEC8D" FromRole="Usuarios" ToRole="Departamento" />
           <NavigationProperty Name="EvidenciasPorDia" Relationship="Self.FK__Evidencia__Ident__42E1EEFE" FromRole="Usuarios" ToRole="EvidenciasPorDia" />
           <NavigationProperty Name="Rol1" Relationship="Self.FK__Rol__Identificac__46B27FE2" FromRole="Usuarios" ToRole="Rol" />
           <NavigationProperty Name="SolicitudHoras" Relationship="Self.FK__Solicitud__Desti__367C1819" FromRole="Usuarios" ToRole="SolicitudHoras" />
@@ -609,18 +595,6 @@
               <PropertyRef Name="Identificacion" />
             </Principal>
             <Dependent Role="Cuentas">
-              <PropertyRef Name="Identificacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Departame__Ident__498EEC8D">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-          <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="Identificacion" />
-            </Principal>
-            <Dependent Role="Departamento">
               <PropertyRef Name="Identificacion" />
             </Dependent>
           </ReferentialConstraint>
@@ -855,7 +829,6 @@
         </Association>
         <EntityContainer Name="SitiosWebEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cuentas" EntityType="Self.Cuentas" />
-          <EntitySet Name="Departamento" EntityType="Self.Departamento" />
           <EntitySet Name="EvidenciasPorDia" EntityType="Self.EvidenciasPorDia" />
           <EntitySet Name="Rol" EntityType="Self.Rol" />
           <EntitySet Name="SolicitudHoras" EntityType="Self.SolicitudHoras" />
@@ -865,10 +838,6 @@
           <AssociationSet Name="FK__Cuentas__Identif__2739D489" Association="Self.FK__Cuentas__Identif__2739D489">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Cuentas" EntitySet="Cuentas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Departame__Ident__498EEC8D" Association="Self.FK__Departame__Ident__498EEC8D">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Departamento" EntitySet="Departamento" />
           </AssociationSet>
           <AssociationSet Name="FK__Evidencia__ID_Ta__43D61337" Association="Self.FK__Evidencia__ID_Ta__43D61337">
             <End Role="Tareas" EntitySet="Tareas" />
@@ -976,6 +945,21 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="SP_CrearSolicitudDeAumentoDePersonal_EmpleadoAJefe">
+            <Parameter Name="Cedula_Solicitante" Mode="In" Type="Int32" />
+            <Parameter Name="CantidadDePersonas" Mode="In" Type="Int32" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="ID_Tarea" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe">
+            <Parameter Name="Cedula_Solicitante" Mode="In" Type="Int32" />
+            <Parameter Name="Horas" Mode="In" Type="Int32" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="ID_Tarea" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Departamentos" EntityType="SitiosWebModel.Departamentos" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -988,6 +972,13 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="ID_Departamento" />
+          </Key>
+          <Property Name="ID_Departamento" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1000,15 +991,6 @@
                 <ScalarProperty Name="ID_Cuenta" ColumnName="ID_Cuenta" />
                 <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
                 <ScalarProperty Name="Contrasenna" ColumnName="Contrasenna" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Departamento">
-            <EntityTypeMapping TypeName="SitiosWebModel.Departamento">
-              <MappingFragment StoreEntitySet="Departamento">
-                <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
-                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
-                <ScalarProperty Name="Nombre_Departamento" ColumnName="Nombre_Departamento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1112,6 +1094,16 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SitiosWebModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SitiosWebModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="SP_CrearSolicitudDeAumentoDePersonal_EmpleadoAJefe" FunctionName="SitiosWebModel.Store.SP_CrearSolicitudDeAumentoDePersonal_EmpleadoAJefe" />
+          <FunctionImportMapping FunctionImportName="SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe" FunctionName="SitiosWebModel.Store.SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe" />
+          <EntitySetMapping Name="Departamentos">
+            <EntityTypeMapping TypeName="SitiosWebModel.Departamentos">
+              <MappingFragment StoreEntitySet="Departamentos">
+                <ScalarProperty Name="Nombre_Departamento" ColumnName="Nombre_Departamento" />
+                <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
