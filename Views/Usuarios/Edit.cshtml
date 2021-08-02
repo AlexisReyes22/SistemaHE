@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div id="ContentL">
 
         <div class="ContenidoL">
@@ -63,7 +63,7 @@
 
 
                     @Html.ValidationMessageFor(model => model.Departamento, "", new { @class = "text-danger" })
-
+                    <br />
 
                     @Html.LabelFor(model => model.Rol, htmlAttributes: new { @class = "" })
 

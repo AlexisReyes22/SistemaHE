@@ -97,8 +97,8 @@ nav a {
 }
 
     .menu li {
-        margin-left: 15px;
-        height: 64px;
+       
+    
         float: left;
         text-align: center;
         vertical-align: central;
@@ -108,15 +108,21 @@ nav a {
 
         .menu li a {
             display: block;
-            width: 100%;
+           
             height: 100%;
             color: #fff;
             text-decoration: none;
-            left: 200px
+            left: 200px;
+            float:left
+            
         }
 
         .menu li span:hover {
             color: #24a3d8;
+          
+        }
+        .menu li i{
+            float:right
         }
 
         .menu li span:hover ~ i {
@@ -140,15 +146,18 @@ nav a {
     }
 
     .menu li > ul {
-        width: 160px;
+        width: 0px;
         position: relative;
-        top: 0px;
+     
         display: none;
     }
 
-    .menu li:hover ul {
-        display: block ;
+    .menu li:hover > ul {
+        display: block;
         z-index: 300;
+        text-decoration: none;
+      
+        
     }
 
     .menu li ul {
