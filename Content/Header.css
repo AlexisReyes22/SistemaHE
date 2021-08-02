@@ -110,6 +110,7 @@ nav a {
         text-align: center;
         vertical-align: central;
         line-height: 64px;
+
         
     }
 
@@ -133,10 +134,15 @@ nav a {
         }
 
         .menu li span:hover ~ i {
+
             color: #24a3d8;
             -ms-transform: rotate(180deg); /* IE 9 */
             -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
             transform: rotate(180deg);
+        }
+
+        .menu li i {
+         float:right;
         }
 
 
@@ -151,6 +157,7 @@ nav a {
         margin: 0;
         z-index: 200
     }
+
 
     .menu li > ul {
         width: 0px;
