@@ -20,13 +20,13 @@
         <div class="ContenidoL">
 
             <h3>Editar</h3>
-            <hr />
+
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.ID_Departamento)
 
             <div class="row">
                 <div id="formula" class="col s6">
-                    @Html.LabelFor(model => model.Nombre_Departamento, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Nombre_Departamento,"Nombre Departamento", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                     @Html.EditorFor(model => model.Nombre_Departamento, new { htmlAttributes = new { @class = "" } })

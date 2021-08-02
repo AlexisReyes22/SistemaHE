@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Create";
 }
-<div id="fondoH">
+<div id="textoH">
+    <br />
     <h2>Cuentas</h2>
 </div>
 @using (Html.BeginForm())
@@ -14,12 +15,12 @@
 
             <div class="form-horizontal">
 
-                <p>Agregar</p>
+                <h3>Agregar</h3>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     <div class="col-md-10">
-                        @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+                        @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn light-blue darken-2  white-text" })
                         @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
                     </div>
                 </div>

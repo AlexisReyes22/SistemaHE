@@ -17,17 +17,17 @@
     <div id="ContentL">
 
         <div class="ContenidoL">
-            <h3>Are you sure you want to delete this?</h3>
+            <h3>¿Está seguro que desea eliminar esto?</h3>
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Nombre_Departamento)
             <div class="row">
                 <div id="formula" class="col s6">
-                    @Html.DisplayNameFor(model => model.Nombre_Departamento)
+                    @Html.LabelFor(model => model.Nombre_Departamento, "Departamento")
 
                     @Html.EditorFor(model => model.Nombre_Departamento, new { htmlAttributes = new { disabled = "disabled" } })
 
 
-
+                    
 
 
 

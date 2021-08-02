@@ -4,55 +4,62 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Tareas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DetalleDeLaTarea)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DetalleDeLaTarea)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios.Nombre_Completo)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios1.Nombre_Completo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios1.Nombre_Completo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios2.Nombre_Completo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios2.Nombre_Completo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios3.Nombre_Completo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios3.Nombre_Completo)
-        </dd>
-
-    </dl>
+<div id="textoH">
+    <br />
+    <h2>Tareas</h2>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Tarea }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div id="ContentL">
+
+    <div class="ContenidoL">
+        <h3>Detalles</h3>
+        <div class="row">
+            <div id="formula" class="col s6">
+
+
+
+                @Html.LabelFor(model => model.DetalleDeLaTarea, "Detalle de la Tarea")
+                @Html.EditorFor(model => model.DetalleDeLaTarea, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+                @Html.LabelFor(model => model.Usuarios.Nombre_Completo, "Nombre Completo")
+                @Html.EditorFor(model => model.Usuarios.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+
+
+                @Html.LabelFor(model => model.Usuarios1.Nombre_Completo, "Nombre Completo")
+                @Html.EditorFor(model => model.Usuarios1.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+            </div>
+            <div id="formula" class="col s6">
+                @Html.LabelFor(model => model.Usuarios2.Nombre_Completo, "Nombre Completo")
+                @Html.EditorFor(model => model.Usuarios2.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+
+
+                @Html.LabelFor(model => model.Usuarios3.Nombre_Completo, "Nombre Completo")
+                @Html.EditorFor(model => model.Usuarios3.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+            </div>
+
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Tarea }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
+
