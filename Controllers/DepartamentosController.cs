@@ -86,6 +86,7 @@ namespace SistemaHE.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(departamentos);
         }
 

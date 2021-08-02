@@ -3,24 +3,31 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>Departamentos</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre_Departamento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nombre_Departamento)
-        </dd>
-
-    </dl>
+<div id="textoH">
+    <br />
+    <h2>Departamentos</h2>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Departamento }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+
+
+<div id="ContentL">
+    <div class="ContenidoL">
+        <h3>Detalles</h3>
+        <hr />
+        <div class="row">
+            <div id="formula" class="col s6">
+                @Html.LabelFor(model => model.Nombre_Departamento, "Departamento")
+
+                @Html.EditorFor(model => model.Nombre_Departamento, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+            </div>
+
+        </div>
+        <div id="pagina">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ID_Departamento }, htmlAttributes: new { @class = "waves-button-input btn-small " })
+            @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
+        </div>
+    </div>
+</div>
+

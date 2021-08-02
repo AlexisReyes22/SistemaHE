@@ -34,28 +34,78 @@
 
 
     <div id="H3">
-
-        <ul id="dropdown1" class="dropdown-content">
-            <li>@Html.ActionLink("Horas Extra", "Index", "Home")</li>
-
-        </ul>
         <nav>
-            <div class="nav-wrapper  blue-grey darken-3">
-                <ul class="right">
-                    <li>
-                        @Html.ActionLink("Inicio", "Index", "Home", new object { },
-new { @class = "green-text text-darken-2" })
-                    </li>
-                    <li>@Html.ActionLink("Cerrar Sesion", "Login", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>
-                        <a class="dropdown-trigger" data-target="dropdown1" href="#">Solicitudes <i class="material-icons right">arrow_drop_down</i></a>
 
+            <div class="nav-wrapper blue-grey darken-3">
+
+                <ul class="right blue-grey darken-3 menu">
+                    <li>
+                        @Html.ActionLink("Inicio", "Index", "Home", new object { }, new { @class = "green-text text-darken-2" })
+
+                    </li>
+                    <li>
+
+                        <a href="@Url.Action("Login", "Home")" class="">
+                            <span>
+                                <strong>Cerrar Sesion</strong>
+                            </span>
+
+
+                        </a>
+                    </li>
+                    <li>
+
+                        <a href="@Url.Action("About", "Home")" class="">
+                            <span>
+                                <strong>Acerca de</strong>
+                            </span>
+
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                            <span>
+                                <strong>Solicitudes</strong>
+
+                            </span>
+                            <i class="material-icons">expand_more</i>
+
+                        </a>
+                        <ul class="blue-grey darken-3">
+
+                            <li>@Html.ActionLink("Horas Extra", "Index", "Home", new object { }, new { @class = "blue-grey darken-3" })</li>
+                        </ul>
                     </li>
 
                 </ul>
             </div>
         </nav>
+
+
+
+
+        @*<ul id="dropdown1" class="dropdown-content">
+                    <li>@Html.ActionLink("Horas Extra", "Index", "Home")</li>
+
+                </ul>
+                <nav>
+                    <div class="nav-wrapper  blue-grey darken-3">
+                        <ul class="right">
+                            <li>
+                                @Html.ActionLink("Inicio", "Index", "Home", new object { },
+            new { @class = "green-text text-darken-2" })
+                            </li>
+                            <li>@Html.ActionLink("Cerrar Sesion", "Login", "Home")</li>
+                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                            <li>
+                                <a class="dropdown-trigger" data-target="dropdown1" href="#">Solicitudes <i class="material-icons right">expand_more</i></a>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>*@
 
     </div>
 
@@ -68,9 +118,9 @@ new { @class = "green-text text-darken-2" })
 
 
     <div class="page-footer">
-     
-            <p>&copy; @DateTime.Now.Year - DIMARIO</p>
-      
+
+        <p>&copy; @DateTime.Now.Year - DIMARIO</p>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")

@@ -38,6 +38,8 @@ namespace SistemaHE.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
+           
+            ViewBag.Departamento = new SelectList(db.Departamentos, "Nombre_Departamento", "Nombre_Departamento");
 
             return View();
         }
@@ -71,7 +73,7 @@ namespace SistemaHE.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Departamento = new SelectList(db.Departamentos, "ID_Departamento", "Nombre_Departamento");
+            ViewBag.Departamento = new SelectList(db.Departamentos, "Nombre_Departamento", "Nombre_Departamento",usuarios.Departamento);
 
             return View(usuarios);
         }

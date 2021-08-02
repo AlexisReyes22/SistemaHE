@@ -3,31 +3,57 @@
 @{
     ViewBag.Title = "Index";
 }
+<div id="textoH">
+    <br />
+    <h2>Departamentos</h2>
+</div>
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre_Departamento)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre_Departamento)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Departamento }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Departamento }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Departamento })
-        </td>
-    </tr>
-}
+<div id="ContentII">
 
-</table>
+    <div class="ContenidoI">
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    Departamento
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre_Departamento, "Departamento")
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Departamentos", new { id = item.ID_Departamento })">
+                            <i class="material-icons">edit</i>
+
+                        </a>
+                        <a href="@Url.Action("Details", "Departamentos", new { id = item.ID_Departamento })">
+                            <i class="material-icons">search</i>
+
+                        </a>
+                        <a href="@Url.Action("Delete", "Departamentos", new { id = item.ID_Departamento })">
+                            <i class="material-icons">delete</i>
+
+                        </a>
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div id="pagina">
+
+
+            @Html.ActionLink("Agregar", "Create", null, htmlAttributes: new { @class = "waves-button-input btn-large " })
+
+        </div>
+
+    </div>
+</div>
