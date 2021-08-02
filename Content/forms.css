@@ -35,16 +35,16 @@
     }
 
     .ContenidoL #pagina {
-
-        padding:10px
+        padding: 10px
     }
 
 
-#formula select {
-    background-color: #03a9f4;
-   height:45px;
-   margin:5px;
-}
+    .ContenidoL #formula select {
+        background-color: #03a9f4;
+        height: 45px;
+        margin: 5px;
+    }
+
 #pagina input {
     background-color: #03a9f4;
     border-radius: 5px;
