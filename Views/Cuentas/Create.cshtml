@@ -12,47 +12,45 @@
     @Html.AntiForgeryToken()
     <div id="ContentL">
         <div class="ContenidoL">
+            <h3>Agregar</h3>
 
-            <div class="form-horizontal">
+            <div id="formula">
+                <div class="row">
+                    <div class="col l6">
 
-                <h3>Agregar</h3>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    <div class="col-md-10">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
                         @Html.DropDownList("Identificacion", null, htmlAttributes: new { @class = "dropdown-trigger btn light-blue darken-2  white-text" })
                         @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Contrasenna, "Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
 
-                    <div class="Texto">
-                        @Html.EditorFor(model => model.Contrasenna, new
-                        {
-                            htmlAttributes = new
-                            {
-                                @class = "form-control",
-                       @style = " background-color: white; border-radius: 10px 10px 10px 10px;"
-                            }
-                        })
+
+
+                        @Html.LabelFor(model => model.Contrasenna, "Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+                        @Html.EditorFor(model => model.Contrasenna, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Contrasenna, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div id="pagina">
-
-                    <input type="submit" value="Agregar" class="waves-button-input btn-small light-blue darken-2 white-text" />
 
 
-                    @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+            </div>
+            <div id="pagina">
 
-                </div>
+                <input type="submit" value="Agregar" class="waves-button-input btn-small " />
+
+
+                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
 
             </div>
         </div>
+
     </div>
+
 
 }
 

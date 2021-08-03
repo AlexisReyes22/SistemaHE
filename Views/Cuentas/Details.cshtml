@@ -21,7 +21,7 @@
                 <div id="formula" class="col l6">
                     @Html.LabelFor(model => model.Usuarios.Nombre_Completo, "Nombre Completo")
                     @Html.EditorFor(model => model.Usuarios.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
-                  
+
                     @Html.LabelFor(model => model.Identificacion, "Contraseña")
                     @Html.EditorFor(model => model.Contrasenna, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
 
@@ -30,10 +30,10 @@
 
             </div>
 
-            <p id="pagina">
-                @Html.ActionLink("Editar", "Edit", new { id = Model.ID_Cuenta }, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" }) |
-                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
-            </p>
+            <div id="pagina">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.ID_Cuenta }, htmlAttributes: new { @class = "waves-button-input btn-small " })
+                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
+            </div>
 
         </div>
     </div>

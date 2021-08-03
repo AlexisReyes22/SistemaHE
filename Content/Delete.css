@@ -10,8 +10,6 @@
 
 .ContenidoD {
     padding: 10px;
-    /*background-color: hsla(205, 58%, 79%,0.8);*/
-    /*background-color: rgba(109, 114, 119, 0.76);*/
     height: 500px;
     width: 50%;
     margin: auto;
@@ -65,11 +63,10 @@ p {
     height: 100px;
     margin-bottom: 0px;
 }
-a {
 
+a {
     font-size: 20px;
     font-weight: 500;
-
 }
 
 @media only screen and (max-width: 1024px) {
@@ -86,7 +83,7 @@ a {
 
     .ContenidoD {
         padding: 10px;
-        background-color: hsla(205, 58%, 79%,0.8);
+   
         /*background-color: rgba(109, 114, 119, 0.76);*/
         height: 600px;
         width: 50%;
@@ -94,6 +91,7 @@ a {
         border-radius: 10px;
         margin-top: 20px
     }
+
     a {
         font-size: 10px;
         font-weight: 500;
@@ -114,7 +112,6 @@ a {
 
     .ContenidoD {
         padding: 10px;
-        background-color: hsla(205, 58%, 79%,0.8);
         /*background-color: rgba(109, 114, 119, 0.76);*/
         height: 600px;
         width: 50%;
@@ -125,9 +122,6 @@ a {
 
     a {
         font-size: 20px;
-
         font-weight: 500;
     }
 }
-
-

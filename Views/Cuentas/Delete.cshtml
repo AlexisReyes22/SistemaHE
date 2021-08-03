@@ -13,36 +13,31 @@
     <div id="ContentL">
         <div class="ContenidoL">
             <h3>¿Está seguro que desea eliminar esto?</h3>
-            
-            <dl class="dl-horizontal">
+            <div class="row">
+                <div id="formula" class="col s6">
 
-                <dt>
-                    @Html.LabelFor(model => model.Contrasenna, "Contraseña", htmlAttributes: new { @class = "central-align", @style = "font-size:20px; color:black;" })
-                </dt>
 
-                <dd>
-                    @Html.EditorFor(model => model.Contrasenna, new { htmlAttributes = new { @class = "black-text", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
-                </dd>
+                    @Html.LabelFor(model => model.Contrasenna, "Contraseña", htmlAttributes: new { @class = "central-align", @style = "" })
 
-                <dt>
-                    @Html.LabelFor(model => model.Usuarios.Nombre_Completo, "Nombre Completo", htmlAttributes: new { @class = "central-align", @style = "font-size:20px; color:black;" })
 
-                </dt>
 
-                <dd>
-                    @Html.EditorFor(model => model.Usuarios.Nombre_Completo, new { htmlAttributes = new { @class = "black-text", @style = " background-color: white; border-radius: 10px 10px 10px 10px;", disabled = "disabled" } })
-                </dd>
+                    @Html.EditorFor(model => model.Contrasenna, new { htmlAttributes = new { @class = "black-text", disabled = "disabled" } })
 
-            </dl>
+                    @Html.LabelFor(model => model.Usuarios.Nombre_Completo, "Nombre Completo", htmlAttributes: new { @class = "central-align" })
+
+
+                    @Html.EditorFor(model => model.Usuarios.Nombre_Completo, new { htmlAttributes = new { @class = "black-text",  disabled = "disabled" } })
+                </div>
+            </div>
 
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-actions no-color">
-                        
-                    <input type="submit" value="Eliminar" class="waves-button-input btn-small light-blue darken-2  white-text" /> |
-                    @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+                <div id="pagina">
+
+                    <input type="submit" value="Eliminar" class="waves-button-input btn-small  " />
+                    @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small  " })
 
                 </div>
             }
