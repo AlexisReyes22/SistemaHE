@@ -7,17 +7,63 @@
     <br />
     <h2>Tareas</h2>
 </div>
+<div class="solo">
+    <div id="pagina" class="valign-wrapper">
+
+        @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small v" })
+
+    </div>
+</div>
 
 
-<p id="Crear">
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+
+
 
 <div class="ContenidTar">
 
-    
-        @foreach (var item in Model)
+    @foreach (var item in Model)
+    {
+
+        <div class="card">
+
+            <div class="face face1">
+                <div class="content">
+                    <div class="card-content white-text text-darken-1">
+                        <span class="card-title xl12"> @Html.DisplayFor(modelItem => item.ID_Tarea)</span>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.DetalleDeLaTarea)
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <div class="card-action white tamanio" id="pagina">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "waves-button-input btn-large " })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "waves-button-input btn-large " })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "waves-button-input btn-large " })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+@*@foreach (var item in Model)
         {
+
             <div class="itemTar">
                 <div class="card  ">
                     <div class="card-content white-text text-darken-1">
@@ -27,17 +73,20 @@
                         </p>
 
                     </div>
-                    <div class="card-action white">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "light-blue-text text-darken-1" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "light-blue-text text-darken-1" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "light-blue-text text-darken-1" })
+                    <div class="card-action white" id="pagina">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "waves-button-input btn-large " }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "waves-button-input btn-large " }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Tarea }, htmlAttributes: new { @class = "waves-button-input btn-large " })
                     </div>
                 </div>
-            </div>
-        }
-    
 
-</div>
+            </div>
+
+
+        }
+    </div>*@
+
+
 
 
 

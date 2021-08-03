@@ -67,7 +67,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.DetalleDeLaTarea, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.DetalleDeLaTarea, new { htmlAttributes = new { @class = "dropdown-trigger btn" } })
+                            @Html.EditorFor(model => model.DetalleDeLaTarea, new { htmlAttributes = new { @class = "     " } })
                             @Html.ValidationMessageFor(model => model.DetalleDeLaTarea, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -77,14 +77,15 @@
 
 
             </div>
+            <div id="pagina">
+
+                <input type="submit" value="Guardar" class="waves-button-input btn-small" />
 
 
-            <div class="form-actions no-color">
-                    <input type="submit" value="Guardar" class="btn btn-small light-blue darken-2  white-text" />
-                    @Html.ActionLink("Volver", null, "Index", htmlAttributes: new { @class = "waves-button-input btn-small light-blue darken-2  white-text" })
+                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
 
-               
             </div>
+
         </div>
         </div>
         }

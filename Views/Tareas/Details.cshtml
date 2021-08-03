@@ -56,10 +56,12 @@
             </div>
 
         </div>
-        <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Tarea }) |
-            @Html.ActionLink("Back to List", "Index")
-        </p>
+
+        <div id="pagina">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ID_Tarea }, htmlAttributes: new { @class = "waves-button-input btn-small " })
+            @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
+        </div>
+       
     </div>
 </div>
 

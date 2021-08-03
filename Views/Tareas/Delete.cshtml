@@ -27,7 +27,7 @@
 
 
 
-                   
+
 
                     @Html.LabelFor(model => model.Usuarios, "Nombre Completo", htmlAttributes: new { @class = "" })
                     @Html.EditorFor(model => model.Usuarios.Nombre_Completo, new { htmlAttributes = new { disabled = "disabled" } })
@@ -51,22 +51,22 @@
 
 
 
-                    
+
                     @Html.LabelFor(model => model.Usuarios3, "Nombre Completo", htmlAttributes: new { @class = "" })
                     @Html.EditorFor(model => model.Usuarios3.Nombre_Completo, new { htmlAttributes = new { disabled = "disabled" } })
 
                 </div>
             </div>
 
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-                    <div class="form-actions no-color">
-                        <input type="submit" value="Delete" class="btn btn-default" /> |
-                        @Html.ActionLink("Back to List", "Index")
-                    </div>
-                }
-            </div>
+                <div id="pagina">
+                    @Html.ActionLink("Eliminar", "Edit", new { id = Model.ID_Tarea }, htmlAttributes: new { @class = "waves-button-input btn-small" })
+                    @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
+                </div>
+            }
+        </div>
             </div>
         </div>
