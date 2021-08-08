@@ -164,7 +164,7 @@ namespace SistemaHE.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CrearSolicitudDeAumentoDePersonal_EmpleadoAJefe", cedula_SolicitanteParameter, cantidadDePersonasParameter, fechaInicioParameter, fechaFinalParameter, iD_TareaParameter);
         }
     
-        public virtual int SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe(Nullable<int> cedula_Solicitante, Nullable<int> horas, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFinal, Nullable<int> iD_Tarea)
+        public virtual int SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe(Nullable<int> cedula_Solicitante, Nullable<int> horas, Nullable<int> iD_Tarea)
         {
             var cedula_SolicitanteParameter = cedula_Solicitante.HasValue ?
                 new ObjectParameter("Cedula_Solicitante", cedula_Solicitante) :
@@ -174,19 +174,16 @@ namespace SistemaHE.Models
                 new ObjectParameter("Horas", horas) :
                 new ObjectParameter("Horas", typeof(int));
     
-            var fechaInicioParameter = fechaInicio.HasValue ?
-                new ObjectParameter("FechaInicio", fechaInicio) :
-                new ObjectParameter("FechaInicio", typeof(System.DateTime));
-    
-            var fechaFinalParameter = fechaFinal.HasValue ?
-                new ObjectParameter("FechaFinal", fechaFinal) :
-                new ObjectParameter("FechaFinal", typeof(System.DateTime));
-    
             var iD_TareaParameter = iD_Tarea.HasValue ?
                 new ObjectParameter("ID_Tarea", iD_Tarea) :
                 new ObjectParameter("ID_Tarea", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe", cedula_SolicitanteParameter, horasParameter, fechaInicioParameter, fechaFinalParameter, iD_TareaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe", cedula_SolicitanteParameter, horasParameter, iD_TareaParameter);
+        }
+    
+        public virtual ObjectResult<string> ListaJefes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ListaJefes");
         }
     }
 }

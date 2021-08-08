@@ -12,15 +12,15 @@ namespace SistemaHE.Controllers
     {
         public ActionResult Index()
         {
-        
-    
+
+
             return View();
         }
 
 
-        public ActionResult About() 
+        public ActionResult About()
         {
-         
+
 
             ViewBag.Message = "Your application description page.";
 
@@ -30,7 +30,7 @@ namespace SistemaHE.Controllers
         public ActionResult Contact()
 
         {
-           
+
 
             ViewBag.Message = "Your contact page.";
 
@@ -57,6 +57,8 @@ namespace SistemaHE.Controllers
 
 
                         Session["Rol"] = lst2.First().Rol;
+                        Session["Nombre"] = lst2.First().Nombre_Completo;
+                        Session["Cedula"] = lst2.First().Identificacion;
                         return View("Index");
 
 

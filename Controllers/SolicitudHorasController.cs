@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿
+
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
+
 using System.Web.Mvc;
 using SistemaHE.Models;
 
@@ -18,10 +17,11 @@ namespace SistemaHE.Controllers
         public ActionResult Index()
         {
             var solicitudHoras = db.SolicitudHoras.Include(s => s.Usuarios).Include(s => s.Usuarios1).Include(s => s.Usuarios2).Include(s => s.Tareas).Include(s => s.Usuarios3).Include(s => s.Usuarios4);
-    
+
 
             return View(solicitudHoras.ToList());
         }
+
 
         // GET: SolicitudHoras/Details/5
         public ActionResult Details(int? id)
@@ -36,6 +36,50 @@ namespace SistemaHE.Controllers
                 return HttpNotFound();
             }
             return View(solicitudHoras);
+        }
+
+
+        public ActionResult SolicitudHE()
+        {
+            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
+            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea");
+
+    
+            return View();
+        }
+
+
+        //solicitudes cuando es jefe a empleadao se usan los campos destinatarios1 2 3, de lo contrario solo remitente.
+        public ActionResult NuevaSHE([Bind(Include = "ID_Transaccion,CantidadDeHoras,ID_Tarea,Remitente,JefeDestinatario,Destinatario1,Destinatario2,Destinatario3,Estado")] SolicitudHoras solicitudHoras)
+        {
+            if (ModelState.IsValid)
+            {
+                
+             
+                db.SolicitudHoras.Add(solicitudHoras);
+                db.SaveChanges();
+              
+
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario1);
+            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario2);
+            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario3);
+            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea", solicitudHoras.ID_Tarea);
+            ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.JefeDestinatario);
+            ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Remitente);
+            return View(solicitudHoras);
+        }
+
+        public ActionResult SolicitudPE()
+        {
+            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
+            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea");
+
+
+
+            return View();
         }
 
         // GET: SolicitudHoras/Create
