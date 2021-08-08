@@ -293,10 +293,13 @@
     <Content Include="Views\Departamentos\Details.cshtml" />
     <Content Include="Views\Departamentos\Edit.cshtml" />
     <Content Include="Views\Departamentos\Index.cshtml" />
+    <Content Include="Views\SolicitudHoras\SolicitudHE.cshtml" />
+    <Content Include="Views\SolicitudHoras\SolicitudPE.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filtros\" />
+    <Folder Include="Views\Soli\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

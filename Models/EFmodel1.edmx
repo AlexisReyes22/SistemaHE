@@ -331,6 +331,7 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="ListaJefes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -347,8 +348,6 @@
         <Function Name="SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Cedula_Solicitante" Type="int" Mode="In" />
           <Parameter Name="Horas" Type="int" Mode="In" />
-          <Parameter Name="FechaInicio" Type="date" Mode="In" />
-          <Parameter Name="FechaFinal" Type="date" Mode="In" />
           <Parameter Name="ID_Tarea" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -955,11 +954,10 @@
           <FunctionImport Name="SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe">
             <Parameter Name="Cedula_Solicitante" Mode="In" Type="Int32" />
             <Parameter Name="Horas" Mode="In" Type="Int32" />
-            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
-            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
             <Parameter Name="ID_Tarea" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="Departamentos" EntityType="SitiosWebModel.Departamentos" />
+          <FunctionImport Name="ListaJefes" ReturnType="Collection(String)" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1104,6 +1102,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ListaJefes" FunctionName="SitiosWebModel.Store.ListaJefes" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

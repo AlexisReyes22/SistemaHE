@@ -79,6 +79,7 @@ namespace SistemaHE.Controllers
             {
                 return HttpNotFound();
             }
+
           
             ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.Jefe_Asignado);
             ViewBag.UsuarioAsigando1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando1);
