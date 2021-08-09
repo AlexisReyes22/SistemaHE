@@ -63,12 +63,15 @@ namespace SistemaHE.Controllers
 
                         int cedJefe = Convert.ToInt32(lst2.First().Jefe_Inmediato);
 
+                        if (Session["Rol"].Equals("Funcionario"))
+                        {
+                            var jef = from d in db.Usuarios
+                                      where d.Identificacion == cedJefe
+                                      select d;
 
-                        var jef = from d in db.Usuarios
-                                  where d.Identificacion == cedJefe 
-                                  select d;
-
-                        Session["Jefe_Inmediato"] = jef.First().Nombre_Completo;
+                            Session["Jefe_Inmediato"] = jef.First().Nombre_Completo;
+                        }
+                    
 
                         return View("Index");
 

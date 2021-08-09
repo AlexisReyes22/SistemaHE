@@ -46,7 +46,7 @@
           <Property Name="CantidadDeHoras" Type="int" />
           <Property Name="ID_Tarea" Type="int" />
           <Property Name="Remitente" Type="int" Nullable="false" />
-          <Property Name="JefeDestinatario" Type="int" Nullable="false" />
+          <Property Name="JefeDestinatario" Type="int" />
           <Property Name="Destinatario1" Type="int" />
           <Property Name="Destinatario2" Type="int" />
           <Property Name="Destinatario3" Type="int" />
@@ -138,42 +138,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Solicitud__Desti__367C1819">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="Identificacion" />
-            </Principal>
-            <Dependent Role="SolicitudHoras">
-              <PropertyRef Name="Destinatario1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Solicitud__Desti__37703C52">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="Identificacion" />
-            </Principal>
-            <Dependent Role="SolicitudHoras">
-              <PropertyRef Name="Destinatario2" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Solicitud__Desti__3864608B">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="Identificacion" />
-            </Principal>
-            <Dependent Role="SolicitudHoras">
-              <PropertyRef Name="Destinatario3" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Solicitud__Desti__3E1D39E1">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
           <End Role="SolicitudPersonal" Type="Self.SolicitudPersonal" Multiplicity="*" />
@@ -210,15 +174,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Solicitud__ID_Ta__339FAB6E">
-          <End Role="Tareas" Type="Self.Tareas" Multiplicity="0..1" />
+        <Association Name="FK__Solicitud__Desti__540C7B00">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
           <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Tareas">
-              <PropertyRef Name="ID_Tarea" />
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
             </Principal>
             <Dependent Role="SolicitudHoras">
-              <PropertyRef Name="ID_Tarea" />
+              <PropertyRef Name="Destinatario1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__55009F39">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="Destinatario2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Desti__55F4C372">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
+              <PropertyRef Name="Destinatario3" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -234,15 +222,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Solicitud__JefeD__3587F3E0">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+        <Association Name="FK__Solicitud__ID_Ta__56E8E7AB">
+          <End Role="Tareas" Type="Self.Tareas" Multiplicity="0..1" />
           <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="Identificacion" />
+            <Principal Role="Tareas">
+              <PropertyRef Name="ID_Tarea" />
             </Principal>
             <Dependent Role="SolicitudHoras">
-              <PropertyRef Name="JefeDestinatario" />
+              <PropertyRef Name="ID_Tarea" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -258,15 +246,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Solicitud__Remit__3493CFA7">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+        <Association Name="FK__Solicitud__JefeD__57DD0BE4">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
           <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="Identificacion" />
             </Principal>
             <Dependent Role="SolicitudHoras">
-              <PropertyRef Name="Remitente" />
+              <PropertyRef Name="JefeDestinatario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -278,6 +266,18 @@
               <PropertyRef Name="Identificacion" />
             </Principal>
             <Dependent Role="SolicitudPersonal">
+              <PropertyRef Name="Remitente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Remit__58D1301D">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="SolicitudHoras" Type="Self.SolicitudHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="SolicitudHoras">
               <PropertyRef Name="Remitente" />
             </Dependent>
           </ReferentialConstraint>
@@ -399,18 +399,6 @@
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Rol" EntitySet="Rol" />
           </AssociationSet>
-          <AssociationSet Name="FK__Solicitud__Desti__367C1819" Association="Self.FK__Solicitud__Desti__367C1819">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Solicitud__Desti__37703C52" Association="Self.FK__Solicitud__Desti__37703C52">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Solicitud__Desti__3864608B" Association="Self.FK__Solicitud__Desti__3864608B">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
-          </AssociationSet>
           <AssociationSet Name="FK__Solicitud__Desti__3E1D39E1" Association="Self.FK__Solicitud__Desti__3E1D39E1">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
@@ -423,29 +411,41 @@
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
           </AssociationSet>
-          <AssociationSet Name="FK__Solicitud__ID_Ta__339FAB6E" Association="Self.FK__Solicitud__ID_Ta__339FAB6E">
-            <End Role="Tareas" EntitySet="Tareas" />
+          <AssociationSet Name="FK__Solicitud__Desti__540C7B00" Association="Self.FK__Solicitud__Desti__540C7B00">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__55009F39" Association="Self.FK__Solicitud__Desti__55009F39">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Desti__55F4C372" Association="Self.FK__Solicitud__Desti__55F4C372">
+            <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
           </AssociationSet>
           <AssociationSet Name="FK__Solicitud__ID_Ta__3B40CD36" Association="Self.FK__Solicitud__ID_Ta__3B40CD36">
             <End Role="Tareas" EntitySet="Tareas" />
             <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
           </AssociationSet>
-          <AssociationSet Name="FK__Solicitud__JefeD__3587F3E0" Association="Self.FK__Solicitud__JefeD__3587F3E0">
-            <End Role="Usuarios" EntitySet="Usuarios" />
+          <AssociationSet Name="FK__Solicitud__ID_Ta__56E8E7AB" Association="Self.FK__Solicitud__ID_Ta__56E8E7AB">
+            <End Role="Tareas" EntitySet="Tareas" />
             <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
           </AssociationSet>
           <AssociationSet Name="FK__Solicitud__JefeD__3D2915A8" Association="Self.FK__Solicitud__JefeD__3D2915A8">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
           </AssociationSet>
-          <AssociationSet Name="FK__Solicitud__Remit__3493CFA7" Association="Self.FK__Solicitud__Remit__3493CFA7">
+          <AssociationSet Name="FK__Solicitud__JefeD__57DD0BE4" Association="Self.FK__Solicitud__JefeD__57DD0BE4">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
           </AssociationSet>
           <AssociationSet Name="FK__Solicitud__Remit__3C34F16F" Association="Self.FK__Solicitud__Remit__3C34F16F">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="SolicitudPersonal" EntitySet="SolicitudPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Remit__58D1301D" Association="Self.FK__Solicitud__Remit__58D1301D">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="SolicitudHoras" EntitySet="SolicitudHoras" />
           </AssociationSet>
           <AssociationSet Name="FK__Tareas__Jefe_Asi__2DE6D218" Association="Self.FK__Tareas__Jefe_Asi__2DE6D218">
             <End Role="Usuarios" EntitySet="Usuarios" />
@@ -506,7 +506,7 @@
           <Property Name="CantidadDeHoras" Type="Int32" />
           <Property Name="ID_Tarea" Type="Int32" />
           <Property Name="Remitente" Type="Int32" Nullable="false" />
-          <Property Name="JefeDestinatario" Type="Int32" Nullable="false" />
+          <Property Name="JefeDestinatario" Type="Int32" />
           <Property Name="Destinatario1" Type="Int32" />
           <Property Name="Destinatario2" Type="Int32" />
           <Property Name="Destinatario3" Type="Int32" />

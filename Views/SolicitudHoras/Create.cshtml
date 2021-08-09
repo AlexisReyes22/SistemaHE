@@ -50,7 +50,7 @@
                         <br />
                         @Html.LabelFor(model => model.Remitente, "Remitente", htmlAttributes: new { @class = "" })
 
-                        @Html.DropDownList("Remitente", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+                        <input type="tex" name="name" value="@Session["Nombre"]" />
                         @Html.ValidationMessageFor(model => model.Remitente, "", new { @class = "text-danger" })
 
 
@@ -59,42 +59,51 @@
 
 
 
-
-                        @Html.LabelFor(model => model.JefeDestinatario, "Jefe Destinatario", htmlAttributes: new { @class = "" })
-
-                        @Html.DropDownList("JefeDestinatario", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
-                        @Html.ValidationMessageFor(model => model.JefeDestinatario, "", new { @class = "text-danger" })
-
-
-                        <br />
-
-
-                        @Html.LabelFor(model => model.Destinatario1, "Destinatario 1", htmlAttributes: new { @class = "" })
-
-                        @Html.DropDownList("Destinatario1", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
-                        @Html.ValidationMessageFor(model => model.Destinatario1, "", new { @class = "text-danger" })
-
                     </div>
                 </div>
                 <div id="formula" class="col s6">
                     <div class="form-group">
+                        @{
+
+                            if (Session["Rol"].Equals("Jefe"))
+                            {
+
+                                @Html.LabelFor(model => model.Destinatario1, "Destinatario 1", htmlAttributes: new { @class = "" })
+
+                                @Html.DropDownList("Destinatario1", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+                                @Html.ValidationMessageFor(model => model.Destinatario1, "", new { @class = "text-danger" })
+
+
+                                @Html.LabelFor(model => model.Destinatario2, "Destinatario 2", htmlAttributes: new { @class = "" })
+
+                                @Html.DropDownList("Destinatario2", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+                                @Html.ValidationMessageFor(model => model.Destinatario2, "", new { @class = "text-danger" })
+
+
+                                <br />
+
+
+                                @Html.LabelFor(model => model.Destinatario3, "Destinatario 3", htmlAttributes: new { @class = "" })
+
+                                @Html.DropDownList("Destinatario3", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+                                @Html.ValidationMessageFor(model => model.Destinatario3, "", new { @class = "text-danger" })
+                                <br />
+                            }
+                            else
+                            {
+                                @Html.LabelFor(model => model.JefeDestinatario, "Jefe Destinatario", htmlAttributes: new { @class = "" })
+
+                                <input type="type" name="name" value="@Session["Jefe_Inmediato"]" />
+                                @Html.ValidationMessageFor(model => model.JefeDestinatario, "", new { @class = "text-danger" })
+
+
+                                <br />
+                            }
+                        }
 
 
 
-                        @Html.LabelFor(model => model.Destinatario2, "Destinatario 2", htmlAttributes: new { @class = "" })
 
-                        @Html.DropDownList("Destinatario2", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
-                        @Html.ValidationMessageFor(model => model.Destinatario2, "", new { @class = "text-danger" })
-
-
-                        <br />
-
-
-                        @Html.LabelFor(model => model.Destinatario3, "Destinatario 3", htmlAttributes: new { @class = "" })
-
-                        @Html.DropDownList("Destinatario3", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
-                        @Html.ValidationMessageFor(model => model.Destinatario3, "", new { @class = "text-danger" })
-                        <br />
 
 
                         @Html.LabelFor(model => model.Estado, "Estado", htmlAttributes: new { @class = "" })
