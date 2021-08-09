@@ -61,6 +61,7 @@
                             else
                             {
                                 @Html.LabelFor(model => model.JefeDestinatario, "JefeDestinatario", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <input type="text" name="JefeDestinatario" hidden disabled value="@Session["CedulaJefe"]" />
                                 <input type="text" name="name" disabled value="@Session["Jefe_Inmediato"]" />
 
                                 @Html.ValidationMessageFor(model => model.JefeDestinatario, "", new { @class = "text-danger" })
@@ -86,8 +87,10 @@
 
             </div>
             <div id="pagina">
-
                 <input type="submit" value="Agregar" class="waves-button-input btn-small " />
+
+
+                @*  @Html.ActionLink("Agregar", "NuevaSHE", null, htmlAttributes: new { @class = "waves-button-input btn-small " })*@
 
 
                 @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })

@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    <link href="~/Content/Principal.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,7 +14,7 @@
 <body>
 
     <nav id="H1">
-      
+
     </nav>
 
     <div id="H2">
@@ -24,8 +23,8 @@
 
                 <a href="#" class="logo"><img src="~/image/1.png" alt="Dimario" /></a>
                 @*<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                </ul>*@
+                    <ul class="right hide-on-med-and-down">
+                    </ul>*@
             </div>
             <h3>@Session["Cedula"]</h3>
             <h3>@Session["Nombre"]</h3>
@@ -73,7 +72,7 @@
                         </a>
                         <ul class="blue-grey darken-3">
 
-                            <li>@Html.ActionLink("Horas Extra", "SolicitudHE", "SolicitudHoras", new object { }, new { @class = "blue-grey darken-3" })</li>
+                            <li>@Html.ActionLink("Horas Extra", "Create", "SolicitudHoras", new object { }, new { @class = "blue-grey darken-3" })</li>
                             <li>@Html.ActionLink("Personal Extra", "SolicitudPE", "SolicitudHoras", new object { }, new { @class = "blue-grey darken-3" })</li>
                         </ul>
                     </li>
@@ -93,13 +92,15 @@
 
 
     <div class="page-footer">
-    
-            <p>&copy; @DateTime.Now.Year - DIMARIO</p>
- 
+
+        <p>&copy; @DateTime.Now.Year - DIMARIO</p>
+
     </div>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/init")
     @RenderSection("scripts", required: false)
 </body>
 </html>

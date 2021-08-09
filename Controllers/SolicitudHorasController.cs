@@ -1,5 +1,6 @@
 ﻿
 
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -52,14 +53,14 @@ namespace SistemaHE.Controllers
 
 
         //solicitudes cuando es jefe a empleadao se usan los campos destinatarios1 2 3, de lo contrario solo remitente.
+
         public ActionResult NuevaSHE([Bind(Include = "CantidadDeHoras,ID_Tarea,Remitente,JefeDestinatario,Destinatario1,Destinatario2,Destinatario3")] SolicitudHoras solicitudHoras)
         {
             if (ModelState.IsValid)
             {
+                int ced = Convert.ToInt32(Session["Cedula"]);
+                db.SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe(ced, solicitudHoras.CantidadDeHoras, solicitudHoras.ID_Tarea);
 
-
-                db.SolicitudHoras.Add(solicitudHoras);
-                db.SaveChanges();
 
 
                 return RedirectToAction("Index");
