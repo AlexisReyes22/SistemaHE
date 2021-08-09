@@ -12,7 +12,7 @@ namespace SistemaHE.Controllers
 {
     public class UsuariosController : Controller
     {
-        private SitiosWebEntities db = new SitiosWebEntities();
+        private SitiosWebEntities1 db = new SitiosWebEntities1();
 
         // GET: Usuarios
         public ActionResult Index()

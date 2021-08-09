@@ -10,13 +10,14 @@
 namespace SistemaHE.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagrams_Result
+    public partial class Cuentas
     {
-        public string Database { get; set; }
-        public string Name { get; set; }
-        public int ID { get; set; }
-        public string Owner { get; set; }
-        public int OwnerID { get; set; }
+        public int ID_Cuenta { get; set; }
+        public Nullable<int> Identificacion { get; set; }
+        public string Contrasenna { get; set; }
+    
+        public virtual Usuarios Usuarios { get; set; }
     }
 }

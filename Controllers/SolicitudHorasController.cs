@@ -12,7 +12,7 @@ namespace SistemaHE.Controllers
 {
     public class SolicitudHorasController : Controller
     {
-        private SitiosWebEntities db = new SitiosWebEntities();
+        private SitiosWebEntities1 db = new SitiosWebEntities1();
 
         // GET: SolicitudHoras
         public ActionResult Index()

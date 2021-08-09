@@ -170,12 +170,6 @@
     <Compile Include="Models\SolicitudPersonal.cs">
       <DependentUpon>EFmodel1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>EFmodel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>EFmodel1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Tareas.cs">
       <DependentUpon>EFmodel1.tt</DependentUpon>
     </Compile>
@@ -206,23 +200,6 @@
     <Content Include="image\bg-image-2.jpg" />
     <Content Include="image\depositphotos_46293115-stock-photo-tablet-pc-showing-calendar-on.jpg" />
     <Content Include="image\home-slide-1.jpg" />
-    <Content Include="Models\EFmodel1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EFmodel1.edmx</DependentUpon>
-      <LastGenOutput>EFmodel1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\EFmodel1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EFmodel1.edmx</DependentUpon>
-      <LastGenOutput>EFmodel1.cs</LastGenOutput>
-    </Content>
-    <EntityDeploy Include="Models\EFmodel1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EFmodel1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\EFmodel1.edmx.diagram">
-      <DependentUpon>EFmodel1.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\Roboto\Roboto-Black.ttf" />
     <Content Include="fonts\Roboto\Roboto-BlackItalic.ttf" />
     <Content Include="fonts\Roboto\Roboto-Bold.ttf" />
@@ -235,7 +212,24 @@
     <Content Include="fonts\Roboto\Roboto-Regular.ttf" />
     <Content Include="fonts\Roboto\Roboto-Thin.ttf" />
     <Content Include="fonts\Roboto\Roboto-ThinItalic.ttf" />
+    <EntityDeploy Include="Models\EFmodel1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EFmodel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EFmodel1.edmx.diagram">
+      <DependentUpon>EFmodel1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Models\EFmodel1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFmodel1.edmx</DependentUpon>
+      <LastGenOutput>EFmodel1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EFmodel1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFmodel1.edmx</DependentUpon>
+      <LastGenOutput>EFmodel1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -299,8 +293,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filtros\" />
-    <Folder Include="Views\Soli\" />
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\Soli\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
