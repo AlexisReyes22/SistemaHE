@@ -299,6 +299,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filtros\" />
+    <Folder Include="Views\Soli\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
