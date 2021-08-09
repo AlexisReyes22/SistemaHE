@@ -59,6 +59,15 @@ namespace SistemaHE.Controllers
                         Session["Rol"] = lst2.First().Rol;
                         Session["Nombre"] = lst2.First().Nombre_Completo;
                         Session["Cedula"] = lst2.First().Identificacion;
+                        int cedJefe = Convert.ToInt32(lst2.First().Jefe_Inmediato);
+
+
+                        var jef = from d in db.Cuentas
+                                  where d.Identificacion == cedJefe 
+                                  select d;
+
+                        Session["Jefe_Inmediato"] = jef.First().Usuarios.Nombre_Completo;
+
                         return View("Index");
 
 

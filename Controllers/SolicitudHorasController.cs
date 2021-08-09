@@ -41,24 +41,26 @@ namespace SistemaHE.Controllers
 
         public ActionResult SolicitudHE()
         {
+
             ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
+            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
+            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
             ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea");
 
-    
             return View();
         }
 
 
         //solicitudes cuando es jefe a empleadao se usan los campos destinatarios1 2 3, de lo contrario solo remitente.
-        public ActionResult NuevaSHE([Bind(Include = "ID_Transaccion,CantidadDeHoras,ID_Tarea,Remitente,JefeDestinatario,Destinatario1,Destinatario2,Destinatario3,Estado")] SolicitudHoras solicitudHoras)
+        public ActionResult NuevaSHE([Bind(Include = "CantidadDeHoras,ID_Tarea,Remitente,JefeDestinatario,Destinatario1,Destinatario2,Destinatario3")] SolicitudHoras solicitudHoras)
         {
             if (ModelState.IsValid)
             {
-                
-             
+
+
                 db.SolicitudHoras.Add(solicitudHoras);
                 db.SaveChanges();
-              
+
 
                 return RedirectToAction("Index");
             }
@@ -74,8 +76,6 @@ namespace SistemaHE.Controllers
 
         public ActionResult SolicitudPE()
         {
-            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
-            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea");
 
 
 

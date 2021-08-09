@@ -26,17 +26,59 @@
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-                        @Html.DropDownList("ID_Tarea", null, htmlAttributes: new { @class = "dropdown-trigger btn light-blue darken-2  white-text" })
+                        @Html.DropDownList("ID_Tarea", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
                         @Html.ValidationMessageFor(model => model.ID_Tarea, "", new { @class = "text-danger" })
 
 
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <br />
+
+                        @Html.LabelFor(model => model.Remitente, "Remitente", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        <input type="text" name="name" disabled value="@Session["Nombre"]" />
+                        @Html.ValidationMessageFor(model => model.Remitente, "", new { @class = "text-danger" })
 
 
-                        @Html.LabelFor(model => model.CantidadDeHoras, "Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        @{
+
+
+                            if (Session["Rol"].Equals("Jefe"))
+                            {
+                                @Html.LabelFor(model => model.Destinatario1, "Destinatario 1", htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.DropDownList("Destinatario1", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+                                @Html.ValidationMessageFor(model => model.Destinatario1, "", new { @class = "text-danger" })
+
+                                @Html.LabelFor(model => model.Destinatario2, "Destinatario 2", htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.DropDownList("Destinatario2", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+                                @Html.ValidationMessageFor(model => model.Destinatario2, "", new { @class = "text-danger" })
+
+                                @Html.LabelFor(model => model.Destinatario3, "Destinatario 3", htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.DropDownList("Destinatario3", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+                                @Html.ValidationMessageFor(model => model.Destinatario3, "", new { @class = "text-danger" })
+
+                            }
+                            else
+                            {
+                                @Html.LabelFor(model => model.JefeDestinatario, "JefeDestinatario", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <input type="text" name="name" disabled value="@Session["Jefe_Inmediato"]" />
+
+                                @Html.ValidationMessageFor(model => model.JefeDestinatario, "", new { @class = "text-danger" })
+
+                            }
+                        }
+
+                        <br />
+
+                        @Html.LabelFor(model => model.CantidadDeHoras, "Cantidad de horas", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         @Html.EditorFor(model => model.CantidadDeHoras, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.CantidadDeHoras, "", new { @class = "text-danger" })
+
+
+
+
                     </div>
                 </div>
 
