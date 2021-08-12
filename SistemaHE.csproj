@@ -203,6 +203,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="image\1.png" />
     <Content Include="image\2.png" />
+    <Content Include="image\about870x400.jpg" />
     <Content Include="image\bg-image-2.jpg" />
     <Content Include="image\depositphotos_46293115-stock-photo-tablet-pc-showing-calendar-on.jpg" />
     <Content Include="image\home-slide-1.jpg" />
@@ -299,8 +300,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filtros\" />
-    <Folder Include="Views\Soli\" />
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\Soli\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

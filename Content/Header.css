@@ -11,9 +11,10 @@
 #H2 nav {
     position: relative;
     float: left;
-    height: 10%;
+    height: 100px;
     float: left;
-    z-index:100
+    z-index:100;
+    box-sizing:border-box;
  
 }
 
@@ -21,70 +22,76 @@
     width: 100%;
     position: relative;
     float: left;
+
 }
 
-    #H2 a img {
+#H2 a img {
         left: 5%;
         position: relative;
         float: left;
-    }
-    .nav-wrapper{
-        width:50%;
+}
+.nav-wrapper{
+        width:100%;
         left:100px
-    }
-#H3 {
+}
+
+
+
+#H3{
     border:none;
    
  
     width: 100%;
     height: 20%;
-    position: relative;
+  
     float: left;
     
-    top: 0; /* required */
-    z-index: 100;
+
+    z-index: 1000;
 }
 
 nav ul a {
     font-size: 17px;
 }
 
+#data h2{
+    color:darkgray;
+    font-size:20px;
+    margin-top:10px;
+
+}
+
+#data {
+    position:relative;
+    width:20%;
+    float:right;
+    margin-right:-800px;
+}
+
 
 #H3 ul {
-    width: 100%;
+/*    width: 100%;
     height: 20%;
     position: relative;
     float: left;
-    font-weight: bold;
+    font-weight: bold;*/
 }
 
 
 
-nav a {
+#H2 a {
     left: 200px
 }
 
-    nav a img {
-        height: 100px;
-        float: left;
-    }
-
-
-
-
-
-@media only screen and (max-width: 768px) {
-
-    #H3 ul {
-        width: 100%;
-        position: relative;
-        float: left;
-        font-weight: bold;
-    }
-
-        #H3 ul li {
-        }
+#H2 nav a img {
+    height: 100px;
+    float: left;
 }
+
+
+
+
+
 
 .right li :hover {
     color: #24a3d8;
@@ -104,52 +111,56 @@ nav a {
 }
 
     .menu li {
-       
-        
         float: left;
         text-align: center;
         vertical-align: central;
         line-height: 64px;
-
         
     }
 
-        .menu li a {
+.menu li a {
             display: block;
            
             height: 100%;
             color: #fff;
             text-decoration: none;
             left: 200px;
-            float:left
-            
+            float:left;
+             
+}
+
+        .menu li span {
+            color: #24a3d8;
         }
 
-        .menu li span:hover {
+.menu li span:hover {
             color: #24a3d8;
           
-        }
-        .menu li i{
-            float:right
+          
+}
+        .menu li i {
+            float: right;
+           
         }
 
-        .menu li span:hover ~ i {
-
+.nav li span:hover ~ i {
+             
             color: #24a3d8;
             -ms-transform: rotate(180deg); /* IE 9 */
-            -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+            -webkit-transform: rotate(180deg);  /*Chrome, Safari, Opera */
             transform: rotate(180deg);
-        }
+}
 
-        .menu li i {
+.menu li i {
          float:right;
-        }
+}
 
 
 .nav-wrapper {
    width:50%;
    left:100px;
 }
+
     .menu ul {
         width: 100%;
         position: relative;
@@ -198,12 +209,278 @@ nav a {
         top: -50px;
     }*/
 
-    .menu > li > ul li > ul a:hover {
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+#he1 {
+    background-color: #323946;
+    width: 100%;
+    height: 37px;
+    border-bottom: 2px solid rgb(131, 127, 127);
+}
+
+
+
+
+
+#Hed {
+    background-color: #323946;
+    width: 100%;
+    height: 50px;
+    min-width: 300px;
+}
+
+#ancho1 {
+    /* background-color: purple; */
+    width: 10%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    
+}
+
+    #ancho1 img {
+        height: 100%;
+        width: 100px;
+        padding-left: 5%;
     }
 
-.pegajoso {
-    z-index: 500;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0; /* required */
+
+
+
+
+
+
+
+
+
+
+
+
+
+#LaNav {
+    position: relative;
+    
+    padding: 0px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 1;
+    font-size: 20px;
+    
+    
+}
+
+    #LaNav ul, ol {
+        list-style: none;
+    }
+
+
+
+
+.nav > li {
+    float: left;
+}
+
+.nav li a {
+    background-color: #323946;
+    color: #fff;
+    text-decoration: none;
+    padding: 9px 12px;
+    
+    display: block;
+    transition: 0.5s;
+}
+
+    .nav li a:hover {
+        
+        color: #24a3d8;
+    }
+.nav li ul a:hover {
+    background-color: white;
+}
+
+.nav li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+
+.nav li:hover > ul {
+    display: block;
+}
+
+.nav li ul li {
+    position: relative;
+}
+
+    .nav li ul li ul {
+        right: -140px;
+        top: 0px;
+    }
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------------*/
+
+
+@media screen and (max-width: 768px) {
+
+
+
+    #LaNav a:not(:first-child) {
+        display: none;
+    }
+
+    #LaNav a.icon {
+        float: right;
+        display: block;
+    }
+
+
+}
+
+@media screen and (max-width: 768px) {
+
+
+        #LaNav.responsive .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        #LaNav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+}
+
+
+
+
+
+
+
+
+
+
+/*-------------------------------------------------*/
+
+
+
+
+@media only screen and (max-width: 768px) {
+    #H2 {
+        width: 100%;
+        position: relative;
+        float: left;
+        height: 100px;
+    }
+
+        #H2 nav {
+            width: 100%;
+            position: relative;
+            float: left;
+            height: 100px;
+        }
+
+        #H2 a img {
+            height: 200px;
+            
+            position: relative;
+            float: left;
+            box-sizing: border-box;
+        }
+
+    #data h2 {
+        color: darkgray;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #data {
+        position: relative;
+        width: 10%;
+        float: right;
+        margin-right: 100px;
+        
+    }
+
+    #H2 .nav-wrapper {
+        width: 100%;
+        left: 1px;
+    }
+
+    #H3 {
+        /*border: none;
+        width: 100%;
+        height: 20%;
+        position: relative;
+        float: left;
+        top: 0;*/ /* required */
+        /*z-index: 100;*/
+    }
+
+    nav ul a {
+        font-size: 17px;
+    }
+
+
+/*    #H3 ul {
+        width: 100%;
+        height: 20%;
+        position: relative;
+        float: left;
+        font-weight: bold;
+    }
+*/
+
+
+    nav a {
+        left: 200px
+    }
+
+       #H2 nav a img {
+            height: 100px;
+            float: left;
+        }
+
+
+
+/*    #H3 ul {
+        width: 100%;
+        position: relative;
+        float: left;
+        font-weight: bold;
+    }*/
+
+        #H3 ul li {
+        }
+
+
+    #ancho1 {
+        /* background-color: purple; */
+        width: 0;
+        height: 100%;
+        float: left;
+        box-sizing: border-box;
+    }
 }
