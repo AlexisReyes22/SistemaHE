@@ -1,5 +1,6 @@
 ﻿
 
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -11,7 +12,7 @@ namespace SistemaHE.Controllers
 {
     public class SolicitudHorasController : Controller
     {
-        private SitiosWebEntities db = new SitiosWebEntities();
+        private SitiosWebEntities1 db = new SitiosWebEntities1();
 
         // GET: SolicitudHoras
         public ActionResult Index()
@@ -41,24 +42,26 @@ namespace SistemaHE.Controllers
 
         public ActionResult SolicitudHE()
         {
+
             ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
+            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
+            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
             ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea");
 
-    
             return View();
         }
 
 
         //solicitudes cuando es jefe a empleadao se usan los campos destinatarios1 2 3, de lo contrario solo remitente.
-        public ActionResult NuevaSHE([Bind(Include = "ID_Transaccion,CantidadDeHoras,ID_Tarea,Remitente,JefeDestinatario,Destinatario1,Destinatario2,Destinatario3,Estado")] SolicitudHoras solicitudHoras)
+
+        public ActionResult NuevaSHE([Bind(Include = "CantidadDeHoras,ID_Tarea,Remitente,JefeDestinatario,Destinatario1,Destinatario2,Destinatario3")] SolicitudHoras solicitudHoras)
         {
             if (ModelState.IsValid)
             {
-                
-             
-                db.SolicitudHoras.Add(solicitudHoras);
-                db.SaveChanges();
-              
+                int ced = Convert.ToInt32(Session["Cedula"]);
+                db.SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe(ced, solicitudHoras.CantidadDeHoras, solicitudHoras.ID_Tarea);
+
+
 
                 return RedirectToAction("Index");
             }
@@ -74,8 +77,6 @@ namespace SistemaHE.Controllers
 
         public ActionResult SolicitudPE()
         {
-            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
-            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea");
 
 
 
@@ -103,6 +104,22 @@ namespace SistemaHE.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (Session["Rol"].Equals("Funcionario"))
+                {
+                    solicitudHoras.JefeDestinatario = Convert.ToInt32(Session["CedulaJefe"]);
+                    solicitudHoras.Destinatario1 = null;
+                    solicitudHoras.Destinatario2 = null;
+                    solicitudHoras.Destinatario3 = null;
+                }
+                else
+                {
+                    solicitudHoras.JefeDestinatario = null;       
+
+                }
+                solicitudHoras.Remitente = Convert.ToInt32(Session["Cedula"]);
+                solicitudHoras.Estado = "Pendiente";
+
                 db.SolicitudHoras.Add(solicitudHoras);
                 db.SaveChanges();
                 return RedirectToAction("Index");

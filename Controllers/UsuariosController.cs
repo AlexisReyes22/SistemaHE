@@ -12,7 +12,7 @@ namespace SistemaHE.Controllers
 {
     public class UsuariosController : Controller
     {
-        private SitiosWebEntities db = new SitiosWebEntities();
+        private SitiosWebEntities1 db = new SitiosWebEntities1();
 
         // GET: Usuarios
         public ActionResult Index()
@@ -38,8 +38,11 @@ namespace SistemaHE.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
-           
+            var lis = from d in db.ListaJefes()
+                      select d;
+
             ViewBag.Departamento = new SelectList(db.Departamentos, "Nombre_Departamento", "Nombre_Departamento");
+            ViewBag.Jefes = new SelectList(lis, "Nombre_Departamento", "Nombre_Departamento");
 
             return View();
         }
@@ -73,7 +76,7 @@ namespace SistemaHE.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Departamento = new SelectList(db.Departamentos, "Nombre_Departamento", "Nombre_Departamento",usuarios.Departamento);
+            ViewBag.Departamento = new SelectList(db.Departamentos, "Nombre_Departamento", "Nombre_Departamento", usuarios.Departamento);
 
             return View(usuarios);
         }

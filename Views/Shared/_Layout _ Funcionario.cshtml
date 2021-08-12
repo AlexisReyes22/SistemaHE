@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    <link href="~/Content/Principal.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,38 +14,68 @@
 <body>
 
     <nav id="H1">
-        @*<div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
-                </ul>
-            </div>*@
+
     </nav>
 
     <div id="H2">
-        <nav class="blue-grey darken-3  ">
+        <nav class="white  ">
             <div class="nav-wrapper white">
 
                 <a href="#" class="logo"><img src="~/image/1.png" alt="Dimario" /></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                </ul>
+                @*<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                    </ul>*@
             </div>
+            <h3>@Session["Cedula"]</h3>
+            <h3>@Session["Nombre"]</h3>
         </nav>
     </div>
 
     <div id="H3">
-        <nav>
-            <div class="nav-wrapper  blue-grey darken-3">
-                <ul class="right">
+        <nav class="blue-grey darken-3  ">
+
+            <div class="nav-wrapper blue-grey darken-3">
+
+                <ul class="right blue-grey darken-3 menu">
                     <li>
-                        @Html.ActionLink("Inicio", "Index", "Home", new object { },
-new { @class = "yellow-text text-darken-2" })
+                        @Html.ActionLink("Inicio", "Index", "Home", new object { }, new { @class = "green-text text-darken-2" })
+
                     </li>
-                    <li>@Html.ActionLink("Cerrar Sesion", "Login", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>
+
+                        <a href="@Url.Action("Login", "Home")" class="">
+                            <span>
+                                <strong>Cerrar Sesion</strong>
+                            </span>
+
+
+                        </a>
+                    </li>
+                    <li>
+
+                        <a href="@Url.Action("About", "Home")" class="">
+                            <span>
+                                <strong>Acerca de</strong>
+                            </span>
+
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                            <span>
+                                <strong>Solicitudes</strong>
+
+                            </span>
+                            <i class="material-icons">expand_more</i>
+
+                        </a>
+                        <ul class="blue-grey darken-3">
+
+                            <li>@Html.ActionLink("Horas Extra", "Create", "SolicitudHoras", new object { }, new { @class = "blue-grey darken-3" })</li>
+                            <li>@Html.ActionLink("Personal Extra", "SolicitudPE", "SolicitudHoras", new object { }, new { @class = "blue-grey darken-3" })</li>
+                        </ul>
+                    </li>
 
                 </ul>
             </div>
@@ -63,13 +92,15 @@ new { @class = "yellow-text text-darken-2" })
 
 
     <div class="page-footer">
-    
-            <p>&copy; @DateTime.Now.Year - DIMARIO</p>
- 
+
+        <p>&copy; @DateTime.Now.Year - DIMARIO</p>
+
     </div>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/init")
     @RenderSection("scripts", required: false)
 </body>
 </html>
