@@ -25,63 +25,70 @@
                 @*<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                     </ul>*@
+                <div id="data">
+                    <h2>
+                        @Session["Nombre"]
+                        @Session["Cedula"]
+                        <br>
+                        @Session["Rol"]
+                    </h2>
+
+                    <h2></h2>
+                </div>
             </div>
-            <h3>@Session["Cedula"]</h3>
-            <h3>@Session["Nombre"]</h3>
+
         </nav>
     </div>
 
-    <div id="H3">
-        <nav class="blue-grey darken-3  ">
-
-            <div class="nav-wrapper blue-grey darken-3">
-
-                <ul class="right blue-grey darken-3 menu">
-                    <li>
-                        @Html.ActionLink("Inicio", "Index", "Home", new object { }, new { @class = "green-text text-darken-2" })
-
-                    </li>
-                    <li>
-
-                        <a href="@Url.Action("Login", "Home")" class="">
-                            <span>
-                                <strong>Cerrar Sesion</strong>
-                            </span>
+    @*<li>@Html.ActionLink("Horas Extra", "Create", "SolicitudHoras", new object { }, new { @class = "blue-grey darken-3" })</li>
+    <li>@Html.ActionLink("Personal Extra", "SolicitudPE", "SolicitudHoras", new object { }, new { @class = "blue-grey darken-3" })</li>*@
 
 
-                        </a>
-                    </li>
-                    <li>
+<div id="H3">
 
-                        <a href="@Url.Action("About", "Home")" class="">
-                            <span>
-                                <strong>Acerca de</strong>
-                            </span>
+    <div id="Hed">
+
+        <div class="topnav" id="myTopnav">
+            <div id="anchoN">
+                <a href="#home" class="active">@Html.ActionLink("Inicio", "Index", "Home", new object { }, new { @class = "green-text text-darken-2" })</a>
+                <a href="@Url.Action("Login", "Home")" class="">
+                    <span>
+                        <strong>Cerrar Sesion</strong>
+                    </span>
+                </a>
+                <a href="@Url.Action("About", "Home")" class="">
+                    <span>
+                        <strong>Acerca de</strong>
+                    </span>
+                </a>
+                <a class='dropdown-trigger btn-small transparent ' href='#' data-target='dropdown1'>Solicitudes</a>
+
+                <ul id='dropdown1' class='dropdown-content black-text '>
+
+                    <li>@Html.ActionLink("Horas Extra", "Create", "SolicitudHoras", new object { }, new { @class = "" })</li>
+
+                    <li>@Html.ActionLink("Personal Extra", "SolicitudPE", "SolicitudHoras", new object { }, new { @class = "" })</li>
 
 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                            <span>
-                                <strong>Solicitudes</strong>
 
-                            </span>
-                            <i class="material-icons">expand_more</i>
-
-                        </a>
-                        <ul class="blue-grey darken-3">
-
-                            <li>@Html.ActionLink("Horas Extra", "Create", "SolicitudHoras", new object { }, new { @class = "blue-grey darken-3" })</li>
-                            <li>@Html.ActionLink("Personal Extra", "SolicitudPE", "SolicitudHoras", new object { }, new { @class = "blue-grey darken-3" })</li>
-                        </ul>
-                    </li>
 
                 </ul>
+
+
+
             </div>
-        </nav>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+
+
+
+
 
     </div>
+
+
+</div>
 
 
     <div class="container">
@@ -100,6 +107,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/init")
     @Scripts.Render("~/bundles/init")
     @RenderSection("scripts", required: false)
 </body>

@@ -92,243 +92,19 @@ nav ul a {
 
 
 
-/*.menu {
-    line-height: 64px;
-    position: relative;
-    float: left;
-    height: 10%;
-    float: left;
-
-    width: 100%;
-    list-style: none;*/ /*Quita las vinetas*/
-/*}
-
-    .menu li {
-        float: left;
-        text-align: center;
-        vertical-align: central;
-        line-height: 64px;
-        
-    }
-
-.menu li a {
-            display: block;
-           
-            height: 100%;
-            color: #fff;
-            text-decoration: none;
-            left: 200px;
-            float:left;
-             
-}
-
-        .menu li span {
-            color: #24a3d8;
-        }
-
-.menu li span:hover {
-            color: #24a3d8;
-          
-          
-}
-        .menu li i {
-            float: right;
-           
-        }
-
-.nav li span:hover ~ i {
-             
-            color: #24a3d8;
-            -ms-transform: rotate(180deg);*/ /* IE 9 */
-            /*-webkit-transform: rotate(180deg);*/  /*Chrome, Safari, Opera */
-            /*transform: rotate(180deg);
-}
-
-.menu li i {
-         float:right;
-}
-
-
-.nav-wrapper {
-   width:50%;
-   left:100px;
-}
-
-    .menu ul {
-        width: 100%;
-        position: relative;
-        float: left;
-        font-weight: bold;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        z-index: 200
-    }
-
-
-    .menu li > ul {
-        width: 0px;
-        position: relative;
-     
-        display: none;
-    }
-
-    .menu li:hover > ul {
-        display: block;
- 
-        z-index: 300;
-        text-decoration: none;
-      
-        
-    }
-
-    .menu li ul {
-        position: relative;
-        top: 0;
-    }
-
-        .menu li ul li a:hover {
-            color: #24a3d8;
-        }*/
-    /*.menu > li > ul li a:hover {
-    }*/
-    /*
-    .menu > li > ul li > ul {
-        display: none;
-        width: 160px;
-        height: 50px;
-        position: relative;
-        left: 160px;
-        top: -50px;
-    }*/
-
-
-
-
-
-
-
-
-
-
 
 
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
-
-
-/*#he1 {
-    background-color: #323946;
-    width: 100%;
-    height: 37px;
-    border-bottom: 2px solid rgb(131, 127, 127);
-}
-
-
-
-
-*/
 #Hed {
     background-color: #323946;
     width: 100%;
     height: 50px;
     min-width: 300px;
+    z-index:1000;
 }
-/*
-#ancho1 {*/
-    /* background-color: purple; */
-    /*width: 10%;
-    height: 100%;
-    float: left;
-    box-sizing: border-box;
-    
-}
-
-    #ancho1 img {
-        height: 100%;
-        width: 100px;
-        padding-left: 5%;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#LaNav {
-    position: relative;
-    
-    padding: 0px;
-    width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    z-index: 1;
-    font-size: 20px;
-    
-    
-}
-
-    #LaNav ul, ol {
-        list-style: none;
-    }
-
-
-
-
-.nav > li {
-    float: left;
-}
-
-.nav li a {
-    background-color: #323946;
-    color: #fff;
-    text-decoration: none;
-    padding: 9px 12px;
-    
-    display: block;
-    transition: 0.5s;
-}
-
-    .nav li a:hover {
-        
-        color: #24a3d8;
-    }
-.nav li ul a:hover {
-    background-color: white;
-}
-
-.nav li ul {
-    display: none;
-    position: absolute;
-    min-width: 140px;
-}
-
-.nav li:hover > ul {
-    display: block;
-}
-
-.nav li ul li {
-    position: relative;
-}
-
-    .nav li ul li ul {
-        right: -140px;
-        top: 0px;
-    }*/
-
-
-
-
-
 
 /*-----------------------------------------------------------------------------------------------*/
 
@@ -347,6 +123,8 @@ nav ul a {
     overflow: hidden;
     width: 90%;
     float: right;
+    z-index:200;
+
 }
 
     /* Style the links inside the navigation bar */
@@ -435,7 +213,8 @@ nav ul a {
 @media screen and (max-width: 600px) {
     .topnav.responsive {
         position: relative;
-        padding-bottom:10px;
+        padding-bottom: 10px;
+        width: 100%;
     }
 
         .topnav.responsive a.icon {

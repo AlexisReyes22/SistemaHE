@@ -113,14 +113,11 @@ h3 {
 @media only screen and (max-width: 768px) {
 
     #textoH h2{
-        
-        font-size:40px;
+       
+        font-size:37px;
 
     }
-    #textoH  {
-     
-        font-size: 30px;
-    }
+ 
 
 
 

@@ -4,79 +4,76 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>SolicitudHoras</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CantidadDeHoras)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CantidadDeHoras)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios.Nombre_Completo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios.Nombre_Completo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios1.Nombre_Completo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios1.Nombre_Completo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios2.Nombre_Completo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios2.Nombre_Completo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tareas.DetalleDeLaTarea)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tareas.DetalleDeLaTarea)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios3.Nombre_Completo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios3.Nombre_Completo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuarios4.Nombre_Completo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuarios4.Nombre_Completo)
-        </dd>
-
-    </dl>
+<div id="textoH">
+    <br />
+    <h2>Detalles</h2>
 </div>
-<p>
+
+
+@*<p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Transaccion }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@
+
+
+<div id="ContentL">
+
+    <div class="ContenidoL">
+        <h3>Detalles</h3>
+        <div class="row">
+            <div id="formula" class="col s6">
+
+
+
+                @Html.LabelFor(model => model.CantidadDeHoras)
+                @Html.EditorFor(model => model.CantidadDeHoras, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+                @Html.LabelFor(model => model.Estado)
+                @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+                @Html.LabelFor(model => model.Usuarios.Nombre_Completo)
+                @Html.EditorFor(model => model.Usuarios.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+                @Html.LabelFor(model => model.Usuarios1.Nombre_Completo)
+                @Html.EditorFor(model => model.Usuarios1.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+                @Html.LabelFor(model => model.Usuarios2.Nombre_Completo)
+                @Html.EditorFor(model => model.Usuarios2.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+            </div>
+            <div id="formula" class="col s6">
+                @Html.LabelFor(model => model.Tareas.DetalleDeLaTarea)
+                @Html.EditorFor(model => model.Tareas.DetalleDeLaTarea, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+                @Html.LabelFor(model => model.Usuarios3.Nombre_Completo)
+                @Html.EditorFor(model => model.Usuarios3.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+
+                @Html.LabelFor(model => model.Usuarios4.Nombre_Completo)
+                @Html.EditorFor(model => model.Usuarios4.Nombre_Completo, new { htmlAttributes = new { @class = "", disabled = "disabled" } })
+
+
+            </div>
+
+        </div>
+
+        <div id="pagina">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ID_Transaccion }, htmlAttributes: new { @class = "waves-button-input btn-small " })
+            @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
+        </div>
+
+    </div>
+</div>
+

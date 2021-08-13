@@ -26,29 +26,47 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
+
+                <div id="data">
+                    <h2>
+                        @Session["Nombre"]
+                        @Session["Cedula"]
+                        <br>
+                        @Session["Rol"]
+                    </h2>
+
+                    <h2></h2>
+                </div>
             </div>
         </nav>
     </div>
 
     <div id="H3">
 
+        <div id="Hed">
+
+            <div class="topnav" id="myTopnav">
+                <div id="anchoN">
+                    <a href="#home" class="active">@Html.ActionLink("Inicio", "Index", "Home", new object { }, new { @class = "blue-text text-darken-2" })</a>
+                   
+                    @Html.ActionLink("Cerrar Sesion", "Login", "Home")  
+                    @Html.ActionLink("Acerca de", "About", "Home") 
+                    @Html.ActionLink("Usuarios", "Index", "Usuarios") 
+                    @Html.ActionLink("Cuentas", "Index", "Cuentas") 
+                    @Html.ActionLink("Departamentos", "Index", "Departamentos") 
 
 
-        <nav  class=" blue-grey darken-3">
-            <div class="nav-wrapper blue-grey darken-3">
-                <ul class="right">
-                    <li>
-                        @Html.ActionLink("Inicio", "Index", "Home", new object { }, new { @class = "blue-text text-darken-2" })
-                    </li>
-                    <li>@Html.ActionLink("Cerrar Sesion", "Login", "Home")  </li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home") </li>
-                    <li>@Html.ActionLink("Usuarios", "Index", "Usuarios") </li>
-                    <li>@Html.ActionLink("Cuentas", "Index", "Cuentas") </li>
-                    <li>@Html.ActionLink("Departamentos", "Index", "Departamentos") </li>
+                </div>
 
-                </ul>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
             </div>
-        </nav>
+
+
+
+
+
+        </div>
+
 
     </div>
 
@@ -68,6 +86,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/init")
     @RenderSection("scripts", required: false)
 </body>
 </html>
