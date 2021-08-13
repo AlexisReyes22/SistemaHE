@@ -75,40 +75,100 @@
 
         <div id="Hed">
 
-            <div id="Med">
-                <div id="ancho1">
-                    <img id="logo" />
-                </div>
-                <input type="checkbox" id="nav-toggle" class="nav-toggle">
-                <div id="LaNav">
-                    <ul class="nav">
-                        <li>  @Html.ActionLink("Inicio", "Index", "Home", new object { }, new { @class = "green-text text-darken-2" })</li>
-                        <li>
-                            <a href="@Url.Action("Login", "Home")" class="">
-                                <span><strong>Cerrar Sesion</strong></span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="@Url.Action("About", "Home")" class="">
-                                <span><strong>Acerca de</strong></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"><span>Servicios</span> <i class="material-icons">expand_more</i></a>
-
-                            <ul>
-                                <li>@Html.ActionLink("Horas Extra", "SolicitudHE", "SolicitudHoras", new object { }, new { @class = "" })</li>
-
-                                <li>@Html.ActionLink("Personal Extra", "SolicitudPE", "SolicitudHoras", new object { }, new { @class = "" })</li>
-
-                            </ul>
-                        </li>
-                        <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
-                    </ul>
-                </div>
-
+            @*<div id="Med">
+            <div id="ancho1">
+                <img id="logo" />
             </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <div id="LaNav">
+                <ul class="nav">
+                    <li>  @Html.ActionLink("Inicio", "Index", "Home", new object { }, new { @class = "green-text text-darken-2" })</li>
+                    <li>
+                        <a href="@Url.Action("Login", "Home")" class="">
+                            <span><strong>Cerrar Sesion</strong></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("About", "Home")" class="">
+                            <span><strong>Acerca de</strong></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"><span>Servicios</span> <i class="material-icons">expand_more</i></a>
+
+                        <ul>
+                            <li>@Html.ActionLink("Horas Extra", "SolicitudHE", "SolicitudHoras", new object { }, new { @class = "" })</li>
+
+                            <li>@Html.ActionLink("Personal Extra", "SolicitudPE", "SolicitudHoras", new object { }, new { @class = "" })</li>
+
+                        </ul>
+                    </li>
+                    <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+                </ul>
+            </div>
+
+        </div>*@
+
+
+            <div class="topnav" id="myTopnav">
+                <div id="anchoN">
+                    <a href="#home" class="active">@Html.ActionLink("Inicio", "Index", "Home", new object { }, new { @class = "green-text text-darken-2" })</a>
+                    <a href="@Url.Action("Login", "Home")" class="">
+                        <span>
+                            <strong>Cerrar Sesion</strong>
+                        </span>
+                    </a>
+                    <a href="@Url.Action("About", "Home")" class="">
+                        <span>
+                            <strong>Acerca de</strong>
+                        </span>
+                    </a>
+                    <a class='dropdown-trigger btn-small transparent ' href='#' data-target='dropdown1'>Servicios</a>
+                    
+                    <ul id='dropdown1' class='dropdown-content black-text '>
+                        
+                        <li>@Html.ActionLink("Horas Extra", "SolicitudHE", "SolicitudHoras", new object { }, new { @class = "" })</li>
+
+                        <li>@Html.ActionLink("Personal Extra", "SolicitudPE", "SolicitudHoras", new object { }, new { @class = "" })</li>
+
+
+                        
+
+                    </ul>
+
+
+
+                    <!--<div class="dropdown">
+    <button class="dropbtn">
+        Dropdown-->
+                    @*<i class="fa fa-caret-down"></i>*@
+                    <!--</button>
+    <ul  class='dropdown-content'>
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a href="#!">three</a></li>
+        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+    </ul>-->
+                    @*<div class="dropdown-content">
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+
+        </div>*@
+                    <!--</div>-->
+
+                </div>
+
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+
+
+
+
 
         </div>
 
@@ -135,7 +195,7 @@
                 </div>
             </nav>*@
 
-
+    </div>
 
     <div class="container">
         @RenderBody()
@@ -150,14 +210,22 @@
 
     </div>
     <script>
-    function myFunction() {
-        var x = document.getElementById("LaNav");
-        if (x.className === "nav") {
-    x.className += " responsive";
-    } else {
-         x.className = "LaNav";
-  }
-}
+
+            function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+                x.className += " responsive";
+          } else {
+                x.className = "topnav";
+          }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.dropdown-trigger');
+            var instances = M.Dropdown.init(elems, options);
+        });
+
+
     </script>
 
     @Scripts.Render("~/bundles/jquery")
