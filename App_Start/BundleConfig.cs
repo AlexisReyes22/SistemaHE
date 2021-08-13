@@ -16,6 +16,7 @@ namespace SistemaHE
 
             bundles.Add(new ScriptBundle("~/bundles/materialize").Include(
                          "~/Scripts/materialize.min.js*"));
+
             bundles.Add(new ScriptBundle("~/bundles/init").Include(
                       "~/Scripts/init.js"));
 

@@ -45,14 +45,12 @@
 
     </div>
 
-    
+
 
 
     <div id="H3">
 
         <div id="Hed">
-
-
 
             <div class="topnav" id="myTopnav">
                 <div id="anchoN">
@@ -68,17 +66,18 @@
                         </span>
                     </a>
                     <a class='dropdown-trigger btn-small transparent ' href='#' data-target='dropdown1'>Servicios</a>
-                    
+
                     <ul id='dropdown1' class='dropdown-content black-text '>
-                        
+
                         <li>@Html.ActionLink("Horas Extra", "SolicitudHE", "SolicitudHoras", new object { }, new { @class = "" })</li>
 
                         <li>@Html.ActionLink("Personal Extra", "SolicitudPE", "SolicitudHoras", new object { }, new { @class = "" })</li>
 
 
-                        
+
 
                     </ul>
+
 
 
                 </div>
@@ -91,7 +90,6 @@
 
 
         </div>
-
 
 
     </div>
@@ -110,19 +108,8 @@
     </div>
     <script>
 
-            function myFunction() {
-          var x = document.getElementById("myTopnav");
-          if (x.className === "topnav") {
-                x.className += " responsive";
-          } else {
-                x.className = "topnav";
-          }
-        }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.dropdown-trigger');
-            var instances = M.Dropdown.init(elems, options);
-        });
+
 
 
     </script>
