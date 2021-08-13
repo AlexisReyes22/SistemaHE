@@ -234,6 +234,27 @@ font-size:15px;
         
     }
 
+/*Acerca de*/
+#BanIn{
+    width:50%;
+    margin:auto;
+}
+
+    #BanIn img {
+        width: 100%;
+        box-shadow: 2px 2px 2px black;
+        
+    }
+
+#BanIn h2 {
+    font-size:25px;
+}
+
+    #BanIn p {
+        font-size: 20px;
+    }
+
+
 
 
 @media only screen and (max-width: 1024px) {

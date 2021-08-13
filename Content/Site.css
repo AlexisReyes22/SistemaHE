@@ -90,7 +90,7 @@ h3 {
     float: left;
     height: 60%;
     position: relative;
-    z-index:0;
+    z-index:-10;
     
     /*increase width as per your need*/
 }
@@ -107,34 +107,56 @@ h3 {
 }
 
 
-@media only screen and (max-width: 1024px) {
-    .page-footer {
-        bottom: 0px;
-        width: 100%;
-        height: 9px;
-        background-color: #37474F;
-        clear: both;
-        position: relative;
-        top: 300px;
-        margin-top: 00px;
-        float: left;
+
+
+
+@media only screen and (max-width: 768px) {
+
+    #textoH h2{
+        
+        font-size:40px;
+
     }
+    #textoH  {
+     
+        font-size: 30px;
+    }
+
+
+
 }
 
 
-@media only screen and (max-width: 1440px) {
-    .page-footer {
-        bottom: 0px;
-        margin-top: 50px;
-        width: 100%;
-        height: 90px;
-        clear: both;
-        position: relative;
-        top: 300px;
-        margin-top: 00px;
-        background-color: #37474F;
-        float: left;
+
+
+    @media only screen and (max-width: 1024px) {
+        .page-footer {
+            bottom: 0px;
+            width: 100%;
+            height: 9px;
+            background-color: #37474F;
+            clear: both;
+            position: relative;
+            top: 300px;
+            margin-top: 00px;
+            float: left;
+        }
     }
-}
+
+
+    @media only screen and (max-width: 1440px) {
+        .page-footer {
+            bottom: 0px;
+            margin-top: 50px;
+            width: 100%;
+            height: 90px;
+            clear: both;
+            position: relative;
+            top: 300px;
+            margin-top: 00px;
+            background-color: #37474F;
+            float: left;
+        }
+    }
 
 

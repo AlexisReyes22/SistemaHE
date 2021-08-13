@@ -79,3 +79,21 @@
         border: solid 2px #32a3d6;
         color: #32a3d6;
     }
+
+
+@media only screen and (max-width: 768px) {
+
+    .ContenidoL{
+
+        width:80%;
+
+    }
+    .ContenidoL label{
+        width:100%;
+        font-size:20px;
+    }
+
+
+
+
+}
