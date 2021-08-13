@@ -105,17 +105,18 @@ namespace SistemaHE.Controllers
             if (ModelState.IsValid)
             {
 
-                if (Session["Rol"].Equals("Funcionario"))
+                if (Session["Rol"].Equals("Jefe"))
+                {
+                    solicitudHoras.JefeDestinatario = null;
+
+ 
+                }
+                else
                 {
                     solicitudHoras.JefeDestinatario = Convert.ToInt32(Session["CedulaJefe"]);
                     solicitudHoras.Destinatario1 = null;
                     solicitudHoras.Destinatario2 = null;
                     solicitudHoras.Destinatario3 = null;
-                }
-                else
-                {
-                    solicitudHoras.JefeDestinatario = null;       
-
                 }
                 solicitudHoras.Remitente = Convert.ToInt32(Session["Cedula"]);
                 solicitudHoras.Estado = "Pendiente";

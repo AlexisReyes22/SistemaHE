@@ -29,7 +29,8 @@
 
                     @Html.LabelFor(model => model.Jefe_Inmediato, "Jefe Inmediato", htmlAttributes: new { @class = "" })
 
-                    @Html.EditorFor(model => model.Jefe_Inmediato, new { htmlAttributes = new { @class = "" } })
+                    @Html.DropDownList("Jefes", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+
 
                     @Html.ValidationMessageFor(model => model.Jefe_Inmediato, "", new { @class = "text-danger" })
 

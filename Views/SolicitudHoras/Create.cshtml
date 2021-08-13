@@ -50,7 +50,7 @@
                         <br />
                         @Html.LabelFor(model => model.Remitente, "Remitente", htmlAttributes: new { @class = "" })
 
-                        <input type="tex" name="name" value="@Session["Nombre"]" />
+                        <input type="text" name="name" value="@Session["Nombre"]" />
                         @Html.ValidationMessageFor(model => model.Remitente, "", new { @class = "text-danger" })
 
 
@@ -93,7 +93,7 @@
                             {
                                 @Html.LabelFor(model => model.JefeDestinatario, "Jefe Destinatario", htmlAttributes: new { @class = "" })
 
-                                <input type="type" name="name" value="@Session["Jefe_Inmediato"]" />
+                                <input type="text" name="name" value="@Session["Jefe_Inmediato"]" />
                                 @Html.ValidationMessageFor(model => model.JefeDestinatario, "", new { @class = "text-danger" })
 
 
