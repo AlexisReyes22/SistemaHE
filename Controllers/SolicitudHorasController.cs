@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -21,7 +22,7 @@ namespace SistemaHE.Controllers
             if (Session["Rol"].Equals("Jefe"))
             {
                 var soli = from d in db.SolicitudHoras
-                           where d.JefeDestinatario == cedula || d.Remitente==cedula
+                           where d.JefeDestinatario == cedula || d.Remitente==cedula && d.Estado !="Rechazado"
                            select d;
              
                 return View(soli.ToList());
@@ -29,7 +30,7 @@ namespace SistemaHE.Controllers
             else
             {
                 var soli = from d in db.SolicitudHoras
-                           where d.Remitente == cedula || d.Destinatario1==cedula || d.Destinatario2 == cedula || d.Destinatario3 == cedula
+                           where d.Remitente == cedula || d.Destinatario1==cedula || d.Destinatario2 == cedula || d.Destinatario3 == cedula && d.Estado != "Rechazado"
                            select d;
              
 
@@ -108,12 +109,19 @@ namespace SistemaHE.Controllers
         // GET: SolicitudHoras/Create
         public ActionResult Create()
         {
-            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
-            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
-            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
+            
+            var destinatarios = from d in db.Usuarios
+                        where d.Rol == "Funcionario"
+                        select d;
+
+            var jefes = db.ListaJefes().ToList();
+
+            ViewBag.Destinatario1 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo");
+            ViewBag.Destinatario2 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo");
+            ViewBag.Destinatario3 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo");
             ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea");
-            ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
-            ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
+         
+            
             return View();
         }
 
@@ -165,16 +173,21 @@ namespace SistemaHE.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             SolicitudHoras solicitudHoras = db.SolicitudHoras.Find(id);
+            Session["ID_Soli"] = id;
             if (solicitudHoras == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario1);
-            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario2);
-            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario3);
-            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea", solicitudHoras.ID_Tarea);
-            ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Nombre_Completo", "Nombre_Completo", solicitudHoras.JefeDestinatario);
-            ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Remitente);
+            List<string> listOfNames = new List<string>() { "Pendiente", "Aceptado", "Rechazado" };
+            ViewBag.Estado = new SelectList(listOfNames,solicitudHoras.Estado);
+            ViewBag.CantidadDeHoras = solicitudHoras.CantidadDeHoras;
+
+            ViewBag.Destinatario1 =solicitudHoras.Destinatario1;
+            ViewBag.Destinatario2 = solicitudHoras.Destinatario2;
+            ViewBag.Destinatario3 = solicitudHoras.Destinatario3;
+            ViewBag.ID_Tarea = solicitudHoras.ID_Tarea;
+            ViewBag.JefeDestinatario = solicitudHoras.JefeDestinatario;
+            ViewBag.Remitente = solicitudHoras.Remitente;
             return View(solicitudHoras);
         }
 
@@ -183,21 +196,27 @@ namespace SistemaHE.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_Transaccion,CantidadDeHoras,ID_Tarea,Remitente,JefeDestinatario,Destinatario1,Destinatario2,Destinatario3,Estado")] SolicitudHoras solicitudHoras)
+        public ActionResult Edit()
         {
             if (ModelState.IsValid)
             {
+                SolicitudHoras solicitudHoras = db.SolicitudHoras.Find(Convert.ToInt32(Session["ID_Soli"]));
+               
+                solicitudHoras.Estado = Request["Estado"].ToString();
+
                 db.Entry(solicitudHoras).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario1);
-            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario2);
-            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario3);
-            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea", solicitudHoras.ID_Tarea);
-            ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.JefeDestinatario);
-            ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Remitente);
-            return View(solicitudHoras);
+            SolicitudHoras solicitudHoras2 = db.SolicitudHoras.Find(Convert.ToInt32(Session["ID_Soli"]));
+
+            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras2.Destinatario1);
+            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras2.Destinatario2);
+            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras2.Destinatario3);
+            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea", solicitudHoras2.ID_Tarea);
+            ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras2.JefeDestinatario);
+            ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras2.Remitente);
+            return View(solicitudHoras2);
         }
 
         // GET: SolicitudHoras/Delete/5
