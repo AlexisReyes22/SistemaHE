@@ -10,7 +10,7 @@
 </div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nueva Solicitud", "Create")
 </p>
 
 
@@ -19,31 +19,67 @@
     @foreach (var item in Model)
     {
 
+        if (item.Remitente.Equals(Convert.ToInt32(Session["Cedula"])))
+        {
+            <div class="card">
 
-        <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <div class="card-content white-text text-darken-1">
+                            <span class="card-title xl12"> @Html.DisplayFor(modelItem => item.Tareas.DetalleDeLaTarea)</span>
+                            <p class="parrafo1">
+                                @Html.LabelFor(modelItem => item.CantidadDeHoras, "Cantidad de Horas: ")
+                                @Html.DisplayFor(modelItem => item.CantidadDeHoras)
+                                <br />
+                                @Html.LabelFor(modelItem => item.Estado, "Estado: ")
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </p>
 
-            <div class="face face1">
-                <div class="content">
-                    <div class="card-content white-text text-darken-1">
-                        <span class="card-title xl12"> @Html.DisplayFor(modelItem => item.Tareas.DetalleDeLaTarea)</span>
-                        <p>
-                            @Html.DisplayFor(modelItem => item.CantidadDeHoras)
-                            @Html.DisplayFor(modelItem => item.Estado)
-                        </p>
-
+                        </div>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <div class="card-action white tamanio" id="pagina">
+                            @Html.ActionLink("Editar", "Edit", new { id = item.ID_Transaccion }, htmlAttributes: new { @class = "waves-button-input btn-large " })
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID_Transaccion }, htmlAttributes: new { @class = "waves-button-input btn-large " })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Transaccion }, htmlAttributes: new { @class = "waves-button-input btn-large " })
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="face face2">
-                <div class="content">
-                    <div class="card-action white tamanio" id="pagina">
-                        @Html.ActionLink("Editar", "Edit", new { id = item.ID_Transaccion }, htmlAttributes: new { @class = "waves-button-input btn-large " })
-                        @Html.ActionLink("Detalles", "Details", new { id = item.ID_Transaccion }, htmlAttributes: new { @class = "waves-button-input btn-large " }) 
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Transaccion }, htmlAttributes: new { @class = "waves-button-input btn-large " })
+        }
+        else
+        {
+            <div class="card">
+
+                <div class="face face1">
+                    <div class="content">
+                        <div class="card-content white-text text-darken-1">
+                            <span class="card-title xl12"> @Html.DisplayFor(modelItem => item.Tareas.DetalleDeLaTarea)</span>
+                            <p class="parrafo2">
+                                @Html.LabelFor(modelItem => item.CantidadDeHoras, "Cantidad de Horas: ")
+                                @Html.DisplayFor(modelItem => item.CantidadDeHoras)
+                                <br />
+                                @Html.LabelFor(modelItem => item.Estado, "Estado: ")
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <div class="card-action white tamanio" id="pagina">
+                            @Html.ActionLink("Editar", "Edit", new { id = item.ID_Transaccion }, htmlAttributes: new { @class = "waves-button-input btn-large " })
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID_Transaccion }, htmlAttributes: new { @class = "waves-button-input btn-large " })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Transaccion }, htmlAttributes: new { @class = "waves-button-input btn-large " })
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
+
 
     }
 </div>

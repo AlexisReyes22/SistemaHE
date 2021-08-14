@@ -52,6 +52,7 @@
     align-content: center;
     margin: 5px
 }
+
     .content #pagina a:hover {
         color: #03a9f4;
     }
@@ -60,12 +61,12 @@
     width: 100%;
     margin: auto;
     text-align: center;
-
 }
+
     .solo #pagina a {
         color: white
-
     }
+
         .solo #pagina a:hover {
             color: #03a9f4
         }
@@ -80,7 +81,7 @@
     position: relative;
     border-radius: 10px;
 }
-/*
+    /*
     .container .card .icon {
         position: absolute;
         top: 0;
@@ -114,7 +115,7 @@
         transition: 0.7s;
         color: #fff;
     }
-/*
+    /*
 i {
     position: absolute;
     top: 50%;
@@ -125,21 +126,30 @@ i {
     color: #fff;
 }*/
 
-.container .card .face {
-    width: 300px;
-    height: 200px;
-    transition: 0.5s;
+    .container .card .face {
+        width: 300px;
+        height: 200px;
+        transition: 0.5s;
+    }
+
+        .container .card .face.face1 {
+            position: relative;
+            background: #37474f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            transform: translateY(100px);
+        }
+
+
+.parrafo1 {
+    color: green;
 }
 
-    .container .card .face.face1 {
-        position: relative;
-        background: #37474f;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-        transform: translateY(100px);
-    }
+.parrafo2 {
+    color: blue;
+}
 
 .container .card:hover .face.face1 {
     background: #03a9f4;
@@ -190,6 +200,11 @@ i {
     text-align: center;
     color: #414141;
 }
+
+.container .card .face.face1 .content p label {
+    font-size: 18px;
+}
+
 
 /*.container a {
     text-decoration: none;
