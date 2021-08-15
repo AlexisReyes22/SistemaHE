@@ -13,7 +13,7 @@ namespace SistemaHE.Controllers
 {
     public class SolicitudHorasController : Controller
     {
-        private SitiosWebEntities1 db = new SitiosWebEntities1();
+        private SitiosWebEntities db = new SitiosWebEntities();
         
         // GET: SolicitudHoras
         public ActionResult Index()
@@ -58,53 +58,10 @@ namespace SistemaHE.Controllers
         }
 
 
-        public ActionResult SolicitudHE()
-        {
-            string rol = "Funcionario";
-
-            var lista = from d in db.Usuarios
-                        where d.Rol == rol
-                        select d;
-
-            ViewBag.Destinatario1 = new SelectList(lista, "Identificacion", "Nombre_Completo");
-            ViewBag.Destinatario2 = new SelectList(lista, "Identificacion", "Nombre_Completo");
-            ViewBag.Destinatario3 = new SelectList(lista, "Identificacion", "Nombre_Completo");
-            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea");
-
-            return View();
-        }
-
-
-        //solicitudes cuando es jefe a empleadao se usan los campos destinatarios1 2 3, de lo contrario solo remitente.
-
-        public ActionResult NuevaSHE([Bind(Include = "CantidadDeHoras,ID_Tarea,Remitente,JefeDestinatario,Destinatario1,Destinatario2,Destinatario3")] SolicitudHoras solicitudHoras)
-        {
-            if (ModelState.IsValid)
-            {
-                int ced = Convert.ToInt32(Session["Cedula"]);
-                db.SP_CrearSolicitudDeHorasExtra_EmpleadoAJefe(ced, solicitudHoras.CantidadDeHoras, solicitudHoras.ID_Tarea);
 
 
 
-                return RedirectToAction("Index");
-            }
 
-            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario1);
-            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario2);
-            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario3);
-            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea", solicitudHoras.ID_Tarea);
-            ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.JefeDestinatario);
-            ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Remitente);
-            return View(solicitudHoras);
-        }
-
-        public ActionResult SolicitudPE()
-        {
-
-
-
-            return View();
-        }
 
         // GET: SolicitudHoras/Create
         public ActionResult Create()

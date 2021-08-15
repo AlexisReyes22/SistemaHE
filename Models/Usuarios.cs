@@ -44,6 +44,7 @@ namespace SistemaHE.Models
         public Nullable<int> Telefono_Celular { get; set; }
         public string Departamento { get; set; }
         public string Rol { get; set; }
+        public string Correo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cuentas> Cuentas { get; set; }

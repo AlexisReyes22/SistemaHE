@@ -18,7 +18,7 @@ namespace SistemaHE.Models
         public Nullable<int> CantidadDePersonal { get; set; }
         public Nullable<int> ID_Tarea { get; set; }
         public int Remitente { get; set; }
-        public int JefeDestinatario { get; set; }
+        public Nullable<int> JefeDestinatario { get; set; }
         public Nullable<int> Destinatario1 { get; set; }
         public Nullable<int> Destinatario2 { get; set; }
         public Nullable<int> Destinatario3 { get; set; }

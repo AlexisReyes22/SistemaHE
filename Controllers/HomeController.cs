@@ -42,7 +42,7 @@ namespace SistemaHE.Controllers
 
             try
             {
-                using (SitiosWebEntities1 db = new SitiosWebEntities1())
+                using (SitiosWebEntities db = new SitiosWebEntities())
                 {
 
 

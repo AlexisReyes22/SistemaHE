@@ -132,6 +132,7 @@
     <Compile Include="Controllers\DepartamentosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SolicitudHorasController.cs" />
+    <Compile Include="Controllers\SolicitudPersonalsController.cs" />
     <Compile Include="Controllers\TareasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -290,6 +291,11 @@
     <Content Include="Views\Departamentos\Index.cshtml" />
     <Content Include="Views\SolicitudHoras\SolicitudHE.cshtml" />
     <Content Include="Views\SolicitudHoras\SolicitudPE.cshtml" />
+    <Content Include="Views\SolicitudPersonals\Create.cshtml" />
+    <Content Include="Views\SolicitudPersonals\Delete.cshtml" />
+    <Content Include="Views\SolicitudPersonals\Details.cshtml" />
+    <Content Include="Views\SolicitudPersonals\Edit.cshtml" />
+    <Content Include="Views\SolicitudPersonals\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

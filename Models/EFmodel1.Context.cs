@@ -15,10 +15,10 @@ namespace SistemaHE.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class SitiosWebEntities1 : DbContext
+    public partial class SitiosWebEntities : DbContext
     {
-        public SitiosWebEntities1()
-            : base("name=SitiosWebEntities1")
+        public SitiosWebEntities()
+            : base("name=SitiosWebEntities")
         {
         }
     
