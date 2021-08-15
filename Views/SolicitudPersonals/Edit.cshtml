@@ -4,90 +4,134 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<div id="textoH">
+    <br />
+    <h2>Aprobacion</h2>
+</div>
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>SolicitudPersonal</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID_Transaccion)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CantidadDePersonal, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CantidadDePersonal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CantidadDePersonal, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_Tarea, "ID_Tarea", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_Tarea", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_Tarea, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Remitente, "Remitente", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Remitente", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Remitente, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.JefeDestinatario, "JefeDestinatario", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("JefeDestinatario", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.JefeDestinatario, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Destinatario1, "Destinatario1", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Destinatario1", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Destinatario1, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div id="ContentL">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Destinatario2, "Destinatario2", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Destinatario2", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Destinatario2, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <div class="ContenidoL">
+            <h3>Solicitud Horas</h3>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Destinatario3, "Destinatario3", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Destinatario3", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Destinatario3, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID_Transaccion)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="row">
+                <div id="formula" class="col s6">
+                    <div class="form-group">
+
+                        @Html.LabelFor(model => model.CantidadDePersonal, "Cantidad de Horas", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <input type="text" name="CantidadDePersonal" value="@ViewData["CantidadDePersonal"] " disabled />
+
+                        @Html.ValidationMessageFor(model => model.CantidadDePersonal, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+
+                        @Html.LabelFor(model => model.ID_Tarea, "ID Tarea", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <input type="text" name="ID_Tarea" value="@ViewData["ID_Tarea"] " disabled />
+
+                        @Html.ValidationMessageFor(model => model.ID_Tarea, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Remitente, "Remitente", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <input type="text" name="Remitente" value="@ViewData["Remitente"] " disabled />
+
+                        @Html.ValidationMessageFor(model => model.Remitente, "", new { @class = "text-danger" })
+
+                    </div>
+                    @{
+                        if (Session["Rol"].Equals("Jefe") && Session["Cedula"].Equals(ViewData["Remitente"]))
+                        {
+                            @Html.LabelFor(model => model.Destinatario1, "Destinatario 1", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <input type="text" name="Destinatario1" value="@ViewData["Destinatario1"] " disabled />
+
+                            @Html.ValidationMessageFor(model => model.Destinatario1, "", new { @class = "text-danger" })
+
+                            @Html.LabelFor(model => model.Destinatario2, "Destinatario 2", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <input type="text" name="Destinatario2" value="@ViewData["Destinatario2"] " disabled />
+
+                            @Html.ValidationMessageFor(model => model.Destinatario2, "", new { @class = "text-danger" })
+
+                            @Html.LabelFor(model => model.Destinatario3, "Destinatario 3", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <input type="text" name="Destinatario3" value="@ViewData["Destinatario3"] " disabled />
+
+                            @Html.ValidationMessageFor(model => model.Destinatario3, "", new { @class = "text-danger" })
+
+                        }
+                        else if (Session["Rol"].Equals("Jefe") && !Session["Cedula"].Equals(ViewData["Remitente"]))
+
+                        { }
+                        else if (Session["Rol"].Equals("Funcionario") && !Session["Cedula"].Equals(ViewData["Remitente"]))
+                        {
+
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.JefeDestinatario, "Jefe Destinatario", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <input type="text" name="JefeDestinatario" value="@ViewData["JefeDestinatario"] " disabled />
+
+                                @Html.ValidationMessageFor(model => model.JefeDestinatario, "", new { @class = "text-danger" })
+
+                            </div>
+                        }
+
+                    }
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Estado, "Estado", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        @{if (Session["Cedula"].Equals(ViewData["Remitente"]))
+                            {
+                                @Html.DropDownList("Estado", null, htmlAttributes: new { @class = "dropdown-trigger btn", disabled = "disabled" })
+
+                            }
+                            else
+                            {
+                                @Html.DropDownList("Estado", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
+
+                            }
+
+                        }
+
+                        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+
+                    </div>
+
+                </div>
+
+
+
             </div>
+            <div id="pagina">
+
+                <input type="submit" value="Guardar" class="waves-button-input btn-small" />
+
+
+                @Html.ActionLink("Volver", "Index", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
+
+            </div>
+
         </div>
     </div>
+
+
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

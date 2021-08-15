@@ -118,16 +118,21 @@ namespace SistemaHE.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             SolicitudPersonal solicitudPersonal = db.SolicitudPersonal.Find(id);
+            Session["ID_Soli"] = id;
             if (solicitudPersonal == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario1);
-            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario2);
-            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario3);
-            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea", solicitudPersonal.ID_Tarea);
-            ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.JefeDestinatario);
-            ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Remitente);
+            List<string> listOfNames = new List<string>() { "Pendiente", "Aceptado", "Rechazado" };
+            ViewBag.Estado = new SelectList(listOfNames, solicitudPersonal.Estado);
+            ViewBag.CantidadDePersonal = solicitudPersonal.CantidadDePersonal;
+
+            ViewBag.Destinatario1 = solicitudPersonal.Destinatario1;
+            ViewBag.Destinatario2 = solicitudPersonal.Destinatario2;
+            ViewBag.Destinatario3 = solicitudPersonal.Destinatario3;
+            ViewBag.ID_Tarea = solicitudPersonal.ID_Tarea;
+            ViewBag.JefeDestinatario = solicitudPersonal.JefeDestinatario;
+            ViewBag.Remitente = solicitudPersonal.Remitente;
             return View(solicitudPersonal);
         }
 
@@ -140,17 +145,23 @@ namespace SistemaHE.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(solicitudPersonal).State = EntityState.Modified;
+                SolicitudPersonal solicitudPersonal1 = db.SolicitudPersonal.Find(Convert.ToInt32(Session["ID_Soli"]));
+
+                solicitudPersonal1.Estado = Request["Estado"].ToString();
+
+                db.Entry(solicitudPersonal1).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario1);
-            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario2);
-            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario3);
-            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea", solicitudPersonal.ID_Tarea);
-            ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.JefeDestinatario);
-            ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Remitente);
-            return View(solicitudPersonal);
+            SolicitudPersonal solicitudPersonal2 = db.SolicitudPersonal.Find(Convert.ToInt32(Session["ID_Soli"]));
+
+            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal2.Destinatario1);
+            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal2.Destinatario2);
+            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal2.Destinatario3);
+            ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea", solicitudPersonal2.ID_Tarea);
+            ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal2.JefeDestinatario);
+            ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal2.Remitente);
+            return View(solicitudPersonal2);
         }
 
         // GET: SolicitudPersonals/Delete/5
