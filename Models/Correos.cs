@@ -5,6 +5,7 @@ using MimeKit;
 using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
+using System.Web;
 
 public class Correos
 {
@@ -20,25 +21,31 @@ public class Correos
     public void LeerXML()
 
     {
-        XDocument doc = XDocument.Load("C:\\Users\\krusn\\source\\repos\\Ver2\\XML\\confCorreos.xml");
+        XDocument doc = XDocument.Load(GetFilePath()+"\\confCorreos.xml");
 
 
         var correo = from lv1 in doc.Descendants("Correo")
                      select lv1.Attribute("correo").Value;
-        XDocument doc1 = XDocument.Load("C:\\Users\\krusn\\source\\repos\\Ver2\\XML\\confCorreos.xml");
+
+        XDocument doc1 = XDocument.Load(GetFilePath() + "\\confCorreos.xml");
 
         var passw = from lv1 in doc1.Descendants("Pass")
                     select lv1.Attribute("pass").Value;
-        XDocument doc2 = XDocument.Load("C:\\Users\\krusn\\source\\repos\\Ver2\\XML\\confCorreos.xml");
+
+        XDocument doc2 = XDocument.Load(GetFilePath() + "\\confCorreos.xml");
 
         var jornada = from lv1 in doc2.Descendants("Jornada")
-                      select lv1.Attribute("ornada").Value;
+                      select lv1.Attribute("jornada").Value;
 
         remitente = correo.First();
         pass = passw.First();
 
 
 
+    }
+    public string GetFilePath()
+    {
+        return HttpContext.Current.Server.MapPath("/XML");
     }
     public Correos(string Cdestino, string usuarioN, string asunto, string message)
     {
