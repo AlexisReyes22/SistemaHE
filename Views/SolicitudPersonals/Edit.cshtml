@@ -6,7 +6,7 @@
 
 <div id="textoH">
     <br />
-    <h2>Aprobacion</h2>
+    <h2>Solicitud Personal Extra</h2>
 </div>
 
 
@@ -21,7 +21,7 @@
     <div id="ContentL">
 
         <div class="ContenidoL">
-            <h3>Solicitud Horas</h3>
+            <h3>Validación</h3>
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.ID_Transaccion)
@@ -40,7 +40,7 @@
 
                     <div class="form-group">
 
-                        @Html.LabelFor(model => model.ID_Tarea, "ID Tarea", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.ID_Tarea, "Tarea", htmlAttributes: new { @class = "control-label col-md-2" })
                         <input type="text" name="ID_Tarea" value="@ViewData["ID_Tarea"] " disabled />
 
                         @Html.ValidationMessageFor(model => model.ID_Tarea, "", new { @class = "text-danger" })
@@ -55,7 +55,7 @@
 
                     </div>
                     @{
-                        if (Session["Rol"].Equals("Jefe") && Session["Cedula"].Equals(ViewData["Remitente"]))
+                        if (Session["Rol"].Equals("Jefe") && Session["Nombre"].Equals(ViewData["Remitente"]))
                         {
                             @Html.LabelFor(model => model.Destinatario1, "Destinatario 1", htmlAttributes: new { @class = "control-label col-md-2" })
                             <input type="text" name="Destinatario1" value="@ViewData["Destinatario1"] " disabled />
@@ -73,10 +73,10 @@
                             @Html.ValidationMessageFor(model => model.Destinatario3, "", new { @class = "text-danger" })
 
                         }
-                        else if (Session["Rol"].Equals("Jefe") && !Session["Cedula"].Equals(ViewData["Remitente"]))
+                        else if (Session["Rol"].Equals("Jefe") && !Session["Nombre"].Equals(ViewData["Remitente"]))
 
                         { }
-                        else if (Session["Rol"].Equals("Funcionario") && !Session["Cedula"].Equals(ViewData["Remitente"]))
+                        else if (Session["Rol"].Equals("Funcionario") && !Session["Nombre"].Equals(ViewData["Remitente"]))
                         {
 
                         }
@@ -111,6 +111,19 @@
                         }
 
                         @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                        <br />
+                        @{if (Session["Cedula"].Equals(ViewData["Remitente"]))
+                            {
+
+
+
+                            }
+                            else
+                            {
+                                <label for="Comentario">Comentario</label>
+                                <textarea type="text" name="Comentario" value=" "></textarea>
+                            }
+                        }
 
                     </div>
 

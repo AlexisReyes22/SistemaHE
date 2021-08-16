@@ -149,6 +149,20 @@ namespace SistemaHE.Controllers
 
                 solicitudPersonal1.Estado = Request["Estado"].ToString();
 
+                string mensaje = Session["Nombre"] + " ha " + solicitudPersonal1.Estado.ToString() + " la solicitud: N° " + solicitudPersonal1.ID_Transaccion + ", correspondiente a la tarea: " + solicitudPersonal1.Tareas.DetalleDeLaTarea + "\n" + "Comentario:\n" + Request["Comentario"];
+
+
+                var correo = from d in db.Usuarios
+                             where d.Identificacion == solicitudPersonal1.Remitente
+                             select d;
+                foreach (var item in correo)
+                {
+                    Correos correos = new Correos(item.Correo, item.Nombre_Completo, "Cambios en Solicitud de Horas Extras", mensaje);
+
+
+
+                }
+
                 db.Entry(solicitudPersonal1).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

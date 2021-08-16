@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+using System;
+
 using System.Linq;
-using System.Web;
+
 using System.Web.Mvc;
 using SistemaHE.Models;
 
@@ -60,6 +61,7 @@ namespace SistemaHE.Controllers
                         Session["Nombre"] = lst2.First().Nombre_Completo;
                         Session["Cedula"] = lst2.First().Identificacion;
                         Session["CedulaJefe"] = lst2.First().Jefe_Inmediato;
+                        Session["Correo"] = lst2.First().Correo;
 
                         int cedJefe = Convert.ToInt32(lst2.First().Jefe_Inmediato);
 

@@ -6,7 +6,7 @@
 
 <div id="textoH">
     <br />
-    <h2>Editar</h2>
+    <h2>Solicitud Horas Extra</h2>
 </div>
 
 @using (Html.BeginForm())
@@ -20,7 +20,7 @@
     <div id="ContentL">
 
         <div class="ContenidoL">
-            <h3>Solicitud Horas</h3>
+            <h3>Validación</h3>
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.ID_Transaccion)
@@ -39,7 +39,7 @@
 
                     <div class="form-group">
 
-                        @Html.LabelFor(model => model.ID_Tarea, "ID Tarea", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.ID_Tarea, "Tarea", htmlAttributes: new { @class = "control-label col-md-2" })
                         <input type="text" name="ID_Tarea" value="@ViewData["ID_Tarea"] " disabled />
 
                         @Html.ValidationMessageFor(model => model.ID_Tarea, "", new { @class = "text-danger" })
@@ -54,7 +54,7 @@
 
                     </div>
                     @{
-                        if (Session["Rol"].Equals("Jefe") && Session["Cedula"].Equals(ViewData["Remitente"]))
+                        if (Session["Rol"].Equals("Jefe") && Session["Nombre"].Equals(ViewData["Remitente"]))
                         {
                             @Html.LabelFor(model => model.Destinatario1, "Destinatario 1", htmlAttributes: new { @class = "control-label col-md-2" })
                             <input type="text" name="Destinatario1" value="@ViewData["Destinatario1"] " disabled />
@@ -71,11 +71,12 @@
 
                             @Html.ValidationMessageFor(model => model.Destinatario3, "", new { @class = "text-danger" })
 
+
                         }
-                        else if (Session["Rol"].Equals("Jefe") && !Session["Cedula"].Equals(ViewData["Remitente"]))
+                        else if (Session["Rol"].Equals("Jefe") && !Session["Nombre"].Equals(ViewData["Remitente"]))
 
                         { }
-                        else if (Session["Rol"].Equals("Funcionario") && !Session["Cedula"].Equals(ViewData["Remitente"]))
+                        else if (Session["Rol"].Equals("Funcionario") && !Session["Nombre"].Equals(ViewData["Remitente"]))
                         {
 
                         }
@@ -93,23 +94,37 @@
                     }
 
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Estado, "Estado", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Estado, "Estado", htmlAttributes: new { @class = "control-label col-md-2" })
 
-                        @{if (Session["Cedula"].Equals(ViewData["Remitente"]))
-                            {
-                                @Html.DropDownList("Estado", null, htmlAttributes: new { @class = "dropdown-trigger btn", disabled = "disabled" })
+                    @{if (Session["Cedula"].Equals(ViewData["Remitente"]))
+                        {
+                            @Html.DropDownList("Estado", null, htmlAttributes: new { @class = "dropdown-trigger btn", disabled = "disabled" })
 
-                            }
-                            else
-                            {
-                                @Html.DropDownList("Estado", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
-
-                            }
+                        }
+                        else
+                        {
+                            @Html.DropDownList("Estado", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
 
                         }
 
-                        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                    }
+
+                    @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                    <br />
+                    @{if (Session["Cedula"].Equals(ViewData["Remitente"]))
+                        {
+
+
+
+                        }
+                        else
+                        {
+                            <label for="Comentario">Comentario</label>
+                            <textarea type="text" name="Comentario" value=" "></textarea>
+                            }
+                        }
+
 
                     </div>
 

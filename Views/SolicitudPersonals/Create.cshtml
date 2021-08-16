@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
     <div id="textoH">
         <br />
-        <h2>Solicitud de Horas Extras</h2>
+        <h2>Solicitud de Personal Extra</h2>
     </div>
 
     <div id="ContentL">
@@ -42,7 +42,7 @@
                         <br />
 
 
-                        @Html.LabelFor(model => model.ID_Tarea, "ID Tarea", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.ID_Tarea, "Tarea", htmlAttributes: new { @class = "control-label col-md-2" })
 
                         @Html.DropDownList("ID_Tarea", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
                         @Html.ValidationMessageFor(model => model.ID_Tarea, "", new { @class = "text-danger" })
@@ -50,7 +50,7 @@
                         <br />
                         @Html.LabelFor(model => model.Remitente, "Remitente", htmlAttributes: new { @class = "" })
 
-                        <input type="text" name="name" value="@Session["Nombre"]" />
+                        <input type="text" name="name" value="@Session["Nombre"]" disabled/>
                         @Html.ValidationMessageFor(model => model.Remitente, "", new { @class = "text-danger" })
 
 

@@ -14,6 +14,7 @@ namespace SistemaHE.Controllers
     public class SolicitudHorasController : Controller
     {
         private SitiosWebEntities db = new SitiosWebEntities();
+        public busqueda b = new busqueda();
         
         // GET: SolicitudHoras
         public ActionResult Index()
@@ -139,14 +140,17 @@ namespace SistemaHE.Controllers
             ViewBag.Estado = new SelectList(listOfNames,solicitudHoras.Estado);
             ViewBag.CantidadDeHoras = solicitudHoras.CantidadDeHoras;
 
-            ViewBag.Destinatario1 =solicitudHoras.Destinatario1;
-            ViewBag.Destinatario2 = solicitudHoras.Destinatario2;
-            ViewBag.Destinatario3 = solicitudHoras.Destinatario3;
-            ViewBag.ID_Tarea = solicitudHoras.ID_Tarea;
-            ViewBag.JefeDestinatario = solicitudHoras.JefeDestinatario;
-            ViewBag.Remitente = solicitudHoras.Remitente;
+            ViewBag.Destinatario1 =b.buscarNom(Convert.ToInt32( solicitudHoras.Destinatario1));
+            ViewBag.Destinatario2 = b.buscarNom(Convert.ToInt32(solicitudHoras.Destinatario2));
+            ViewBag.Destinatario3 = b.buscarNom(Convert.ToInt32(solicitudHoras.Destinatario3));
+            ViewBag.ID_Tarea = b.buscarTar(Convert.ToInt32(solicitudHoras.ID_Tarea));
+            ViewBag.JefeDestinatario = b.buscarNom(Convert.ToInt32(solicitudHoras.JefeDestinatario));
+            ViewBag.Remitente = b.buscarNom(Convert.ToInt32(solicitudHoras.Remitente));
+
             return View(solicitudHoras);
         }
+
+    
 
         // POST: SolicitudHoras/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
@@ -160,6 +164,21 @@ namespace SistemaHE.Controllers
                 SolicitudHoras solicitudHoras = db.SolicitudHoras.Find(Convert.ToInt32(Session["ID_Soli"]));
                
                 solicitudHoras.Estado = Request["Estado"].ToString();
+
+
+                string mensaje = Session["Nombre"] + " ha " + solicitudHoras.Estado.ToString() + " la solicitud: N° " + solicitudHoras.ID_Transaccion + ", correspondiente a la tarea: " + solicitudHoras.Tareas.DetalleDeLaTarea+"\n"+"Comentario:\n"+Request["Comentario"];
+
+          
+                    var correo = from d in db.Usuarios
+                                 where d.Identificacion == solicitudHoras.Remitente
+                                 select d;
+                    foreach (var item in correo)
+                    {
+                        Correos correos = new Correos(item.Correo, item.Nombre_Completo, "Cambios en Solicitud de Horas Extras", mensaje);
+    
+                
+
+                }
 
                 db.Entry(solicitudHoras).State = EntityState.Modified;
                 db.SaveChanges();

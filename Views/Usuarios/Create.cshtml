@@ -79,6 +79,11 @@
 
                         @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "f" } })
                         @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
+                        <br />
+                        @Html.LabelFor(model => model.Correo, htmlAttributes: new { @class = "" })
+
+                        @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "f" } })
+                        @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
 
                     </div>
                 </div>
