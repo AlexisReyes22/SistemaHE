@@ -32,7 +32,18 @@
         background-color: #f4f7f9;
         border-radius: 5px;
     }
+    .ContenidoL #formula textarea {
+        background-color: #f4f7f9;
+        border-radius: 5px;
+        height: 150px;
+        resize: none;
+        border-color: #03a9f4;
+        margin-top:5px;
+        margin-bottom:5px;
+     
+       
 
+    }
     .ContenidoL #pagina {
         padding: 10px
     }
@@ -41,7 +52,8 @@
     .ContenidoL #formula select {
         background-color: #03a9f4;
         height: 45px;
-        margin: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
 #pagina input {
@@ -97,9 +109,16 @@
         .ContenidoL #formula select {
             background-color: #03a9f4;
             height: 45px;
-            margin: 0px;
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
-
+        .ContenidoL #formula textarea
+        {
+            background-color: #03a9f4;
+            height: 45px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
 
 
 }
