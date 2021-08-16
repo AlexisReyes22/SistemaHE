@@ -144,16 +144,33 @@ i {
 
 
 .parrafo1 {
-    color: green;
+    color: #64a83a;
 }
 
 .parrafo2 {
-    color: blue;
+    color: rgb(62, 137, 235);
 }
 
-.container .card:hover .face.face1 {
+.ContenidTar .card .parrafo2:hover{
+    color:blue
+}
+
+.ContenidTar .card .parrafo2:hover > label {
+    color: white
+}
+
+.ContenidTar .card .parrafo1:hover {
+    color: lawngreen
+}
+
+    .ContenidTar .card .parrafo1:hover > label {
+        color: white
+    }
+
+.container .card:hover .face.face1  {
     background: #03a9f4;
     transform: translateY(0px);
+    
 }
 
 .container .card .face.face1 .content {

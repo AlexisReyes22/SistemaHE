@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+
 
 @using (Html.BeginForm())
 {
@@ -28,7 +28,7 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             <div class="row">
-                <div id="formula" class="col s6">
+                <div id="formula" class="col s12">
                     <div class="form-group">
                         @Html.LabelFor(model => model.CantidadDePersonal, "Cantidad de horas", htmlAttributes: new { @class = "control-label col-md-2" })
 
@@ -61,7 +61,7 @@
 
                     </div>
                 </div>
-                <div id="formula" class="col s6">
+                <div id="formula" class="col s12">
                     <div class="form-group">
                         @{
 
@@ -73,6 +73,7 @@
                                 @Html.DropDownList("Destinatario1", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
                                 @Html.ValidationMessageFor(model => model.Destinatario1, "", new { @class = "text-danger" })
 
+                                <br />
 
                                 @Html.LabelFor(model => model.Destinatario2, "Destinatario 2", htmlAttributes: new { @class = "" })
 

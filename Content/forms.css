@@ -94,6 +94,12 @@
     }
 
 
+        .ContenidoL #formula select {
+            background-color: #03a9f4;
+            height: 45px;
+            margin: 0px;
+        }
+
 
 
 }
