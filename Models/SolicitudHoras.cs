@@ -15,7 +15,8 @@ namespace SistemaHE.Models
     public partial class SolicitudHoras
     {
         public int ID_Transaccion { get; set; }
-        public Nullable<int> CantidadDeHoras { get; set; }
+
+        public int CantidadDeHoras { get; set; }
         public Nullable<int> ID_Tarea { get; set; }
         public int Remitente { get; set; }
         public Nullable<int> JefeDestinatario { get; set; }

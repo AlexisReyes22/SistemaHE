@@ -72,7 +72,7 @@ namespace SistemaHE.Controllers
                         where d.Rol == "Funcionario"
                         select d;
 
-            var jefes = db.ListaJefes().ToList();
+         
 
             ViewBag.Destinatario1 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo");
             ViewBag.Destinatario2 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo");
@@ -113,12 +113,15 @@ namespace SistemaHE.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario1);
-            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario2);
-            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario3);
+            var destinatarios = from d in db.Usuarios
+                                where d.Rol == "Funcionario"
+                                select d;
+            ViewBag.Destinatario1 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario1);
+            ViewBag.Destinatario2 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario2);
+            ViewBag.Destinatario3 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", solicitudHoras.Destinatario3);
             ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea", solicitudHoras.ID_Tarea);
-            ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.JefeDestinatario);
+            var jefes = db.ListaJefes().ToList();
+            ViewBag.JefeDestinatario = new SelectList(jefes, "Identificacion", "Nombre_Completo", solicitudHoras.JefeDestinatario);
             ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudHoras.Remitente);
             return View(solicitudHoras);
         }

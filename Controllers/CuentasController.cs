@@ -17,8 +17,15 @@ namespace SistemaHE.Controllers
         // GET: Cuentas
         public ActionResult Index()
         {
-            var cuentas = db.Cuentas.Include(c => c.Usuarios);
-            return View(cuentas.ToList());
+
+            //var cuentas = db.Cuentas.Include(c => c.Usuarios);
+
+            int id = Convert.ToInt32(Session["Cedula"]);
+            var cuentas = from d in db.Cuentas
+                          where d.Identificacion == id
+                          select d;
+            
+            return View(cuentas);
         }
 
         // GET: Cuentas/Details/5
@@ -28,7 +35,9 @@ namespace SistemaHE.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Cuentas cuentas = db.Cuentas.Find(id);
+        
             if (cuentas == null)
             {
                 return HttpNotFound();
@@ -52,6 +61,8 @@ namespace SistemaHE.Controllers
         {
             if (ModelState.IsValid)
             {
+                Encriptado encriptado = new Encriptado();
+                cuentas.Contrasenna = encriptado.Encrypt(cuentas.Contrasenna);
                 db.Cuentas.Add(cuentas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -69,6 +80,7 @@ namespace SistemaHE.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Cuentas cuentas = db.Cuentas.Find(id);
+            cuentas.Contrasenna = "";
             if (cuentas == null)
             {
                 return HttpNotFound();
@@ -86,6 +98,13 @@ namespace SistemaHE.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (cuentas.Identificacion!=707770777)
+                {
+                    Encriptado encriptado = new Encriptado();
+                    cuentas.Contrasenna = encriptado.Encrypt(cuentas.Contrasenna);
+                    cuentas.Identificacion = Convert.ToInt32(Session["Cedula"]);
+                }
+              
                 db.Entry(cuentas).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

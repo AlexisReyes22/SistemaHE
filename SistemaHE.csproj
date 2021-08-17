@@ -144,6 +144,8 @@
     <Compile Include="Controllers\busqueda.cs" />
     <Compile Include="Controllers\CuentasController.cs" />
     <Compile Include="Controllers\DepartamentosController.cs" />
+    <Compile Include="Controllers\Encriptado.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SolicitudHorasController.cs" />
     <Compile Include="Controllers\SolicitudPersonalsController.cs" />
@@ -310,6 +312,7 @@
     <Content Include="Views\SolicitudPersonals\Details.cshtml" />
     <Content Include="Views\SolicitudPersonals\Edit.cshtml" />
     <Content Include="Views\SolicitudPersonals\Index.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

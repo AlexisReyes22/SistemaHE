@@ -30,21 +30,24 @@
 
                     @Html.DropDownList("Jefe_Asignado", null, htmlAttributes: new { @class = "dropdown-trigger btn-small" })
                     @Html.ValidationMessageFor(model => model.Jefe_Asignado, "", new { @class = "text-danger" })
-
+                    <br />
                     @Html.LabelFor(model => model.UsuarioAsigando1, "UsuarioAsigando1", htmlAttributes: new { @class = "control-label col-md-2" })
 
                     @Html.DropDownList("UsuarioAsigando1", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
                     @Html.ValidationMessageFor(model => model.UsuarioAsigando1, "", new { @class = "text-danger" })
 
+                    <br />
 
                     @Html.LabelFor(model => model.UsuarioAsigando2, "UsuarioAsigando2", htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.DropDownList("UsuarioAsigando2", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
                     @Html.ValidationMessageFor(model => model.UsuarioAsigando2, "", new { @class = "text-danger" })
+                    <br />
 
                     @Html.LabelFor(model => model.UsuarioAsigando3, "UsuarioAsigando3", htmlAttributes: new { @class = "control-label col-md-2" })
 
                     @Html.DropDownList("UsuarioAsigando3", null, htmlAttributes: new { @class = "dropdown-trigger btn" })
                     @Html.ValidationMessageFor(model => model.UsuarioAsigando3, "", new { @class = "text-danger" })
+                    <br />
 
                     @Html.LabelFor(model => model.DetalleDeLaTarea, htmlAttributes: new { @class = "control-label col-md-2" })
 
@@ -70,6 +73,4 @@
 
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

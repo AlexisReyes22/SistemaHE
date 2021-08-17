@@ -33,7 +33,7 @@
                         @Html.LabelFor(model => model.CantidadDeHoras, "Cantidad de horas", htmlAttributes: new { @class = "control-label col-md-2" })
 
                         @Html.EditorFor(model => model.CantidadDeHoras, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.CantidadDeHoras, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.CantidadDeHoras, "El campo Cantidad de Horas es obligatorio", new { @class = "text-danger" })
 
 
 
@@ -50,7 +50,7 @@
                         <br />
                         @Html.LabelFor(model => model.Remitente, "Remitente", htmlAttributes: new { @class = "" })
 
-                        <input type="text" name="name" value="@Session["Nombre"]" />
+                        <input type="text" name="name" value="@Session["Nombre"]" disabled />
                         @Html.ValidationMessageFor(model => model.Remitente, "", new { @class = "text-danger" })
 
 

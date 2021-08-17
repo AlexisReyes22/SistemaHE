@@ -102,10 +102,17 @@ namespace SistemaHE.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Destinatario1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario1);
-            ViewBag.Destinatario2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario2);
-            ViewBag.Destinatario3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario3);
+            var destinatarios = from d in db.Usuarios
+                                where d.Rol == "Funcionario"
+                                select d;
+
+
+            ViewBag.Destinatario1 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario1);
+            ViewBag.Destinatario2 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario2);
+            ViewBag.Destinatario3 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Destinatario3);
             ViewBag.ID_Tarea = new SelectList(db.Tareas, "ID_Tarea", "DetalleDeLaTarea", solicitudPersonal.ID_Tarea);
+            var jefes = db.ListaJefes().ToList();
+
             ViewBag.JefeDestinatario = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.JefeDestinatario);
             ViewBag.Remitente = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", solicitudPersonal.Remitente);
             return View(solicitudPersonal);

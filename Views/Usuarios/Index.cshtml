@@ -43,47 +43,58 @@
 
             @foreach (var item in Model)
             {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre_Completo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Jefe_Inmediato)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Edad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono_Residencial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono_Celular)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Departamento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rol)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Correo)
-            </td>
-            <td>
-                <a href="@Url.Action("Edit", "Usuarios", new { id = item.Identificacion })">
-                    <i class="material-icons">edit</i>
 
-                </a>
-                <a href="@Url.Action("Details", "Usuarios", new { id = item.Identificacion })">
-                    <i class="material-icons">search</i>
+                if (item.Nombre_Completo != "No Asignado")
+                {
+                    if (item.Nombre_Completo != "SA")
+                    {
 
-                </a>
-                <a href="@Url.Action("Delete", "Usuarios", new { id = item.Identificacion })">
-                    <i class="material-icons">delete</i>
+                   
 
-                </a>
 
-            </td>
-        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre_Completo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Jefe_Inmediato)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Edad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefono_Residencial)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefono_Celular)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Departamento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rol)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Correo)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Usuarios", new { id = item.Identificacion })">
+                                <i class="material-icons">edit</i>
+
+                            </a>
+                            <a href="@Url.Action("Details", "Usuarios", new { id = item.Identificacion })">
+                                <i class="material-icons">search</i>
+
+                            </a>
+                            <a href="@Url.Action("Delete", "Usuarios", new { id = item.Identificacion })">
+                                <i class="material-icons">delete</i>
+
+                            </a>
+
+                        </td>
+                    </tr>
+                    }
+                }
             }
 
         </table>

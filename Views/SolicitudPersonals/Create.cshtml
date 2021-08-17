@@ -30,10 +30,10 @@
             <div class="row">
                 <div id="formula" class="col s12">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.CantidadDePersonal, "Cantidad de horas", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.CantidadDePersonal, "Cantidad de Personal", htmlAttributes: new { @class = "control-label col-md-2" })
 
                         @Html.EditorFor(model => model.CantidadDePersonal, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.CantidadDePersonal, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.CantidadDePersonal, "El campo Cantidad de Personal es obligatorio", new { @class = "text-danger" })
 
 
 

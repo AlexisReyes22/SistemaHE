@@ -45,8 +45,13 @@ namespace SistemaHE.Controllers
             {
                 using (SitiosWebEntities db = new SitiosWebEntities())
                 {
+                    if (user!=707770777)
+                    {
 
-
+                   
+                    Encriptado encriptado = new Encriptado();
+                    pass = encriptado.Encrypt(pass);
+                    }
                     var lst = from d in db.Cuentas
                               where d.Identificacion == user && d.Contrasenna == pass
                               select d;

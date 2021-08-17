@@ -5,7 +5,7 @@
 }
 <div id="textoH">
     <br />
-    <h2>Cuentas</h2>
+    <h2>Cuenta</h2>
 </div>
 
 
@@ -15,9 +15,7 @@
     <div class="ContenidoI">
         <table class="table">
             <tr>
-                <th>
-                    Contraseña
-                </th>
+           
                 <th>
                     Nombre Completo
                 </th>
@@ -27,36 +25,29 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Contrasenna)
-                    </td>
+          
                     <td>
                         @Html.DisplayFor(modelItem => item.Usuarios.Nombre_Completo)
                     </td>
                     <td>
-                        <a href="@Url.Action("Edit", "Cuentas", new { id = item.ID_Cuenta })">
-                            <i class="material-icons">edit</i>
+                        <a href="@Url.Action("Edit", "Cuentas", new { id = item.ID_Cuenta })">Nueva Contraseña
+                            
 
                         </a>
-                        <a href="@Url.Action("Details", "Cuentas", new { id = item.ID_Cuenta })">
+                        @*<a href="@Url.Action("Details", "Cuentas", new { id = item.ID_Cuenta })">
                             <i class="material-icons">search</i>
 
-                        </a>
-                        <a href="@Url.Action("Delete", "Cuentas", new { id = item.ID_Cuenta })">
+                        </a>*@
+                        @*<a href="@Url.Action("Delete", "Cuentas", new { id = item.ID_Cuenta })">
                             <i class="material-icons">delete</i>
 
-                        </a>
+                        </a>*@
 
                     </td>
                 </tr>
             }
 
         </table>
-        <div id="pagina">
 
-
-            @Html.ActionLink("Agregar", "Create", null, htmlAttributes: new { @class = "waves-button-input btn-small " })
-
-        </div>
     </div>
 </div>

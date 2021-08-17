@@ -12,6 +12,9 @@
     
 
 }
+center{
+    z-index:0;
+}
 
 .Contenido {
     padding: 10px;

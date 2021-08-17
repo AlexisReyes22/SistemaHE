@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="textoH">
+    <br />
+    <h2>Error</h2>
+</div>
+
+<div id="ContentL">
+    <div class="ContenidoL">
+
+        <form id="#frm" action="/" method="post">
+            <div id="formula">
+
+                <label>@ViewData["titulo"]</label>
+                @*<p id="poc">Ingrese su Identificación</p>*@
+                <br />
+                <br />
+                <textarea id="login" type="text" name="user" value="@ViewData["Descripcion"]" ></textarea>
+                <br />
+              
+
+            </div>
+          
+
+
+        </form>
+    </div>
+</div>
+

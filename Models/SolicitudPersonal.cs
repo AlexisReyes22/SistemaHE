@@ -15,7 +15,7 @@ namespace SistemaHE.Models
     public partial class SolicitudPersonal
     {
         public int ID_Transaccion { get; set; }
-        public Nullable<int> CantidadDePersonal { get; set; }
+        public int CantidadDePersonal { get; set; }
         public Nullable<int> ID_Tarea { get; set; }
         public int Remitente { get; set; }
         public Nullable<int> JefeDestinatario { get; set; }

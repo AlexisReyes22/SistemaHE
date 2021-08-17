@@ -39,10 +39,18 @@ namespace SistemaHE.Controllers
         // GET: Tareas/Create
         public ActionResult Create()
         {
-            ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
-            ViewBag.UsuarioAsigando1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
-            ViewBag.UsuarioAsigando2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
-            ViewBag.UsuarioAsigando3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo");
+
+            var lis = db.ListaJefes();
+            var destinatarios = from d in db.Usuarios
+                                where d.Rol == "Funcionario"
+                                select d;
+
+            ViewBag.Jefe_Asignado = new SelectList(lis);
+
+            //ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.Jefe_Asignado);
+            ViewBag.UsuarioAsigando1 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo");
+            ViewBag.UsuarioAsigando2 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo");
+            ViewBag.UsuarioAsigando3 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo");
             return View();
         }
 
@@ -60,10 +68,18 @@ namespace SistemaHE.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.Jefe_Asignado);
-            ViewBag.UsuarioAsigando1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando1);
-            ViewBag.UsuarioAsigando2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando2);
-            ViewBag.UsuarioAsigando3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando3);
+
+            var lis = db.ListaJefes();
+            var destinatarios = from d in db.Usuarios
+                                where d.Rol == "Funcionario"
+                                select d;
+
+            ViewBag.Jefe_Asignado = new SelectList(lis);
+
+            //ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.Jefe_Asignado);
+            ViewBag.UsuarioAsigando1 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando1);
+            ViewBag.UsuarioAsigando2 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando2);
+            ViewBag.UsuarioAsigando3 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando3);
             return View(tareas);
         }
 
@@ -79,12 +95,17 @@ namespace SistemaHE.Controllers
             {
                 return HttpNotFound();
             }
+            var lis = db.ListaJefes();
+            var destinatarios = from d in db.Usuarios
+                                where d.Rol == "Funcionario"
+                                select d;
 
-          
-            ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.Jefe_Asignado);
-            ViewBag.UsuarioAsigando1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando1);
-            ViewBag.UsuarioAsigando2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando2);
-            ViewBag.UsuarioAsigando3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando3);
+            ViewBag.Jefe_Asignado = new SelectList(lis);
+
+            //ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.Jefe_Asignado);
+            ViewBag.UsuarioAsigando1 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando1);
+            ViewBag.UsuarioAsigando2 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando2);
+            ViewBag.UsuarioAsigando3 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando3);
             return View(tareas);
         }
 
@@ -101,10 +122,17 @@ namespace SistemaHE.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.Jefe_Asignado);
-            ViewBag.UsuarioAsigando1 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando1);
-            ViewBag.UsuarioAsigando2 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando2);
-            ViewBag.UsuarioAsigando3 = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando3);
+            var lis = db.ListaJefes();
+            var destinatarios = from d in db.Usuarios
+                                where d.Rol == "Funcionario"
+                                select d;
+
+            ViewBag.Jefe_Asignado = new SelectList(lis);
+
+            //ViewBag.Jefe_Asignado = new SelectList(db.Usuarios, "Identificacion", "Nombre_Completo", tareas.Jefe_Asignado);
+            ViewBag.UsuarioAsigando1 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando1);
+            ViewBag.UsuarioAsigando2 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando2);
+            ViewBag.UsuarioAsigando3 = new SelectList(destinatarios, "Identificacion", "Nombre_Completo", tareas.UsuarioAsigando3);
             return View(tareas);
         }
 
